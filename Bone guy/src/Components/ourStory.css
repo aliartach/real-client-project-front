@@ -1,0 +1,40 @@
+.video-story-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 100px;
+  justify-content: space-evenly;
+}
+
+.video-wrapper {
+  border-radius: 49px;
+  overflow: hidden;
+}
+
+.video {
+  display: block;
+  width: 700px;
+  height: 500px;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.text-container {
+  padding: 10px;
+
+}
+h1{
+  color: #4F1110;
+  font-size: 40px;
+}
+p {
+  max-width: 400px;
+  font-size: 18px;
+  color: #4F1110;
+
+}
+
+.video:hover {
+  cursor: pointer;
+}

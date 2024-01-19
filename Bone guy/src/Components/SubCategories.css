@@ -1,0 +1,109 @@
+.subcategories-wrapper {
+  width: 85%;
+  margin: auto;
+}
+.subcategories-wrapper p {
+  width: 50%;
+}
+
+.subcategories-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subcategories-container button {
+  background-color: #59000d;
+  color: #ffff;
+  font-weight: bold;
+  width: 20rem;
+  height: 3rem;
+  border: none;
+  margin: 10px 0 10px 25px;
+  /* border-radius: 15px; */
+}
+.subcategories-container button:nth-child(1) {
+  background-image: linear-gradient(to right, #59000d 20%, #33481B 90%);
+}
+
+.subcategories-sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.subcategories-sections a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  background-color: #59000d;
+  width: 15rem;
+  height: 15rem;
+  margin: 10px 30px 10px 0;
+  border-radius: 15px;
+}
+
+.subcategories-sections-icon-box {
+  background-image: linear-gradient(to bottom right, #4F1110 20%, #33481B 70%);
+}
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  /* Adjust wrapper width for mobile-first approach */
+  .subcategories-wrapper {
+    width: 100%;
+  }
+
+  /* Stack buttons vertically for better flow */
+  .subcategories-container {
+    flex-direction: column;
+  }
+
+  /* Wrap text to prevent overflow */
+  .subcategories-wrapper p {
+    width: auto;
+    text-align: justify;
+  }
+
+  /* Adjust button sizing for smaller screens */
+  .subcategories-container button {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  /* Decrease font size for improved readability */
+  .subcategories-wrapper p,
+  .subcategories-sections-icon-box span {
+    font-size: 14px;
+  }
+
+  .subcategories-sections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .subcategories-sections a {
+    margin: 10px;
+  }
+}
+
+/* Target even narrower screens (480px and below) for further refinement */
+@media (max-width: 480px) {
+  /* Adjust button padding for narrower viewports */
+  .subcategories-container button {
+    padding: 5px 10px;
+  }
+
+  .subcategories-container h1 {
+    text-align: center;
+  }
+}

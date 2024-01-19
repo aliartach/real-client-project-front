@@ -38,3 +38,17 @@ p {
 .video:hover {
   cursor: pointer;
 }
+@media screen and (max-width: 1130px) {
+  .video-story-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+
+  .video {
+    width: 100%; 
+    height: auto; 
+  }
+}

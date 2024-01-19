@@ -25,7 +25,7 @@ function OurStory() {
         const response = await axios.get('http://localhost:4000/api/content');
         const data = response.data;
   
-      
+        // Check if data is an array and has at least one item
         if (Array.isArray(data) && data.length > 0) {
           setStoryDescription(data[0].storyDescription);
         } else {

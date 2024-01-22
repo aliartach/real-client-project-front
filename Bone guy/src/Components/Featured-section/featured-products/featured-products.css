@@ -1,0 +1,39 @@
+.featured-products-section {
+  background: url("src/assets/curved-background.png") no-repeat center center / cover fixed;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.jumping-dog {
+  width: 300px; /* Adjust based on proportions in the design image */
+  float: right;
+  margin-left: 20px;
+}
+
+.featured-products-heading {
+  font-size: 40px;
+  margin: 0 auto 20px;
+}
+
+.featured-product-description {
+  font-size: 18px;
+  margin: 0 auto 15px;
+}
+
+.discover-more-button {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #9C211F;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  width: 230px;
+}

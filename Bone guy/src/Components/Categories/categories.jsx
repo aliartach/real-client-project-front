@@ -12,19 +12,30 @@ function categories() {
         Shop our category: Simple ingredients, amazing taste.
       </p>
       <section className="section-categories">
-      <Link to="#"> <button className="btn-categories">Shop now</button></Link>
-      <Link to="#"> <button className="btn-categories-dog">Shop now</button></Link>
         <section className="section-categories-img">
-          <img
-            src={catCategory}
-            alt="cat-category"
-            className="cat-img-category-section"
-          />
-          <img
-            src={dogCategory}
-            alt="cat-category"
-            className="cat-img-category-section"
-          />
+          <section className="section-categories-img-cat">
+
+            <img
+              src={catCategory}
+              alt="cat-category"
+              className="cat-img-category-section"
+            />
+                      <button>Shop now</button>
+
+          </section>
+      
+
+          <section className="section-categories-img-cat section-dog">
+
+            <img
+              src={dogCategory}
+              alt="cat-category"
+              className="cat-img-category-section "
+            />
+                      <button>Shop now</button>
+
+
+          </section>
         </section>
       </section>
     </section>

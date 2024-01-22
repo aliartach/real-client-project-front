@@ -1,18 +1,24 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import OurStory from './Components/ourStory'; // Adjust the path accordingly
-import AdminDashboard from './Pages/AdminDashboard/AdminDashboard';
+import { useState } from 'react'
+import './App.css'
+import Home from './Pages/Home'
+import AboutUs from './Pages/AboutUs'
+import SubCategories from './Components/SubCategories'
+import FAQ from './Pages/FAQs'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Featured from './Components/Featured-section/featured-products/featured-products'
+
 function App() {
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/story" element={<OurStory/>} />
-          <Route path="/admin/dashboard" element={<AdminDashboard/>} />
-        </Routes>
-      </Router>
-    </>
-  );
+    <Router>
+      <Routes>
+        {/* <Route path="/" element={<Home />} /> */}
+        {/* <Route path="/" element={<Featured />} /> */}
+        <Route path="/" element={<SubCategories />} />
+        {/* <Route path="/" element={<AboutUs />} /> */}
+        {/* <Route path="/" element={<FAQ />} /> */}
+      </Routes>
+    </Router>
+  )
 }
 
 export default App;

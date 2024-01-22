@@ -1,0 +1,157 @@
+.subcategories-wrapper {
+  width: 85%;
+  margin: auto;
+}
+.subcategories-wrapper p {
+  width: 50%;
+}
+
+.subcategories-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subcategories-container button {
+  background-color: #59000d;
+  color: #ffff;
+  font-weight: bold;
+  width: 20rem;
+  height: 3rem;
+  border: none;
+  margin: 10px 0 10px 25px;
+  /* border-radius: 15px; */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.subcategories-container button:nth-child(1) {
+  background-image: linear-gradient(to right, #59000d 20%, #33481B 90%);
+}
+.subcategories-container button:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  transform: scale(1.02);
+}
+
+.subcategories-sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.subcategories-sections a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  background-color: #59000d;
+  width: 15rem;
+  height: 15rem;
+  margin: 10px 30px 10px 0;
+  border-radius: 15px;
+  transition: all 0.2s ease-in-out;
+}
+.subcategories-sections a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.subcategories-sections-icon-box {
+  background-image: linear-gradient(to bottom right, #4F1110 20%, #33481B 70%);
+}
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  /* Adjust wrapper width for mobile-first approach */
+  .subcategories-wrapper {
+    width: 100%;
+  }
+
+  /* Stack buttons vertically for better flow */
+  .subcategories-container {
+    flex-direction: column;
+  }
+
+  /* Wrap text to prevent overflow */
+  .subcategories-wrapper p {
+    width: auto;
+    text-align: justify;
+  }
+
+  /* Adjust button sizing for smaller screens */
+  .subcategories-container button {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  /* Decrease font size for improved readability */
+  .subcategories-wrapper p,
+  .subcategories-sections-icon-box span {
+    font-size: 14px;
+  }
+
+  .subcategories-sections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .subcategories-sections a {
+    margin: 10px;
+  }
+}
+
+/* Target even narrower screens (480px and below) for further refinement */
+@media (max-width: 480px) {
+  /* Adjust button padding for narrower viewports */
+  .subcategories-container button {
+    padding: 5px 10px;
+  }
+
+  .subcategories-container h1 {
+    text-align: center;
+  }
+}
+
+
+/* Create a visually hidden layer for accessibility */
+/* .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+} */
+
+/* Style the popup container */
+.popup {
+  position: fixed; /* Position relative to the viewport */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the popup */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 25px;
+  z-index: 1000; /* Ensure it appears above other content */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  
+}
+
+/* Optional: Style the close button */
+/* .popup button {
+  float: right;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+} */

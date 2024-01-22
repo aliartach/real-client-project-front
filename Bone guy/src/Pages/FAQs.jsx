@@ -13,7 +13,6 @@ const Accordion = () => {
       question: 'How do you like to spend your weekends?',
       answer: 'I enjoy spending my weekends outdoors and exploring new places.'
     },
-    // Add more questions as needed
   ];
 
   const [openQuestion, setOpenQuestion] = useState(null);

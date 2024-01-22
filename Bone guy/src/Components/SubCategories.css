@@ -21,9 +21,15 @@
   border: none;
   margin: 10px 0 10px 25px;
   /* border-radius: 15px; */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 .subcategories-container button:nth-child(1) {
   background-image: linear-gradient(to right, #59000d 20%, #33481B 90%);
+}
+.subcategories-container button:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  transform: scale(1.02);
 }
 
 .subcategories-sections {
@@ -43,6 +49,11 @@
   height: 15rem;
   margin: 10px 30px 10px 0;
   border-radius: 15px;
+  transition: all 0.2s ease-in-out;
+}
+.subcategories-sections a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .subcategories-sections-icon-box {
@@ -107,3 +118,40 @@
     text-align: center;
   }
 }
+
+
+/* Create a visually hidden layer for accessibility */
+/* .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+} */
+
+/* Style the popup container */
+.popup {
+  position: fixed; /* Position relative to the viewport */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the popup */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 25px;
+  z-index: 1000; /* Ensure it appears above other content */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  
+}
+
+/* Optional: Style the close button */
+/* .popup button {
+  float: right;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+} */

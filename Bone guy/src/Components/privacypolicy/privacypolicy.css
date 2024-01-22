@@ -1,0 +1,17 @@
+.privacypolicycomponent {
+    height: 500px;
+    width: 85%;
+    align-items: center;
+    display: flex;
+    border: solid red 3px;
+    justify-content: center;
+    margin: auto;
+}
+.privacypolicycomp {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+.privacypolicydescription {
+    font-size: 30px;
+}

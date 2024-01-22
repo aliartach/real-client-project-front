@@ -1,0 +1,21 @@
+.navpolicies {
+    /* border: solid red 2px; */
+    background-color: #f6e1d7;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    gap:100px;
+    list-style: none;
+    margin-top: 20px;
+}
+.navpolicies li {
+    list-style: none;
+    cursor: pointer;
+}
+.navpolicies li a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}

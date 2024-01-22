@@ -19,9 +19,9 @@ const Footer = () => {
         </div>
         <div>
             <ul>
-                <Link to=""><li className="lifooter">PRIVACY POLICY</li></Link>
-                <Link to=""><li className="lifooter">TERMS & CONDITIONS</li></Link> 
-                <Link to=""><li className="lifooter">RETURN POLICY</li></Link>
+                <Link to='/Policy' state= "privacy-policy"><li className="lifooter">PRIVACY POLICY</li></Link>
+                <Link to="/Policy" state="terms-and-conditions" ><li className="lifooter">TERMS & CONDITIONS</li></Link> 
+                <Link to="/Policy" state="return-policy"><li className="lifooter">RETURN POLICY</li></Link>
             </ul>
         </div>
         <div>

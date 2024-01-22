@@ -3,15 +3,16 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import './App.css'
 import Home from './Pages/Home'
-function App() {
+import Featured from './Components/Featured-section/featured-products/featured-products'
+
+const App = () => {
 
   return (
-    <Router>
-    <Routes>
-      <Route path='/' element={ <Home/>} />
-    </Routes>
-      </Router>
-  )
-}
+    <>
+      <Home/>
+      <Featured />
+    </>
+  );
+};
 
-export default App
+export default App;

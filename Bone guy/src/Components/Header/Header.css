@@ -1,0 +1,215 @@
+.Header-Home {
+  background: url("../../assets/header-image.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  /* height: 900px; */
+  aspect-ratio: 18 / 9; 
+
+}
+
+.sub-text-header a {
+  text-decoration: none;
+}
+
+.sub-text-header {
+  color: #fff;
+  font-family: Roboto;
+  font-size: 52px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 3.52px;
+  text-transform: uppercase;
+  width: 580px;
+  margin-top: 100px;
+  margin-left: 14%;
+}
+.sub-sub-text-header {
+  color: #fff;
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 510;
+  line-height: normal;
+  letter-spacing: -0.09px;
+  width: 510px;
+  text-transform: none;
+}
+.sub-text-header a {
+  text-decoration: none;
+}
+
+.button-header {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 10px;
+  border-width: 0px;
+}
+
+.button-header a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  width: 158px;
+  height: 45px;
+  border-radius: 10px;
+  background: #4f1110;
+  color: #fff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  line-height: normal;
+  justify-content: center;
+  gap: 10px;
+  border-width: 0px;
+}
+
+.button-header a:hover {
+  cursor: pointer;
+}
+
+.button-header img {
+  max-width: 100%;
+  height: auto;
+}
+
+.button-header {
+  background-color: #4f1110;
+}
+.buttom-section-header {
+  background-color: #3a421a;
+  height: 165px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+  margin-top: -1%;
+}
+.tag1-header {
+  height: 120px;
+  width: 120px;
+}
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 834px) {
+  .Header-Home {
+   
+    height: 500px;
+  }
+
+  .sub-text-header {
+   
+    font-size: 24px;
+    font-style: normal;
+   
+    width: 400px;
+    margin-top: 4px;
+    margin-left: 14%;
+  }
+  .sub-sub-text-header {
+    font-size: 17px;
+    font-weight: 525;
+    width: 280px;
+  }
+
+  .button-header a {
+    height: 22px;
+    font-size: 9px;
+    gap: 8px;
+    border-width: 0px;
+    width: 80px;
+  }
+  .button-header a img {
+    height: 16px;
+    width: 14px;
+  }
+  .buttom-section-header {
+    height: 90px;
+  }
+  .tag1-header {
+    height: 75px;
+    width: 75px;
+  }
+}
+
+
+@media only screen and (max-width: 480px) {
+  .Header-Home {
+   
+    height: 317px;
+  }
+
+  .sub-text-header {
+   
+    font-size: 14px;
+    font-style: normal;
+   
+    width: 220px;
+    margin-top: 20px;
+    margin-left: 7%;
+  }
+  .sub-sub-text-header {
+    font-size: 11px;
+    font-weight: 525;
+    width: 190px;
+  }
+  .button-header a {
+    height: 17px;
+    font-size: 5px;
+    gap: 4px;
+    border-width: 0px;
+    width: 42px;
+  }
+  .button-header a img {
+    height: 8px;
+    width: 6px;
+  }
+  .buttom-section-header {
+    height: 55px;
+  }
+  .tag1-header {
+    height: 45px;
+    width: 45px;
+  }
+}
+
+@media only screen and (min-width: 834px) and (max-width: 1450px) {
+  .Header-Home {
+   
+    height: 700px;
+  }
+  .sub-text-header {
+   
+    font-size: 35px;
+    font-style: normal;
+   
+    width: 450px;
+    margin-top: 20px;
+    margin-left: 7%;
+  }
+  .sub-sub-text-header {
+    font-size: 22px;
+    font-weight: 525;
+    width: 350px;
+  }
+  .button-header a {
+    height: 40px;
+    font-size: 14px;
+    gap: 3px;
+    border-width: 0px;
+    width: 120px;
+  }
+  .button-header a img {
+    height: 18px;
+    width: 16px;
+  }
+  .buttom-section-header {
+    height: 85px;
+  }
+  .tag1-header {
+    height: 65px;
+    width: 65px;
+  }
+
+}

@@ -14,6 +14,9 @@ Footer {
     height: 107px;
     width: 80%;
 }
+.footerdiv a {
+    text-decoration: none;
+}
 .facebooklogo {
     width: 25px;
     height: 25px;
@@ -38,6 +41,9 @@ Footer {
 }
 ul {
     gap: 20px;
+}
+.ulul{
+    list-style: none;
 }
 .mailinglist1 {
     padding: 5px;

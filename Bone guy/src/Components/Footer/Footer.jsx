@@ -10,21 +10,21 @@ const Footer = () => {
     <footer>
     <div className="footerdiv">
         <div><a href="/"><img className="footerLogo" alt="footerlogo" src={footerLogo}/> </a></div>
-        <div className="div1footer">
+        <div>
             <ul>
                 <Link to=""><li className="lifooter">OUR STORY</li></Link> 
                 <Link to=""><li className="lifooter">FAQs</li></Link>
                 <Link to=""><li className="lifooter">CONTACT US</li></Link> 
             </ul>
         </div>
-        <div className="div2footer">
+        <div>
             <ul>
                 <Link to=""><li className="lifooter">PRIVACY POLICY</li></Link>
                 <Link to=""><li className="lifooter">TERMS & CONDITIONS</li></Link> 
                 <Link to=""><li className="lifooter">RETURN POLICY</li></Link>
             </ul>
         </div>
-        <div className="div3footer">
+        <div>
             <ul>
                 <li className="lifooter">FOLLOW US</li>
                 <div>
@@ -33,7 +33,7 @@ const Footer = () => {
                 </div>
             </ul>
         </div>
-        <div className="divfooter4">
+        <div>
             <ul>
                 <li className="lifooter">MAILING LIST</li>
                 <input className="mailinglist1" placeholder="EMAIL" type="email"></input>

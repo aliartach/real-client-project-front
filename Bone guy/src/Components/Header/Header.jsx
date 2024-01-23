@@ -1,8 +1,6 @@
 import React from "react";
 import "./Header.css";
 import Navbar from "../Navbar/Navbar";
-import HeaderImage from "../../assets/header-image.png";
-
 import buttonImage from "../../assets/paw2.png";
 import headerTag1 from "../../assets/header1.svg";
 import headerTag2 from "../../assets/header2.svg";
@@ -18,7 +16,7 @@ function header() {
         <p>Healthy treats for healthy pets</p>
         <p className="sub-sub-text-header">
           Treat your furry friend to the goodness of nature with our all-natural<br/>
-          & nutritious pet treats!
+          & nutritious pet treats!
         </p>
         <button className="button-header">
           <Link to="#">

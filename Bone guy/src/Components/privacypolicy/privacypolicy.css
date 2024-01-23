@@ -1,17 +1,50 @@
 .privacypolicycomponent {
-    height: 500px;
+    height: 100%;
     width: 85%;
     align-items: center;
     display: flex;
-    border: solid red 3px;
+    /* border: solid black 3px; */
     justify-content: center;
     margin: auto;
 }
 .privacypolicycomp {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 15px;
 }
-.privacypolicydescription {
-    font-size: 30px;
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    color: #333;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+ol, ul {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+.privacyfooter {
+    margin-top: 30px;
+    text-align: center;
+    color: #666;
+    /* border: solid red 2px; */
+}
+.privacylastupdate {
+    margin-top: -10px;
+    display: flex;
+    justify-content: center;
+}
+strong {
+    margin-right: 5px;
 }

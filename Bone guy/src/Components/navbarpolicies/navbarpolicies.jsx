@@ -10,6 +10,7 @@ const NavBar = ({data}) => {
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   useEffect (()=>{

@@ -1,0 +1,117 @@
+.top-section-navbar {
+  height: 34.83px;
+  width: 100%;
+  background: #4f1110;
+  z-index: 1;
+}
+
+.navbar-content {
+  display: flex;
+  margin-top: 120px;
+  gap: 3%;
+  justify-content: center;
+}
+
+.navbar-content p {
+  color: white;
+  text-transform: uppercase;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.navbar-content a {
+  text-decoration: none;
+}
+.navbar-content p:hover {
+  color: #ac4543;
+}
+.Logo-image {
+  z-index: 2;
+  margin-left: 50%;
+  margin-top: 20px;
+  transform: translateX(-50%);
+}
+@media only screen and (max-width: 834px) {
+  .top-section-navbar {
+    height: 34.83px;
+    width: 100%;
+    background: #4f1110;
+    z-index: 1;
+  }
+
+  .navbar-content {
+    display: flex;
+    margin-top: 70px;
+    gap: 3%;
+    justify-content: center;
+  }
+
+  .navbar-content p {
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+
+  .navbar-content a {
+    text-decoration: none;
+  }
+  .navbar-content p:hover {
+    color: #ac4543;
+  }
+  .Logo-image {
+    z-index: 2;
+    margin-left: 50%;
+    margin-top: 5px;
+    transform: translateX(-50%);
+    height: 100px;
+    width: 100px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .Logo-image {
+    height: 70px;
+    width: 70px;
+  }
+
+  .navbar-content p {
+    font-size: 8px;
+  }
+
+  .navbar-content {
+    display: flex;
+    margin-top: 40px;
+    gap: 3%;
+    font-weight: 500;
+  }
+
+  .Logo-image {
+    z-index: 2;
+    margin-left: 50%;
+    margin-top: 5px;
+    transform: translateX(-50%);
+    height: 70px;
+    width: 70px;
+  }
+}
+
+@media only screen and (min-width: 834px) and (max-width: 1450px) {
+  .Logo-image {
+    height: 100px;
+    width: 100px;
+  }
+  .navbar-content p {
+    font-size: 14px;
+  }
+  .navbar-content {
+    margin-top: 90px;
+
+  }
+}

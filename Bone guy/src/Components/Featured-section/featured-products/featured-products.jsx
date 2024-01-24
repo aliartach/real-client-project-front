@@ -36,16 +36,20 @@ const Featured = () => {
       (!loading) ?
       (<section className='featured-products-section'>
         <img src='./src/assets/Dog-jump.png' alt='' className='jumping-dog' />
+        <section className='featured-whole-section-description'>
         <h1 className='featured-products-heading'>
           FEATURED PRODUCTS
         </h1>
         <p className='featured-product-description'>
-          Our treats are made with high-quality ingredients, ensuring that your pets get all the nutrients they need while enjoying a delicious snack. 
+          Our treats are made with high-quality ingredients, ensuring that your pets get all the nutrients they need while enjoying a delicious snack. <br />
+          <section className='second-paragraph-description'>
           Whether you have a small or large pet, we have a treat that will be perfect for them. Our treats come in various flavors, including chicken, beef, and salmon, ensuring that your pet will find something they love.
+          </section>
         </p>
         <button className='discover-more-button'>
           <p>DISCOVER MORE</p> <img src='./src/assets/flipped-paw.png' className='flipped-paw-icon' alt='paw icon' />
         </button>
+        </section>
         <FeaturedProductsCarousel featured_products = {featured_products} />
       </section>) : (<p className='loading'>Loading...</p>)
   );

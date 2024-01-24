@@ -1,39 +1,73 @@
 .featured-products-section {
-  background: url("src/assets/curved-background.png") no-repeat center center / cover fixed;
+  background: url("src/assets/curved-background.png") no-repeat center center;
   color: white;
   text-align: center;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
+  height: 800px;
+}
+
+.featured-whole-section-description {
+  width: 600px;
+  padding-top: 60px;
+  padding-left: 100px;
 }
 
 .jumping-dog {
-  width: 300px; /* Adjust based on proportions in the design image */
+  width: 300px;
   float: right;
   margin-left: 20px;
 }
 
 .featured-products-heading {
   font-size: 40px;
-  margin: 0 auto 20px;
+  width: 100px;
 }
 
 .featured-product-description {
   font-size: 18px;
-  margin: 0 auto 15px;
+  color: #fff;
+  width: 540px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.09px;
+  text-align: justify;
 }
 
+.second-paragraph-description {
+  margin-top: 20px;
+}
 .discover-more-button {
   display: flex;
   align-items: center;
-  gap: 20px;
-  background-color: #9C211F;
+  gap: 17px;
+  background-color: #4f1110;
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
-  width: 230px;
+  width: 190px;
+  height: 45px;
+  margin-bottom: 65px;
+  margin-top: 22px;
+}
+.flipped-paw-icon {
+  height: 27px;
+  width: 23px;
+}
+/* media query for screen between tablets and laptops */
+@media (min-width: 961px) and (max-width: 1280px) {
+  .featured-products-section {
+
+height: 650px;
+
+  }
+
+
 }

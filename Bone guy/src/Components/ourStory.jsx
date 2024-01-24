@@ -50,8 +50,8 @@ function OurStory() {
         />
       </div>
       <div className="text-container">
-        <h1><b>Our Story</b></h1>
-        <p>{storyDescription}</p>
+        <h1 className="video-section-h"><b>Our Story</b></h1>
+        <p className='video-section-p'>{storyDescription}</p>
       </div>
     </div>
   );

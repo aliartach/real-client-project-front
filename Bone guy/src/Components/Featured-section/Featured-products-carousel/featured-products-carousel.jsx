@@ -15,7 +15,7 @@ const FeaturedProductsCarousel = ({ featured_products }) => {
   // console.log("this is featured products in carousel: ", featured_products);
   return (
     <menu className="featured-products-carousel">
-      <button onClick={previousSlide} className="previous-featured-products-carousel-button"><img src={"./src/assets/previous-button.png"} alt="previous" /></button>
+      <button onClick={previousSlide} className="previous-featured-products-carousel-button"><img src={"./src/assets/previous-button.png"} alt="previous"  /></button>
       <ul className="featured-products-carousel-cards">
         {
           featured_products.map((product, index) => (
@@ -23,7 +23,7 @@ const FeaturedProductsCarousel = ({ featured_products }) => {
               key={index}
               className={`featured-product-in-carousel${(index >= active_starting_index && index < active_starting_index + 4) ? ("-active") : ("")}`}
             >
-              <img className="featured-product-image" src={product.image} alt="product picture" />
+              <img className="featured-product-image" src={`http://localhost:4000/images/${product.image}`} alt="product picture" />
               <p className="featured-product-name">
                 {product.name}
               </p>

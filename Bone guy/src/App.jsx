@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Featured from './Components/Featured-section/featured-products/featured-products'
 
 function App() {
-
   return (
     <Router>
       <Routes>

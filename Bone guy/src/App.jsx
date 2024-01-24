@@ -12,9 +12,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Home />} />
         {/* <Route path="/" element={<Featured />} /> */}
-        <Route path="/" element={<SubCategories />} />
+        {/* <Route path="/" element={<SubCategories />} /> */}
         {/* <Route path="/" element={<AboutUs />} /> */}
         {/* <Route path="/" element={<FAQ />} /> */}
       </Routes>

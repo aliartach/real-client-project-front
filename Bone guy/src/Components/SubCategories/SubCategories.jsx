@@ -1,20 +1,18 @@
 import { useState, useEffect } from 'react';
 import './SubCategories.css';
-import Training from '../assets/training.svg';
-import Snacks from '../assets/snacks.svg';
-import DentalChew from '../assets/dentalChew.svg';
-import Confort from '../assets/confort.svg';
-import BrainStimulationChew from '../assets/brainStimulationChew.svg';
-import instance from '../api';
+import instance from '../../api';
 import { Link } from 'react-router-dom';
-import { HttpStatusCode } from 'axios';
 
 const SubCategories = () => {
   const [subCategories, setSubCategories] = useState([]);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isPopupVisible, setPopupVisible] = useState(false);
 
   const togglePopup = () => {
-    setIsPopupOpen(!isPopupOpen);
+    setPopupVisible(!isPopupVisible);
+  };
+
+  const closePopup = () => {
+    setPopupVisible(false);
   };
 
   useEffect(() => {
@@ -37,32 +35,30 @@ const SubCategories = () => {
       <div className='subcategories-container'>
         <h1>TREATS FOR EVERY MOMENT</h1>
         <div>
-          <button onClick={togglePopup} >Cats & Dogs</button>
-          {isPopupOpen && (
-            <div className="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
-              <div className="subcategories-sections">
-                <Link to="/" className="subcategories-sections-icon-box">
-                  <div className="icon-box">
-                    <img src={Training} alt="" />
-                    <span className="text">TRAINING</span>
-                  </div></Link>
-                <Link to="/" className="subcategories-sections-icon-box">
-                  <div className="icon-box">
-                    <img src={Snacks} alt="" />
-                    <span className="text">SNACKS</span>
-                  </div></Link>
-                {/* <button onClick={togglePopup}>Close Pop-up</button> */}
+          <button onClick={togglePopup}>Cats & Dogs</button>
+          <button onClick={togglePopup}>Dogs</button>
+          {isPopupVisible && (
+            <div className="overlay" onClick={closePopup}>
+              <div className="popup">
+                <div className="subcategories-sections">
+                  {subCategories.map((category, _id) => (
+                    <Link key={category._id} to={`/product/${category._id}`} className='subcategories-sections-icon-box' target='_blank'>
+                      <div className="icon-box">
+                        <img src={`${instance.defaults.baseURL}/${category.icon}`} alt="icon" />
+                        <span className="text">{category.name}</span>
+                      </div></Link>
+                  ))}
+                </div>
               </div>
             </div>
           )}
-          <button>Dogs</button>
         </div>
       </div>
       <p>Whether you need to train or pamper your dog and cat, or just give them something to chew on to help them calm down, stimulate their brain, or promote their dental hygiene: “The bone guy offers you a wide range of tasty treats to keep every dog and cat begs for more”.</p>
       <div className="subcategories-sections">
-        {subCategories.map((category) => (
-          <Link to="/" className="subcategories-sections-icon-box">
-            <div key={category._id} className="icon-box">
+        {subCategories.map((category, _id) => (
+          <Link key={category._id} to={`/product/${category._id}`} className='subcategories-sections-icon-box' target='_blank'>
+            <div className="icon-box">
               <img src={`${instance.defaults.baseURL}/${category.icon}`} alt="icon" />
               <span className="text">{category.name}</span>
             </div></Link>

@@ -5,6 +5,7 @@
 }
 .subcategories-wrapper p {
   width: 50%;
+  margin-bottom: 10px;
 }
 
 .subcategories-container {
@@ -57,7 +58,8 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
 }
 
-.subcategories-sections-icon-box {
+.subcategories-sections-icon-box:nth-child(1),
+.subcategories-sections-icon-box:nth-child(2) {
   background-image: linear-gradient(to bottom right, #4F1110 20%, #33481B 70%);
 }
 .icon-box {
@@ -83,6 +85,7 @@
   .subcategories-wrapper p {
     width: auto;
     text-align: justify;
+    padding: 15px;
   }
 
   /* Adjust button sizing for smaller screens */
@@ -120,39 +123,27 @@
   }
 }
 
-
-/* Create a visually hidden layer for accessibility */
-/* .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-} */
-
-/* Style the popup container */
-.popup {
-  position: fixed; /* Position relative to the viewport */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the popup */
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  padding: 25px;
-  z-index: 1000; /* Ensure it appears above other content */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  
+/* Popup */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Optional: Style the close button */
-/* .popup button {
-  float: right;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-} */
+.popup {
+
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+  width: 100%;
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 80vh; /* Adjust as needed */
+}

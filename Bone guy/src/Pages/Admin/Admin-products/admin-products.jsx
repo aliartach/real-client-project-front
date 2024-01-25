@@ -71,10 +71,10 @@ const AdminProducts = () => {
   }, []);
 
   const handleProductAdd = async () => {
-
+    console.log('add product form submitted: ',new_product_body);
     try {
       await axios.post(
-        `http://localhost:4000/api/product/${product._id}`,
+        `http://localhost:4000/api/product/`,
         new_product_body
       );
       fetchAdminProducts();
@@ -127,43 +127,46 @@ const AdminProducts = () => {
   };
 
   const handleSubCategoryCheckboxChange = (e) => {
-    if (!sub_category_checked[e.target.key]) {
+    console.log("this is event target id in tags check handler: ", e.target.id);
+    var target_id = e.target.id;
+    if (!sub_category_checked[target_id]) {
       setSubCategoryChecked((previous_data) => ({ //adding a new property to the checked object with the target id being the key for each checked boolean value
         ...previous_data,
-        [e.target.key]: true,
+        [target_id]: true,
       }));
       if (e.target.value !== "null") {
         setNewAdminSubCategories((previous_data) => {previous_data.push(e.target.value)})
         setNewProductBody((previous_data) => ({
           ...previous_data,
-          [e.target.name]: new_sub_categories, // [] since e.target.name is a dynamic value
+          [target_id]: new_sub_categories, // [] since e.target.name is a dynamic value
         }));
       }
     } else {
       setSubCategoryChecked((previous_data) => ({
         ...previous_data,
-        [e.target.key]: false,
+        [target_id]: false,
       }));
     }
   }
 
   const handleTagsCheckboxChange = (e) => {
-    if (!tag_checked[e.target.key]) {
+    var target_id = e.target.id;
+    if (!tag_checked[target_id]) {
       setTagChecked((previous_data) => ({
         ...previous_data,
-        [e.target.key]: true,
+        [target_id]: true,
       }));
       if (e.target.value !== "null") {
         setNewTags((previous_data) => {previous_data.push(e.target.value)})
         setNewProductBody((previous_data) => ({
           ...previous_data,
-          [e.target.name]: new_tags, // [] since e.target.name is a dynamic value
+          [target_id]: new_tags, // [] since e.target.name is a dynamic value
         }));
       }
     } else {
       setTagChecked((previous_data) => ({
         ...previous_data,
-        [e.target.key]: false,
+        [target_id]: false,
       }));
     }
   }
@@ -205,16 +208,17 @@ const AdminProducts = () => {
   return (
     <section className="admin-products-main">
       <form className="admin-products-form" onSubmit={handleProductAdd}>
+      {console.log('Form rendered')}
         <label className="admin-products-input">
           Product Name:
-        <input type="text" name="name" onBlur={handleInputChange} />
+        <input type="text" name="name" onBlur={handleInputChange} required />
         </label>
         <label className="admin-products-input">
           Product SubCategories:
           {sub_categories.map((category, _id) => (
             <p key={_id} className="sub-category-checkbox-in-admin-products">
               {category.name}
-              <input key={_id} name="sub_categories" type="checkbox" checked={sub_category_checked[_id]} onChange={handleSubCategoryCheckboxChange} value={sub_category_checked[_id] ? category.name : "null"} />
+              <input key={_id} id={_id} name="sub_categories" type="checkbox" checked={sub_category_checked[_id]} onChange={handleSubCategoryCheckboxChange} value={sub_category_checked[_id] ? category.name : "null"} />
             </p>
           ))}
         </label>
@@ -222,22 +226,22 @@ const AdminProducts = () => {
           Product Tags:
           {tags.map((tag, _id) => (
             <p key={_id} className="tag-checkbox-in-admin-products">
-              {tag.name}
-              <input key={_id} name="tags" type="checkbox" checked={tag_checked[_id]} onChange={handleTagsCheckboxChange} value={tag_checked[_id] ? tag.name : "null"} />
+              {tag.name} 
+              <input key={_id} id={_id} name="tags" type="checkbox" checked={tag_checked[_id]} onChange={handleTagsCheckboxChange} value={tag_checked[_id] ? tag.name : "null"} />
             </p>
           ))}
         </label>
         <label className="admin-products-input">
           Product Description:
-        <input type="text" name="description" onBlur={handleInputChange} />
+        <input type="text" name="description" onBlur={handleInputChange} required />
         </label>
         <label className="admin-products-input">
           Product Price:
-        <input type="number" name="price" onBlur={handleInputChange} />
+        <input type="number" name="price" onBlur={handleInputChange} required />
         </label>
         <label className="admin-products-input">
           Product Image:
-        <input type="file" name="image" onChange={handleImageCreate} />
+        <input type="file" name="image" onChange={handleImageCreate} required />
         </label>
         <label className="admin-products-input">
           Product Featured:

@@ -3,6 +3,7 @@ import  { useState,useEffect } from 'react';
 import PrivacyPolicy from "../privacypolicy/privacypolicy";
 import TermsAndConditions from "../termsandconditions/termsandconditions";
 import ReturnPolicy from "../returnpolicy/returnpolicy";
+import PropTypes from 'prop-types'; // Import PropTypes
 import './navbarpolicies.css'
 
 const NavBar = ({data}) => {
@@ -14,7 +15,7 @@ const NavBar = ({data}) => {
   };
 
   useEffect (()=>{
-    console.log("data from navbar policy ",data)
+    console.log("data from navbar policy ", data)
     if( data !== null){
       handleItemClick(data)
     }
@@ -42,6 +43,10 @@ const NavBar = ({data}) => {
       {selectedItem === 'return-policy' && <ReturnPolicy />}
     </div>
   );
+};
+
+NavBar.propTypes = {
+  data: PropTypes.string, // Adjust the type according to the actual data type
 };
 
 export default NavBar;

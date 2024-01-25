@@ -5,7 +5,7 @@ import Footer from "../../Components/Footer/Footer"
 import Logo from "../../../public/logo.png";
 
 
-const policy = () => {
+const Policy = () => {
   const location = useLocation();
   const data = location?.state || null;
 
@@ -19,4 +19,4 @@ const policy = () => {
   )
 }
 
-export default policy
+export default Policy

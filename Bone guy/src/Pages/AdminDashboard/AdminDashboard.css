@@ -1,0 +1,9 @@
+.admin-dashboard{
+    display: flex;
+    flex-direction: row;
+
+}
+.admin-outlet{
+    margin-top: 200px;
+    margin-left: 70px;
+}

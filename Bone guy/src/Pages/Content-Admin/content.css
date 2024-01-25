@@ -7,7 +7,7 @@ table {
   
   thead th, tbody td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 10px;
     text-align: left;                       
   }
   
@@ -18,5 +18,18 @@ table {
     background-color: #F6E1D7;
     width:50px;
     height:30px;
-    font-size: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
+   .images-admin {
+    width: 90px;
+    transition: transform 0.3s ease-in-out;
+   }
+   
+   .images-admin:hover {
+    transform: scale(4); 
+   }
+   

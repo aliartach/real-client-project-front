@@ -1,15 +1,22 @@
+.vertical-line {
+  width: 3px; /* Set the width to 1px or the desired width */
+  background-color:  #59000D;
+  height: 135%;
+  margin-left: 370px;
+  position: absolute; /* Set the position to absolute */
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 20%;
- 
   height: 100%;
-  box-sizing: border-box; 
-  margin: 0; 
-  padding: 0; 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: relative; /* Set the position to relative */
 }
-
 .logo {
   margin-bottom: 10px;
 }

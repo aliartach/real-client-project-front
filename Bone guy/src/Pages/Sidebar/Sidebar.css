@@ -25,16 +25,29 @@
  }
  .sidebar-item {
   padding: 10px;
- 
   display: flex;
   align-items: center;
-  color: white;
-  text-decoration: none;
+  color: white; /* This will change the color of the text */
+  text-decoration: none; /* This will remove the underline */
   gap: 30px;
   margin-bottom: 50px;
   margin-top: 20px;
-}
+ }
 
+ .sidebar-item a {
+  color: inherit; /* This will make the link the same color as its parent */
+  text-decoration: none; /* This will remove the underline */
+  transition: color 0.3s ease; /* This will animate the color change */
+ }
+ 
+ .sidebar-item a:hover {
+  background-color:#f6e1d7; /* Change 'red' to any color you prefer */
+  color:#4F1110;
+ }
+ .sidebar-item:hover {
+  background-color:#f6e1d7; /* Change 'red' to any color you prefer */
+  color:#4F1110;
+ }
 .sidebar-item-dashboard {
   font-weight: bold;
   font-size: 18px;

@@ -6,18 +6,6 @@ const AdminContent = () => {
   const [showEditForm, setShowEditForm] = useState(false);
   const [selectedContent, setSelectedContent] = useState(null);
   const [content, setContent] = useState([]);
-  const updateContent = (updatedContent) => {
-    // Find the index of the updated content in the content array
-    const index = content.findIndex(c => c._id === updatedContent._id);
-   
-    // Replace the old content with the updated content
-    const newContent = [...content];
-    newContent[index] = updatedContent;
-   
-    // Update the content state
-    setContent(newContent);
-   };
-   
 
   const handleEdit = (content) => {
     console.log('Content to be edited:', content);
@@ -74,7 +62,7 @@ const AdminContent = () => {
       </div>
       <div className={`edit-formContent-modal ${showEditForm ? "active" : ""}`}>
         {showEditForm && (
-      <EditContent content={selectedContent} updateContent={updateContent} onClose={() => setShowEditForm(false)} />
+      <EditContent content={selectedContent}  onClose={() => setShowEditForm(false)} />
         )}
       </div>
      

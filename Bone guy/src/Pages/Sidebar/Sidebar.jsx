@@ -1,28 +1,36 @@
-import React from 'react';
-import { FaCube, FaFileAlt, FaTags, FaCubes } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaBars, FaCube, FaFileAlt, FaTags, FaCubes } from 'react-icons/fa';
 import "./Sidebar.css";
 import logo from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
 
 function Sidebar() {
+ const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  return (
-    <div className="sidebar">
+ const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+ };
+
+ return (
+    <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
       <div className="logo">
         <img src={logo} alt="Logo" />
       </div>
 
       <ul className="sidebar-list">
-      <li className="sidebar-item-dashboard">Dashboard</li>
-        <li className="sidebar-item"><FaCube /> Products</li>
-        <li className="sidebar-item"><FaFileAlt /> <Link to={`admin/content/`}>Content</Link>
-</li>
-        <li className="sidebar-item"><FaTags/> Tags</li>
-        <li className="sidebar-item"><FaCubes /> SubCategories</li>
+        <li className={`sidebar-item-dashboard ${isSidebarOpen ? 'icon-only' : ''}`}>Dashboard</li>
+        <li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaCube /> Products</li>
+        <li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaFileAlt /> <Link to={`admin/content/`}>Content</Link></li>
+        <li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaTags/> Tags</li>
+        <li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaCubes /> SubCategories</li>
       </ul>
-      <div className="vertical-line"></div>
+      
+      <button className="burger-button" onClick={toggleSidebar}>
+        <FaBars />
+      </button>
     </div>
-  );
-};
+ );
+}
 
 export default Sidebar;
+

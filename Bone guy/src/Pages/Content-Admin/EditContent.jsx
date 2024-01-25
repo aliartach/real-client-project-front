@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import "./EditContent.css";
-const EditContent = ({ content, updateContent, onClose }) => {
+const EditContent = ({ content, onClose }) => {
   const [editedContent, setEditedContent] = useState({
     firstDescription: content.firstDescription,
     featuredDescription: content.featuredDescription,
@@ -51,8 +51,7 @@ const formData = new FormData();
       );
       console.log("content updated successfully", response.data);
 
-      // Update the local state with the updated content
-      updateContent(response.data);
+ 
     } catch (error) {
       console.error(
         "Failed to update Content",

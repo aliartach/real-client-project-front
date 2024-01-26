@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { FaCube, FaFileAlt, FaTags, FaCubes } from 'react-icons/fa';
 import "./AdminDashboard.css";
 import logo from "../../assets/logo.svg";
@@ -19,6 +19,6 @@ function AdminDashboard() {
       </ul>
     </div>
   );
-};
+}
 
 export default AdminDashboard;

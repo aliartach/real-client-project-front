@@ -1,45 +1,138 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 20%;
- 
-  height: 100%;
-  box-sizing: border-box; 
-  margin: 0; 
-  padding: 0; 
+  background-color:#4F1110; ;
+  color: white;
+  padding: 20px;
+  height: 96vh;
+  width: 200px;
+  transition: width 0.3s ease;
 }
-
-.logo {
-  margin-bottom: 10px;
-}
-
 .logo img {
-  width: 100%;
-  margin-top: 30px;
-}
-
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-bottom: 20px;
+ }
+ 
 .sidebar-list {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
+}
+ .sidebar.open {
+  grid-template-columns: 100% 0;
+ }
+ .sidebar-item {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  color: white; /* This will change the color of the text */
+  text-decoration: none; /* This will remove the underline */
+  gap: 30px;
+  margin-bottom: 50px;
   margin-top: 20px;
-}
+ }
 
-.sidebar-item,
+ .sidebar-item a {
+  color: inherit; /* This will make the link the same color as its parent */
+  text-decoration: none; /* This will remove the underline */
+  transition: color 0.3s ease; /* This will animate the color change */
+ }
+ 
+ .sidebar-item a:hover {
+  background-color:#f6e1d7; /* Change 'red' to any color you prefer */
+  color:#4F1110;
+ }
+ .sidebar-item:hover {
+  background-color:#f6e1d7; /* Change 'red' to any color you prefer */
+  color:#4F1110;
+ }
 .sidebar-item-dashboard {
-  margin-bottom: 40px;
-  padding: 8px;
-  cursor: pointer;
-  font-size: 30px;
-  color: #59000D;
-}
-
-.sidebar-item:hover,
-.sidebar-item-dashboard:hover {
-  background-color: #F6E1D7;
-}
-
-.sidebar-item-dashboard {
-  background-color: #F6E1D7;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
   text-align: center;
+  margin-bottom: 50px;
+}
+ .burger-button {
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+ }
+ 
+ .icon-only {
+  font-size: 0;
+ }
+ 
+ .icon-only::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+ }
+ 
+ .sidebar-item-dashboard::before {
+  background-image: url('path-to-dashboard-icon');
+ }
+ 
+ .sidebar-item::before {
+  background-image: url('path-to-product-icon');
+ }
+ 
+ /* Repeat for other items */
+/*  
+ @media (max-width: 1336px) {
+  .burger-button {
+     display: block;
+  }
+ }
+  */
+
+  /* ... (existing styles) */
+
+/* Media Query for Responsive Design */
+@media (max-width: 1336px) {
+  .burger-button {
+    display: block;
+    
+
+  }
+
+  .sidebar {
+    width: 80px;
+  }
+
+  .sidebar.open {
+    width: 200px;
+  }
+
+  .sidebar-item,
+  .sidebar-item-dashboard {
+    display: none;
+  }
+
+  .sidebar:hover,
+  .sidebar.open {
+    width: 200px; /* Adjust the width as needed */
+  }
+
+  .sidebar:hover .sidebar-item,
+  .sidebar.open .sidebar-item{
+    display: flex;
+  }
+  .logo {
+    display: none; /* Hide the logo in responsive mode */
+  }
+
+  /* Repeat for other items */
+
+  .burger-button.open .bar {
+    background-color: #fff; /* Change color when open if needed */
+  }
 }

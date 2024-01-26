@@ -5,13 +5,14 @@ import "./content.css"
 const AdminContent = () => {
   const [showEditForm, setShowEditForm] = useState(false);
   const [selectedContent, setSelectedContent] = useState(null);
-  const [content, setContent] = useState([]); // Initialize as an empty array
+  const [content, setContent] = useState([]);
 
   const handleEdit = (content) => {
-    setShowEditForm(true);
+    console.log('Content to be edited:', content);
     setSelectedContent(content);
+    
+    setShowEditForm(!showEditForm); // Toggle the state
   };
-
   const fetchContentData = async () => {
     try {
       const response = await axios.get(
@@ -27,9 +28,9 @@ const AdminContent = () => {
 
   useEffect(() => {
     fetchContentData();
-  }, []);
+  }, [showEditForm]);
 
-  console.log(content);
+  // console.log(content);
 
   return (
     <>
@@ -55,32 +56,38 @@ const AdminContent = () => {
                 onEdit={() => handleEdit(content)}
               />
             ))}
+            
           </tbody>
         </table>
       </div>
       <div className={`edit-formContent-modal ${showEditForm ? "active" : ""}`}>
         {showEditForm && (
-          <EditContent content={selectedContent} onClose={() => setShowEditForm(false)} />
+      <EditContent content={selectedContent}  onClose={() => setShowEditForm(false)} />
         )}
       </div>
+     
     </>
   );
+  
 };
 
-export const AdminContentCard = ({ content, showEditForm, onEdit }) => {
+export const AdminContentCard = ({ content, showEditForm, onEdit ,setShowEditForm}) => {
   const handleEditClick = () => {
     onEdit();
+    setShowEditForm(true); // Open the edit form when clicking the "Edit" button
   };
 
   return (
+
     <tr className={`content-card ${showEditForm ? "edit-formContent-open" : ""}`} key={content.id}>
       <td>{content.firstDescription}</td>
       <td>{content.featuredDescription}</td>
       <td>{content.storyDescription}</td>
-      <td>{content.imageCat}</td>
-      <td>{content.imageDog}</td>
+      <td><img src={`http://localhost:4000/${content.imageCat}`} alt="Cat" className="images-admin"/></td>
+      <td><img src={`http://localhost:4000/${content.imageDog}`} alt="Dog" className="images-admin"/></td>
 
       <td>
+   
         <button onClick={handleEditClick} className="admin-edit--button">
           <p>Edit</p>
         </button>

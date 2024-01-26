@@ -1,0 +1,18 @@
+.returnpolicycomponent {
+    height: 500px;
+    width: 400px;
+    border: solid red 3px;
+    margin: auto;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.returnpolicycomp {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+.returnpolicydescription {
+    font-size: 30px;
+}

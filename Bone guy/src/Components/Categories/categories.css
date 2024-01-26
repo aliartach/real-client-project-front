@@ -99,7 +99,6 @@
 
   .section-categories-img-cat button {
     justify-self: center;
-    z-index: 2;
     width: 60px;
     height: 60px;
     font-size: 9px;
@@ -157,7 +156,6 @@
     letter-spacing: 1.43px;
     border-width: 0px;
     cursor: pointer;
-    z-index: 1;
   }
   .btn-categories-dog {
     position: absolute;
@@ -171,10 +169,11 @@
     width: 40px;
     height: 40px;
   }
+}
   @media (min-width: 961px) and (max-width: 1250px) {
     .cat-img-category-section {
-      width: 350.777px;
-      height: 300.112px;
+      width: 450.777px;
+      height: 350.112px;
       flex-shrink: 0;
       border-radius: 28px;
     }
@@ -195,4 +194,5 @@
       height: 80px;
     }
   }
-}
+
+

@@ -8,7 +8,11 @@
     align-items: center;
     gap:80px;
     list-style: none;
+<<<<<<< HEAD
     /* margin-top: 20px; */
+=======
+    margin-top: 20px;
+>>>>>>> e70421e (finished privacy-policy, terms&conditions, returnpolicy components)
     /* width: 85%; */
     padding: 15px;
 }

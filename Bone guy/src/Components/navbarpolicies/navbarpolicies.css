@@ -8,7 +8,7 @@
     align-items: center;
     gap:80px;
     list-style: none;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     /* width: 85%; */
     padding: 15px;
 }
@@ -20,4 +20,8 @@
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+}
+nav {
+    /* border: solid red 2px; */
+    margin-top: -10px;
 }

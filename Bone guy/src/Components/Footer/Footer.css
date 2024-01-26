@@ -1,11 +1,11 @@
 Footer {
-  /* border: solid black 2px; */
-  height: 282.43px;
+  height: 200px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items:center;
   background-color: #f6e1d7;
-  margin-top: 100px;
+  margin-top: 50px;
+  border-top: 6px solid #4f1110;
 }
 .footerdiv {
   display: flex;
@@ -37,13 +37,13 @@ Footer {
   font-size: 16px;
   color: #4f1110;
   margin-bottom: 10px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
 }
 ul {
   gap: 20px;
 }
-.ulul {
+.ulul{
   list-style: none;
 }
 .mailinglist1 {
@@ -51,15 +51,19 @@ ul {
 }
 
 @media (max-width: 850px) {
-  .footerdiv {
-    display: flex;
-    flex-direction: column;
-    height: 600px;
-    /* align-items: center; */
-    width: 200px;
-    /* border: solid red 2px; */
-  }
-  footer {
-    height: 650px;
-  }
+ .footerdiv {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  /* align-items: center; */
+  width: 200px;
+  /* border: solid red 2px; */
+ }
+ footer {
+  height: 650px;
+ }
+
+
+ 
+ 
 }

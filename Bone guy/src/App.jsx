@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 // import SubCategories from './Components/SubCategories/SubCategories'
 import AdminDashboard from './Pages/AdminDashboard/AdminDashboard'
 import AdminContent from './Pages/Content-Admin/content'
+import AdminSubCategories from './subCategories-Admin/subCategories'
 function App() {
   return (
 
@@ -21,6 +22,7 @@ function App() {
       <Route path='/admin' element={<AdminDashboard/>}>
         {/* <Route path='/products' element={<AdminProducts/>}/> */}
         <Route path='admin/content/' element={<AdminContent/>}/>
+        <Route path='admin/subcategories/' element={<AdminSubCategories/>}/>
       </Route>
  
       </Routes>

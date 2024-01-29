@@ -5,14 +5,9 @@ import './admin-products.css';
 const AdminProducts = () => {
   const [admin_products, setAdminProducts] = useState([]);
   const [sub_categories, setAdminSubCategories] = useState([]);
-  const [new_sub_categories, setNewAdminSubCategories] = useState([]);
-  const [sub_category_checked, setSubCategoryChecked] = useState({});
+  const [new_sub_categories, setNewSubCategories] = useState([]);
   const [tags, setTags] = useState([]);
-  const [tag_checked, setTagChecked] = useState({});
   const [new_tags, setNewTags] = useState([]);
-  const [new_image, setNewImage] = useState([]);
-  const [featured_checked, setFeaturedChecked] = useState(false);
-  const [selected_category, setSelectedCategory] = useState("Dogs");
   const [new_product_body, setNewProductBody] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -67,16 +62,19 @@ const AdminProducts = () => {
     fetchAdminProducts();
     fetchAdminSubCategories();
     fetchAdminTags();
-
   }, []);
 
-  const handleProductAdd = async () => {
-    console.log('add product form submitted: ',new_product_body);
+  const handleProductAdd = async (e) => {
+    e.preventDefault()
     try {
       await axios.post(
         `http://localhost:4000/api/product/`,
-        new_product_body
-      );
+        new_product_body,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
       fetchAdminProducts();
     } catch (error) {
       console.error(error);
@@ -119,115 +117,108 @@ const AdminProducts = () => {
   }
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target; //name and value of target input
-    setNewProductBody((previous_data) => ({
-      ...previous_data,
-      [name]: value, //[name] automatically changes to the name of the input, the [] here are put for any dynamic value, like {} in jsx
-    }));
+    const { name, value, type } = e.target; //name and value of target input
+    if(type === "number") { //------------------------------------------------1
+      setNewProductBody((previous_data) => ({
+        ...previous_data,
+        [name]: parseFloat(value), //[name] automatically changes to the name of the input, the [] here are put for any dynamic value, like {} in jsx
+      }));
+    } else if (type === "checkbox") { //------------------------------------------------1
+      if (name === "sub_categories") { //------------------------------------------------2 checkbox
+        if (e.target.checked) { //------------------------------------------------3 subcategories
+          var new_sub_categories_temp = new_sub_categories;
+          new_sub_categories_temp.push(value);
+          setNewSubCategories(new_sub_categories_temp);
+          setNewProductBody((previous_data) => ({
+            ...previous_data,
+            [name]: new_sub_categories,
+          }))
+        } else { //------------------------------------------------3 subcategories
+          var edited_subcategories = new_sub_categories.filter(category => category !== value);
+          // console.log("this is edited categories in admin product: ", edited_subcategories);
+          setNewSubCategories(edited_subcategories); //setting it for the next subcategory check
+          // console.log("this is new categories in admin product in handler: ", new_sub_categories);
+          setNewProductBody((previous_data) => ({
+            ...previous_data,
+            [name]: edited_subcategories,
+          }))
+        }
+      } else if (name === "tags") { //------------------------------------------------2 checkbox
+        if (e.target.checked) { //------------------------------------------------3 tags
+          var new_tags_temp = new_tags;
+          new_tags_temp.push(value);
+          setNewTags(new_tags_temp);
+          setNewProductBody((previous_data) => ({
+            ...previous_data,
+            [name]: new_tags,
+          }));
+        } else { //------------------------------------------------3 tags
+          var edited_tags = new_tags.filter(tag => tag !== value);
+          setNewTags(edited_tags); // setting it for the next check
+          setNewProductBody((previous_data) => ({
+            ...previous_data,
+            [name]: edited_tags,
+          }));
+        }
+      }
+    } else if (type === "radio") { //------------------------------------------------1
+      if (e.target.checked) {  //------------------------------------------------2 radio
+        setNewProductBody((previous_data) => ({
+          ...previous_data,
+          [name]: true,
+        }));
+      } else { //------------------------------------------------2 radio
+        setNewProductBody((previous_data) => ({
+          ...previous_data,
+          [name]: false,
+        }));
+      }
+    } else if (type === "file") { //------------------------------------------------1
+      var images_files = e.target.files;
+      setNewProductBody((previous_data) => ({
+        ...previous_data,
+        [name]: images_files[0],
+      }));
+    } else { //------------------------------------------------1
+      setNewProductBody((previous_data) => ({
+        ...previous_data,
+        [name]: value, //[name] automatically changes to the name of the input, the [] here are put for any dynamic value, like {} in jsx
+      }));
+    };
   };
 
-  const handleSubCategoryCheckboxChange = (e) => {
-    console.log("this is event target id in tags check handler: ", e.target.id);
-    var target_id = e.target.id;
-    if (!sub_category_checked[target_id]) {
-      setSubCategoryChecked((previous_data) => ({ //adding a new property to the checked object with the target id being the key for each checked boolean value
-        ...previous_data,
-        [target_id]: true,
-      }));
-      if (e.target.value !== "null") {
-        setNewAdminSubCategories((previous_data) => {previous_data.push(e.target.value)})
-        setNewProductBody((previous_data) => ({
-          ...previous_data,
-          [target_id]: new_sub_categories, // [] since e.target.name is a dynamic value
-        }));
-      }
-    } else {
-      setSubCategoryChecked((previous_data) => ({
-        ...previous_data,
-        [target_id]: false,
-      }));
-    }
-  }
-
-  const handleTagsCheckboxChange = (e) => {
-    var target_id = e.target.id;
-    if (!tag_checked[target_id]) {
-      setTagChecked((previous_data) => ({
-        ...previous_data,
-        [target_id]: true,
-      }));
-      if (e.target.value !== "null") {
-        setNewTags((previous_data) => {previous_data.push(e.target.value)})
-        setNewProductBody((previous_data) => ({
-          ...previous_data,
-          [target_id]: new_tags, // [] since e.target.name is a dynamic value
-        }));
-      }
-    } else {
-      setTagChecked((previous_data) => ({
-        ...previous_data,
-        [target_id]: false,
-      }));
-    }
-  }
-
-  const handleFeaturedChange = (e) => { //make it onclick
-    if (!featured_checked) {
-      setFeaturedChecked(true);
-      setNewProductBody((previous_data) => ({
-        ...previous_data,
-        [e.target.name]: true, // [] since e.target.name is a dynamic value
-      }));
-    } else {
-      setFeaturedChecked(false);
-      setNewProductBody((previous_data) => ({
-        ...previous_data,
-        [e.target.name]: false, // [] since e.target.name is a dynamic value
-      }));
-    }
-  }
-
   const handleCategoryChange = (e) => {
-    setSelectedCategory(e.target.value);
+    console.log("this is target and target value in category change handler: ", e.target, e.target.value);
+    const { name, value } = e.target;
     setNewProductBody((previous_data) => ({
       ...previous_data,
-      [e.target.name]: selected_category,
+      [name]: value,
     }));
-  }
-
-  const handleImageCreate = (e) => {
-    if (e.target.files.length > 0) {
-      setNewImage(e.target.files[0]);
-      setNewProductBody((previous_data) => ({
-        ...previous_data,
-        [e.target.name]: new_image,
-      }));
-    }
   }
 
   return (
     <section className="admin-products-main">
-      <form className="admin-products-form" onSubmit={handleProductAdd}>
-      {console.log('Form rendered')}
+      {/* {console.log("this is new categories in admin product: ", new_sub_categories)} */}
+      <form className="admin-products-form" onSubmit={handleProductAdd} encType="multipart/form-data">
         <label className="admin-products-input">
           Product Name:
         <input type="text" name="name" onBlur={handleInputChange} required />
         </label>
         <label className="admin-products-input">
           Product SubCategories:
-          {sub_categories.map((category, _id) => (
-            <p key={_id} className="sub-category-checkbox-in-admin-products">
+          {sub_categories.map((category, index) => (
+            <p key={index} className="sub-category-checkbox-in-admin-products">
               {category.name}
-              <input key={_id} id={_id} name="sub_categories" type="checkbox" checked={sub_category_checked[_id]} onChange={handleSubCategoryCheckboxChange} value={sub_category_checked[_id] ? category.name : "null"} />
+              <input key={index} name="sub_categories" type="checkbox" onChange={handleInputChange} value={category._id} />
             </p>
           ))}
         </label>
         <label className="admin-products-input">
           Product Tags:
-          {tags.map((tag, _id) => (
-            <p key={_id} className="tag-checkbox-in-admin-products">
+          {tags.map((tag, index) => (
+            <p key={index} className="tag-checkbox-in-admin-products">
               {tag.name} 
-              <input key={_id} id={_id} name="tags" type="checkbox" checked={tag_checked[_id]} onChange={handleTagsCheckboxChange} value={tag_checked[_id] ? tag.name : "null"} />
+              <input key={index} name="tags" type="checkbox" onChange={handleInputChange} value={tag._id} />
             </p>
           ))}
         </label>
@@ -241,18 +232,18 @@ const AdminProducts = () => {
         </label>
         <label className="admin-products-input">
           Product Image:
-        <input type="file" name="image" onChange={handleImageCreate} required />
+        <input type="file" name="image" onChange={handleInputChange} required />
         </label>
         <label className="admin-products-input">
           Product Featured:
-        <input type="radio" name="featured" checked={featured_checked} onChange={handleFeaturedChange} />
+        <input type="radio" name="featured" onChange={handleInputChange} />
         </label>
         <label htmlFor="category" className="admin-products-input">
           Product Category:
         </label>
-        <select id="category" name="category" value={selected_category} onChange={handleCategoryChange}>
-        <option value="Dogs">Dogs</option>
-        <option value="Cats and Dogs">Cats and Dogs</option>
+        <select id="category" name="category" onChange={handleCategoryChange} required>
+        <option>Dogs</option>
+        <option>Cats and Dogs</option>
         </select>
         <label className="admin-products-input">
           Product Quantity:

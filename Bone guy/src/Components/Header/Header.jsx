@@ -33,7 +33,6 @@ function header() {
         <img src={headerTag3} alt="" className="tag1-header" />
       </section>
     </>
-
   );
 }
 

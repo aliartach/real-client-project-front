@@ -19,17 +19,18 @@ function Navbar() {
           <img src={Logo} alt="logo-image" className="Logo-image" />
         </Link>
       </div>
-        <section className={pathname === '/login' || pathname === '/signup' ? "login-navbar" : "navbar-content"}>
-          <Link to="#">
-            <p>products</p>
-          </Link>
-          <Link to="/aboutus">
-            <p>our story</p>
-          </Link>
-          <Link to="#">
-            <p>contact us</p>
-          </Link>
-        </section>
+      
+      <section className="navbar-content">
+        <Link to="/product">
+          <p>products</p>
+        </Link>
+        <Link to="/aboutus">
+          <p>our story</p>
+        </Link>
+        <Link to="#">
+          <p>contact us</p>
+        </Link>
+      </section>
     </>
   );
 }

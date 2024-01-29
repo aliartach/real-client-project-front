@@ -1,38 +1,22 @@
 import './App.css'
 import Home from './Pages/Home'
-import AboutUs from './Pages/AboutUs'
-import FAQ from './Pages/FAQs'
-import Policy from './Pages/policy/policy'
-import ContactUs from './Pages/Contactus/ContactUs'
-// import AboutUs from './Pages/AboutUs'
-// import FAQ from './Pages/FAQs'
+import FAQs from './Pages/FAQs/FAQs'
+import AboutUs from './Pages/AboutUs/AboutUs'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-// import Featured from './Components/Featured-section/featured-products/featured-products'
-// import SubCategories from './Components/SubCategories/SubCategories'
-import AdminDashboard from './Pages/AdminDashboard/AdminDashboard'
-import AdminContent from './Pages/Content-Admin/content'
+import Login from './Components/Login/Login'
+import NotFound from './Components/NotFound/NotFound'
+import SignUp from './Components/SignUp/SignUp'
+
 function App() {
   return (
-
-   
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/" element={<AboutUs />} />
-        <Route path="/" element={<FAQ />} />
-        <Route path="/Policy" element={<Policy />} />
-        <Route path="/ContactUs" element={<ContactUs />} />
-
-
-        {/* <Route path="/" element={<SubCategories />} /> */}
-        {/* <Route path="/" element={<AboutUs />} /> */}
-        {/* <Route path="/" element={<FAQ />} /> */}
-     
-      <Route path='/admin' element={<AdminDashboard/>}>
-        {/* <Route path='/products' element={<AdminProducts/>}/> */}
-        <Route path='admin/content/' element={<AdminContent/>}/>
-      </Route>
- 
+        <Route path="/FAQs" element={<FAQs />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   )

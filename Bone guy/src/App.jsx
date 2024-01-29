@@ -9,9 +9,10 @@ import ContactUs from './Pages/Contactus/ContactUs'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // import Featured from './Components/Featured-section/featured-products/featured-products'
 // import SubCategories from './Components/SubCategories/SubCategories'
-import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
-import AdminContent from "./Pages/Content-Admin/content";
-import AdminSubCategories from "./subCategories-Admin/subCategories";
+import AdminDashboard from './Pages/Admin/AdminDashboard/AdminDashboard'
+import AdminContent from "./Pages/Admin/Content-Admin/content";
+import AdminSubCategories from "./Pages/Admin/subCategories-Admin/subCategories";
+import Admintags from './Pages/Admin/Tags-Admin/Tag';
 function App() {
   return (
     <Router>
@@ -33,7 +34,7 @@ function App() {
         {/* <Route path='/products' element={<AdminProducts/>}/> */}
         <Route path='admin/content/' element={<AdminContent/>}/>
         <Route path='admin/subCategories/' element={<AdminSubCategories/>}/>
-
+        <Route path='admin/tags/' element={<Admintags/>}/>
       </Route>
  
       </Routes>

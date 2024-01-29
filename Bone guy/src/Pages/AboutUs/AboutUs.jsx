@@ -1,8 +1,19 @@
 import './AboutUs.css'
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const AboutUs = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = sessionStorage.getItem('jwt');
+
+    if (!token) {
+      navigate('/login');
+    }
+  }, [])
   return (
     <>
       <div className='upper-half'>

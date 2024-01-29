@@ -1,11 +1,17 @@
 import React from "react";
 import Logo from "../../assets/logo.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css"
 
 
 function Navbar() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const logout = () => {
+    sessionStorage.clear();
+    navigate('/');
+  }
 
   return (
     <>
@@ -18,7 +24,7 @@ function Navbar() {
           <Link to="#">
             <p>products</p>
           </Link>
-          <Link to="aboutus">
+          <Link to="/aboutus">
             <p>our story</p>
           </Link>
           <Link to="#">
@@ -30,16 +36,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-
-      {/* <section className={isLoginRoute() ? "navbar-content navbar-content-cond" : ""}>
-        <Link to="#">
-          <p className={isLoginRoute() ? "navbar-text navbar-content-cond " : ""}>products</p>
-        </Link>
-        <Link to="aboutus">
-          <p className={isLoginRoute() ? "navbar-text" : ""}>our story</p>
-        </Link>
-        <Link to="#">
-          <p className={isLoginRoute() ? "navbar-text" : ""}>contact us</p>
-        </Link>
-      </section> */}

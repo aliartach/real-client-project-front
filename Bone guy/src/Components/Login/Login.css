@@ -30,6 +30,7 @@
   height: 2rem;
   border-radius: 4px;
   border: 2px solid lightgray;
+  color: inherit;
 }
 .login-form input:focus {
   border-color: #59000d;
@@ -58,7 +59,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 1em;
+  /* margin-bottom: 1em; */
 }
 
 .password-field input {

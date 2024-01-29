@@ -9,8 +9,9 @@ import headerTag3 from "../../assets/header3.svg";
 import { Link } from "react-router-dom";
 function header() {
   return (
-    <>    <section className="Header-Home">
-      <Navbar />
+    <>
+      <section className="Header-Home">
+        <Navbar />
 
       <section className="sub-text-header">
         <p>Healthy treats for healthy pets</p>
@@ -31,8 +32,7 @@ function header() {
         <img src={headerTag2} alt="" className="tag1-header" />
         <img src={headerTag3} alt="" className="tag1-header" />
       </section>
-      </>
-
+    </>
   );
 }
 

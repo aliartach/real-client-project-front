@@ -35,7 +35,7 @@ const EditSubCategories = ({ subCategory, onClose }) => {
     }
   };
 
-  // Log the edited state for debugging
+ 
   console.log("Edited state:", editedSubCategory);
 
   const handleSubmit = async (e) => {

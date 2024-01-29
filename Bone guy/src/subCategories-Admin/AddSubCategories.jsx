@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import "./AddSubCategory.css"
-const AddSubCategoryForm = ({ onAddSubCategory }) => {
+import "./AddSubCategory.css";
+const AddSubCategoryForm = ({ onAddSubCategory,onClose }) => {
   const [name, setName] = useState('');
   const [icon, setIcon] = useState('');
   const [productIds, setProductIds] = useState([]); 
-  const [subcategories, setSubcategories] = useState([]);
+
 
   const handleAddSubCategory = async () => {
     try {
       const response = await axios.post('http://localhost:4000/api/subcategory', {
         name,
         icon,
-        products: productIds, // Include the product IDs here
+        products: productIds, 
       });
 
       console.log('Subcategory added successfully:', response.data);
@@ -29,6 +29,7 @@ const AddSubCategoryForm = ({ onAddSubCategory }) => {
       console.error('Error adding subcategory:', error.message);
      
     }
+    onClose();
   };
 
   return (
@@ -49,6 +50,9 @@ const AddSubCategoryForm = ({ onAddSubCategory }) => {
       </label>
       <br />
       <button onClick={handleAddSubCategory}>Add Subcategory</button>
+      <button type="button" onClick={onClose}>
+          Cancel
+        </button>
     </div>
   );
 };

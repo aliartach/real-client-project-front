@@ -56,6 +56,7 @@ const AdminSubCategories = () => {
         <button onClick={handleAdd} className="add-button">
           Add
         </button>
+        <div className="subCategoires-tables">
         <table>
           <thead>
             <tr>
@@ -91,6 +92,7 @@ const AdminSubCategories = () => {
             onAddSubCategory={handleAddSubCategory}
           />
         )}
+      </div>
       </div>
     </>
   );
@@ -128,12 +130,14 @@ export const AdminSubCategoriesCard = ({
         />
       </td>
       <td>
-        <button onClick={handleEditClick} className="admin-edit--button">
+        <div className="button-container">
+                <button onClick={handleEditClick} className="admin-edit--button">
           <p>Edit</p>
         </button>
         <button onClick={handleDeleteClick} className="admin-edit--button">
           <p>Delete</p>
         </button>
+        </div>
       </td>
     </tr>
   );

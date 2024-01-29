@@ -1,4 +1,8 @@
-import React, { useState, useRef,useEffect } from 'react';
+<<<<<<< HEAD
+import { useState, useEffect } from 'react';
+=======
+import React, { useState,useEffect } from 'react';
+>>>>>>> remotes/origin/main
 import './ourStory.css';
 import dogVideo from "../assets/dogs.mp4";
 import axios from "axios";

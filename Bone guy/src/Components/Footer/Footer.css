@@ -55,11 +55,32 @@ ul {
     display: flex;
     flex-direction: column;
     height: 600px;
-    /* align-items: center; */
+    
     width: 200px;
-    /* border: solid red 2px; */
+    
   }
   footer {
     height: 650px;
+    
+  }
+  .ulfooter li {
+    font-size: 12px;
+  }
+  .footerLogo {
+    height: 80px;
+    width: 80px;
+    margin-left: 55px;
+    
+  }
+  .facebooklogo{
+    height: 20px;
+    width: 20px;
+  }
+  .instagramlogo{
+    height: 20px;
+    width: 20px;
+  }
+  .mailinglist1{
+    width: 110px;
   }
 }

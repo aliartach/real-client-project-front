@@ -1,18 +1,28 @@
 .termsandconditionscomponent {
-    height: 500px;
-    width: 400px;
-    border: solid red 3px;
-    margin: auto;
+    height: 100%;
     width: 85%;
+    margin: auto;
     display: flex;
+    /* border: solid yellow 2px; */
     align-items: center;
     justify-content: center;
 }
 .termsandconditionscomp {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 15px;
 }
-.termsconditiondescription {
+
+.termsandconditiontitle {
     font-size: 30px;
+}
+.termslastupdate {
+    margin-top: -10px;
+    display: flex;
+    justify-content: center;
+}
+.termsfooter {
+    margin-top: 30px;
+    text-align: center;
+    color: #666;
 }

@@ -1,7 +1,7 @@
 import "../Footer/Footer.css";
-import footerLogo from "../../../public/logo.png";
-import facebooklogo from "../../../public/facebooklogo.png";
-import instagramlogo from "../../../public/instagramlogo.png";
+import footerLogo from "/logo.png";
+import facebooklogo from "/facebooklogo.png";
+import instagramlogo from "/instagramlogo.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -14,33 +14,22 @@ const Footer = () => {
           </a>
         </div>
         <div>
-          <ul>
-            <Link to="">
-              <li className="lifooter">OUR STORY</li>
-            </Link>
-            <Link to="">
-              <li className="lifooter">FAQs</li>
-            </Link>
-            <Link to="">
-              <li className="lifooter">CONTACT US</li>
-            </Link>
-          </ul>
+            <ul className="ulfooter">
+                <Link to=""><li className="lifooter">OUR STORY</li></Link> 
+                <Link to=""><li className="lifooter">FAQs</li></Link>
+                <Link to=""><li className="lifooter">CONTACT US</li></Link> 
+            </ul>
         </div>
         <div>
-          <ul>
-            <Link to="">
-              <li className="lifooter">PRIVACY POLICY</li>
-            </Link>
-            <Link to="">
-              <li className="lifooter">TERMS & CONDITIONS</li>
-            </Link>
-            <Link to="">
-              <li className="lifooter">RETURN POLICY</li>
-            </Link>
-          </ul>
+         
+            <ul className="ulfooter">
+                <Link to='/Policy' state= "privacy-policy"><li className="lifooter">PRIVACY POLICY</li></Link>
+                <Link to="/Policy" state="terms-and-conditions" ><li className="lifooter">TERMS & CONDITIONS</li></Link> 
+                <Link to="/Policy" state="return-policy"><li className="lifooter">RETURN POLICY</li></Link>
+            </ul>
         </div>
         <div>
-          <ul>
+          <ul className="ulfooter">
             <li className="lifooter">FOLLOW US</li>
             <div>
               <a
@@ -69,7 +58,7 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <ul>
+          <ul className="ulfooter">
             <li className="lifooter">MAILING LIST</li>
             <input
               className="mailinglist1"

@@ -1,0 +1,8 @@
+.header-product{
+
+    background-image: url('../../assets/Header-product.jpeg');
+    background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 500px;
+}

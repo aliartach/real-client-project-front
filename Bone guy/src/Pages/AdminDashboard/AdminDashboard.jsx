@@ -1,4 +1,5 @@
-import React from 'react';
+// import React from 'react';
+// import { FaCube, FaFileAlt, FaTags, FaCubes } from 'react-icons/fa';
 // import AdminContent from '../Content-Admin/content';
 import Sidebar from '../Sidebar/Sidebar';
 import { Outlet } from 'react-router-dom';

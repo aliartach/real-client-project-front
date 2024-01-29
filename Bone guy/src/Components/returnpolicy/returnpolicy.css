@@ -1,18 +1,32 @@
 .returnpolicycomponent {
-    height: 500px;
-    width: 400px;
-    border: solid red 3px;
-    margin: auto;
+    height: 100%;
     width: 85%;
+    /* border: solid red 3px; */
+    margin: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 .returnpolicycomp {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 15px;
 }
-.returnpolicydescription {
-    font-size: 30px;
+.returnlastupdate {
+    margin-top: -10px;
+    display: flex;
+    justify-content: center;
+}
+.returnfooter {
+    margin-top: 30px;
+    text-align: center;
+    color: #666;
+}
+.test1 {
+    display: flex;
+    flex-direction: column;
+    /* border: solid red 2px; */
+    margin-right: 220px;
+    width: 100%;
 }

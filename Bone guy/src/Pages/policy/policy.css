@@ -2,4 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #f6e1d7;
+}
+.policypage {
+    background-image: url('../../../public/backgroundprivacy.avif');
 }

@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './ourStory.css';
 import dogVideo from "../assets/dogs.mp4";
 import axios from "axios";

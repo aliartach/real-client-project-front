@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import  {useState, useEffect} from 'react';
 import axios from 'axios';
 import FeaturedProductsCarousel from '../Featured-products-carousel/featured-products-carousel.jsx'
 import './featured-products.css';
@@ -25,7 +25,7 @@ const Featured = () => {
         console.error("error fetching featured products:", error);
       } finally {
         setLoading(false);
-      };
+      }
     };
     fetchFeaturedProducts();
   }, []);

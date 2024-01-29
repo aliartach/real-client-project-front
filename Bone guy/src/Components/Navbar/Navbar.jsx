@@ -1,4 +1,3 @@
-import React from "react";
 import Logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import "./Navbar.css"
@@ -11,10 +10,10 @@ function Navbar() {
       </div>
       
       <section className="navbar-content">
-        <Link to="#">
+        <Link to="/product">
           <p>products</p>
         </Link>
-        <Link to="#">
+        <Link to="/aboutus">
           <p>our story</p>
         </Link>
         <Link to="#">

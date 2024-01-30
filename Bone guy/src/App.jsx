@@ -1,10 +1,11 @@
+// import { useState } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Home from './Pages/Home'
 import AboutUs from './Pages/AboutUs/AboutUs'
 import FAQ from './Pages/FAQs/FAQs'
 import Policy from './Pages/policy/policy'
 import ContactUs from './Pages/Contactus/ContactUs'
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // import Featured from './Components/Featured-section/featured-products/featured-products'
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
 import AdminContent from "./Pages/Content-Admin/content";
@@ -14,8 +15,11 @@ import SignUp from './Components/SignUp/SignUp'
 
 
 function App() {
+
   return (
     <Router>
+    
+      {/* <NavBarPolicies /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />

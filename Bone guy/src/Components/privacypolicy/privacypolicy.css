@@ -3,8 +3,6 @@
     width: 85%;
     align-items: center;
     display: flex;
-    /* border: solid black 3px; */
-    /* background-image: url('../../../public/backgroundprivacy.avif'); */
     justify-content: center;
     margin: auto;
 }
@@ -13,35 +11,29 @@
     flex-direction: column;
     gap: 15px;
 }
-h1 {
+.privacypolicycomp h1 {
     text-align: center;
     color: #333;
 }
-
-h2 {
+.privacypolicycomp h2 {
     color: #333;
 }
-
-p {
+.privacypolicycomp p {
     margin-bottom: 5px;
 }
-
-ol, ul {
+.privacypolicycomp ol, ul {
     margin-bottom: 5px;
     margin-top: 5px;
 }
-
-li {
+.privacypolicycomp li {
     margin-bottom: 5px;
 }
-
-.privacyfooter {
+.privacypolicycomp .privacyfooter {
     margin-top: 30px;
     text-align: center;
     color: #666;
-    /* border: solid red 2px; */
 }
-.privacylastupdate {
+.privacypolicycomp .privacylastupdate {
     margin-top: -10px;
     display: flex;
     justify-content: center;

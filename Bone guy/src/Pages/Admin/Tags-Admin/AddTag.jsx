@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+
 const AddtagForm = ({ onAddtag,onClose }) => {
   const [name, setName] = useState('');
   const [productIds, setProductIds] = useState([]); 
@@ -31,22 +32,23 @@ const AddtagForm = ({ onAddtag,onClose }) => {
   };
 
   return (
-    <div classname="addtag-Form">
+    <div className="add-Tag">
       <label>
         tag Name:
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
       </label>
-      <br />
-      <br />
+   
       <label>
         Product IDs (comma-separated):
         <input type="text" value={productIds.join(',')} onChange={(e) => setProductIds(e.target.value.split(','))} />
       </label>
       <br />
+      <div className="button-container">
       <button onClick={handleAddtag}>Add tag</button>
       <button type="button" onClick={onClose}>
           Cancel
         </button>
+        </div>
     </div>
   );
 };

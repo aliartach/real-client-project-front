@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./subcategories.css";
@@ -44,54 +43,61 @@ const AdminSubCategories = () => {
     }
   };
   const handleAddSubCategory = (newSubCategory) => {
- 
-    setSubCategories((prevSubCategories) => [...prevSubCategories, newSubCategory]);
-  
+    setSubCategories((prevSubCategories) => [
+      ...prevSubCategories,
+      newSubCategory,
+    ]);
+
     setShowAddForm(false);
   };
 
   return (
     <>
       <div className="subCategories-card-container">
+      <h1 className="adminPanel-title">SubCategories</h1>
         <button onClick={handleAdd} className="add-button">
           Add
         </button>
+        <div className="ub">
         <div className="subCategoires-tables">
-        <table>
-          <thead>
-            <tr>
-              <th>name</th>
-              <th>icon</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {subCategories.map((subCategory) => (
-              <AdminSubCategoriesCard
-                key={subCategory._id}
-                subCategory={subCategory}
-                showEditForm={showEditForm}
-                setShowEditForm={setShowEditForm}
-                onEdit={() => handleEdit(subCategory)}
-                onDelete={() => handleDelete(subCategory._id)}
-              />
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className={`edit-formContent-modal ${showEditForm ? "active" : ""}`}>
-        {showEditForm && (
-          <EditSubCategories
-            subCategory={selectedSubCategory}
-            onClose={() => setShowEditForm(false)}
-          />
-        )}
-        {showAddForm && (
-          <AddSubCategoryForm
-            onClose={() => setShowAddForm(false)}
-            onAddSubCategory={handleAddSubCategory}
-          />
-        )}
+          <table>
+            <thead>
+              <tr>
+                <th>name</th>
+                <th>icon</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {subCategories.map((subCategory) => (
+                <AdminSubCategoriesCard
+                  key={subCategory._id}
+                  subCategory={subCategory}
+                  showEditForm={showEditForm}
+                  setShowEditForm={setShowEditForm}
+                  onEdit={() => handleEdit(subCategory)}
+                  onDelete={() => handleDelete(subCategory._id)}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div
+          className={`edit-formContent-modal ${showEditForm ? "active" : ""}`}
+        >
+          {showEditForm && (
+            <EditSubCategories
+              subCategory={selectedSubCategory}
+              onClose={() => setShowEditForm(false)}
+            />
+          )}
+          {showAddForm && (
+            <AddSubCategoryForm
+              onClose={() => setShowAddForm(false)}
+              onAddSubCategory={handleAddSubCategory}
+            />
+          )}
+        </div>
       </div>
       </div>
     </>
@@ -131,16 +137,16 @@ export const AdminSubCategoriesCard = ({
       </td>
       <td>
         <div className="button-container">
-                <button onClick={handleEditClick} className="admin-edit--button">
-          <p>Edit</p>
-        </button>
-        <button onClick={handleDeleteClick} className="admin-edit--button">
-          <p>Delete</p>
-        </button>
+          <button onClick={handleEditClick}>
+            Edit
+          </button>
+          <button onClick={handleDeleteClick}>
+            Delete
+          </button>
         </div>
       </td>
     </tr>
   );
 };
 
-export default AdminSubCategories
+export default AdminSubCategories;

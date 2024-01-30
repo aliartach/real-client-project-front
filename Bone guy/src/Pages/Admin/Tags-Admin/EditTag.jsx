@@ -59,7 +59,7 @@ const EditTags = ({ tag, onClose }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="edit-formtag">
+    <form onSubmit={handleSubmit} className="edit-formSubCategory">
       <label>
         name:
         <input

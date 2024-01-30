@@ -4,9 +4,11 @@
     flex-direction: column;
     align-items: center;
    padding-top: 20px;
- margin-top: 40px;
+ margin-top: 30px;
    background-color: rgb(241, 238, 236);
    padding: 30px;
+   width: 100%;
+   
   }
   
   .edit-formSubCategory label {
@@ -29,7 +31,7 @@
     margin-top: 20px;
   }
   
-  .edit-formSubCategory button {
+  .button-container button {
     padding: 10px;
     width: 150px;
     cursor: pointer;
@@ -39,11 +41,6 @@
     border-radius: 5px;
   }
   
-
-  .edit-formSubCategory button[type="button"] {
-    background-color: #F6E1D7;
-    color: #59000D;
-  }
 .button-container{
     display: flex;
     flex-direction: row;

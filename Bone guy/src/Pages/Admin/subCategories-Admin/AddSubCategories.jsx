@@ -4,15 +4,14 @@
 // const AddSubCategoryForm = ({ onAddSubCategory,onClose }) => {
 //   const [name, setName] = useState('');
 //   const [icon, setIcon] = useState('');
-//   const [productIds, setProductIds] = useState([]); 
-
+//   const [productIds, setProductIds] = useState([]);
 
 //   const handleAddSubCategory = async () => {
 //     try {
 //       const response = await axios.post('http://localhost:4000/api/subcategory', {
 //         name,
 //         icon,
-//         products: productIds, 
+//         products: productIds,
 //       });
 
 //       console.log('Subcategory added successfully:', response.data);
@@ -20,14 +19,13 @@
 //         onAddSubCategory(response.data);
 //       }
 
-     
 //       setName('');
 //       setIcon('');
 //       setProductIds([]);
-    
+
 //     } catch (error) {
 //       console.error('Error adding subcategory:', error.message);
-     
+
 //     }
 //     onClose();
 //   };
@@ -58,68 +56,80 @@
 // };
 
 // export default AddSubCategoryForm;
-import React, { useState } from 'react';
-import axios, { formToJSON } from 'axios';
-import './AddSubCategory.css';
+import React, { useState } from "react";
+import axios from "axios";
+
 
 const AddSubCategoryForm = ({ onAddSubCategory, onClose }) => {
-  const [name, setName] = useState('');
-  const [icon, setIcon] = useState(null); 
+  const [name, setName] = useState("");
+  const [icon, setIcon] = useState(null);
   const [productIds, setProductIds] = useState([]);
 
- 
   const handleAddSubCategory = async () => {
     try {
-       const formData = new FormData();
-       formData.append('name', name);
-       formData.append('products', productIds.join(','));
-   
-       if (icon) {
-         formData.append('icon', icon);
-       }
-   
-       console.log('FormData:', formData);
-   
-       const response = await axios.post('http://localhost:4000/api/subcategory', formData, {
-         headers: {
-           'Content-Type': 'multipart/form-data',
-         },
-       });
-   
-       console.log('Subcategory added successfully:', response.data);
-   
-       if (onAddSubCategory) {
-         onAddSubCategory(response.data);
-       }
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("products", productIds.join(","));
+
+      if (icon) {
+        formData.append("icon", icon);
+      }
+
+      console.log("FormData:", formData);
+
+      const response = await axios.post(
+        "http://localhost:4000/api/subcategory",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log("Subcategory added successfully:", response.data);
+
+      if (onAddSubCategory) {
+        onAddSubCategory(response.data);
+      }
     } catch (error) {
-       console.error('Error adding subcategory:', error.message);
+      console.error("Error adding subcategory:", error.message);
     }
     onClose();
-   };
-   
+  };
 
   return (
-    <div className="addSubCategory-Form">
+    <div className="add-Tag">
       <label>
         Subcategory Name:
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
       </label>
       <br />
       <label>
-  Icon:
-  <input type="file" onChange={(e) => setIcon(e.target.files[0])} />
-</label>
+        Icon:
+        <input type="file" onChange={(e) => setIcon(e.target.files[0])} />
+      </label>
 
       <br />
       <label>
         Product IDs (comma-separated):
-        <input type="text" value={productIds.join(',')} onChange={(e) => setProductIds(e.target.value.split(','))} />
+        <input
+          type="text"
+          value={productIds.join(",")}
+          onChange={(e) => setProductIds(e.target.value.split(","))}
+        />
       </label>
       <br />
-      <button onClick={handleAddSubCategory}>Add Subcategory</button>
-      <button type="button" onClick={onClose}>
-        Cancel
-      </button>
+      <div className="button-container">
+        <button onClick={handleAddSubCategory}>Add Subcategory</button>
+        <button type="button" onClick={onClose}>
+          Cancel
+        </button>
+      </div>
     </div>
   );
 };

@@ -35,6 +35,7 @@ const AdminContent = () => {
   return (
     <>
       <div className="content-card-container">
+      <h1 className="adminPanel-title">Content</h1>
         <table>
           <thead>
             <tr>
@@ -83,8 +84,8 @@ export const AdminContentCard = ({ content, showEditForm, onEdit ,setShowEditFor
       <td>{content.firstDescription}</td>
       <td>{content.featuredDescription}</td>
       <td>{content.storyDescription}</td>
-      <td><img src={`http://localhost:4000/${content.imageCat}`} alt="Cat" className="images-admin"/></td>
-      <td><img src={`http://localhost:4000/${content.imageDog}`} alt="Dog" className="images-admin"/></td>
+      <td><img src={`http://localhost:4000/${content.imageCat}`} alt="Cat" className="images-admin-content"/></td>
+      <td><img src={`http://localhost:4000/${content.imageDog}`} alt="Dog" className="images-admin-content"/></td>
 
       <td>
    

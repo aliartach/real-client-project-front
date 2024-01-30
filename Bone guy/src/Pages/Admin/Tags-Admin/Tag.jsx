@@ -51,7 +51,8 @@ const Admintags = () => {
 
   return (
     <>
-      <div className="tags-card-container">
+       <h1 className="adminPanel-title">Tag</h1>
+      <div className="subCategories-card-container">
         <button onClick={handleAdd} className="add-button">
           Add
         </button>

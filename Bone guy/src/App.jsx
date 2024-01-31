@@ -10,6 +10,7 @@ import ContactUs from './Pages/ContactUs/ContactUs.jsx'
 import AdminDashboard from "./Pages/Admin/AdminDashboard/AdminDashboard.jsx";
 import AdminContent from "./Pages/Admin/Content-Admin/content.jsx";
 import AdminSubCategories from "./Pages/Admin/subCategories-Admin/subCategories.jsx";
+import AdminProducts from "./Pages/Admin/Admin-products/admin-products.jsx";
 import Login from './Components/Login/Login'
 import SignUp from './Components/SignUp/SignUp'
 import Product from './Pages/Product/Product';
@@ -18,7 +19,6 @@ function App() {
 
   return (
     <Router>
-
       {/* <NavBarPolicies /> */}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -30,13 +30,12 @@ function App() {
         <Route path="/" element={<AboutUs />} />
         <Route path="/FAQs" element={<FAQ />} />
         <Route path='/admin' element={<AdminDashboard />}>
-          {/* <Route path='/products' element={<AdminProducts/>}/> */}
-          <Route path='admin/content/' element={<AdminContent />} />
-          <Route path='admin/subCategories/' element={<AdminSubCategories />} />
+          <Route path='/admin/products' element={<AdminProducts/>}/>
+          <Route path='/admin/content/' element={<AdminContent />} />
+          <Route path='/admin/subCategories/' element={<AdminSubCategories />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
-
       </Routes>
     </Router>
   );

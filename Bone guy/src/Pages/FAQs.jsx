@@ -25,7 +25,7 @@ const Accordion = () => {
     <div className="accordion">
       <h1>FAQs: Frequestly Asked Questions</h1>
       {questions.map(({ id, question, answer }) => (
-        <div key={id} className={`accordion-item ${openQuestion === id ? 'open' : ''}`}>
+        <div key={id} className={`accordion-item `}>
           <div className="question" onClick={() => handleQuestionClick(id)}>
             {question}
           </div>

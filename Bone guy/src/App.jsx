@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 // import SubCategories from './Components/SubCategories/SubCategories'
 import AdminDashboard from './Pages/AdminDashboard/AdminDashboard'
 import AdminContent from './Pages/Content-Admin/content'
+import Product from './Pages/Product/Product'
 function App() {
   return (
 
@@ -19,16 +20,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/product" element={<Product />} />
 
         <Route path="/" element={<FAQ />} />
         <Route path="/Policy" element={<Policy />} />
         <Route path="/ContactUs" element={<ContactUs />} />
+        <Route path="/Product" element={<Product />} />
 
 
         {/* <Route path="/" element={<SubCategories />} /> */}
         {/* <Route path="/" element={<AboutUs />} /> */}
-        {/* <Route path="/" element={<FAQ />} /> */}
+        <Route path="/FAQ" element={<FAQ />} />
      
       <Route path='/admin' element={<AdminDashboard/>}>
         {/* <Route path='/products' element={<AdminProducts/>}/> */}

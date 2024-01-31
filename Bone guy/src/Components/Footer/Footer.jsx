@@ -16,7 +16,7 @@ const Footer = () => {
         <div>
             <ul className="ulfooter">
                 <Link to=""><li className="lifooter">OUR STORY</li></Link> 
-                <Link to=""><li className="lifooter">FAQs</li></Link>
+                <Link to="/FAQ"><li className="lifooter">FAQs</li></Link>
                 <Link to=""><li className="lifooter">CONTACT US</li></Link> 
             </ul>
         </div>

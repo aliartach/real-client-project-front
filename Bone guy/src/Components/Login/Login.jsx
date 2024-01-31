@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Login.css';
@@ -26,7 +26,7 @@ const Login = () => {
       const { token } = response.data;
       if (token) {
         sessionStorage.setItem('jwt', token)
-        navigate('/'); // To change it to admin dashboard once done.
+        navigate('/admin');
       }
     } catch (error) {
       const errorMessage = error.response.data.error || 'Login failed. Please try again.'
@@ -71,6 +71,7 @@ const Login = () => {
               </span>
             </div>
             <button type="submit">LOG IN</button>
+            <p>Don't have an account? <Link to='/signup'>Sign up</Link></p>
           </form>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import "../Footer/Footer.css";
-import footerLogo from "/logo.png";
-import facebooklogo from "/facebooklogo.png";
-import instagramlogo from "/instagramlogo.png";
+import footerLogo from "../../../public/logo.png";
+import facebooklogo from "../../../public/facebooklogo.png";
+import instagramlogo from "../../../public/instagramlogo.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {

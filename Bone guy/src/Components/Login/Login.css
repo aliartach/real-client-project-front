@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 22vh auto;
+  margin: 17vh auto;
   padding: 30px;
   width: 35%;
   background-color: #f3f3f3;
@@ -24,6 +24,9 @@
   flex-direction: column;
   width: 100%;
   gap: 10px;
+}
+.login-form p {
+  text-align: center;
 }
 
 .login-form input {

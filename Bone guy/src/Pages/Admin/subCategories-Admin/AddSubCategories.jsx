@@ -37,7 +37,7 @@ const AddSubCategoryForm = ({ onAddSubCategory, onClose }) => {
   };
 
   return (
-    <div classname="addSubCategory-Form">
+    <div className="addSubCategory-Form">
       <label>
         Subcategory Name:
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />

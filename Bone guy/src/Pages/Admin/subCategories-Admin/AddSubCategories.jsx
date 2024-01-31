@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import "./AddSubCategory.css";
-const AddSubCategoryForm = ({ onAddSubCategory,onClose }) => {
+const AddSubCategoryForm = ({ onAddSubCategory, onClose }) => {
   const [name, setName] = useState('');
-  const [icon, setIcon] = useState('');
-  const [productIds, setProductIds] = useState([]); 
+  const [icon, setIcon] = useState(null);
+  // const [productIds, setProductIds] = useState([]); 
 
 
   const handleAddSubCategory = async () => {
@@ -12,7 +12,11 @@ const AddSubCategoryForm = ({ onAddSubCategory,onClose }) => {
       const response = await axios.post('http://localhost:4000/api/subcategory', {
         name,
         icon,
-        products: productIds, 
+        // products: productIds, 
+      }, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
       });
 
       console.log('Subcategory added successfully:', response.data);
@@ -20,14 +24,14 @@ const AddSubCategoryForm = ({ onAddSubCategory,onClose }) => {
         onAddSubCategory(response.data);
       }
 
-     
+
       setName('');
       setIcon('');
-      setProductIds([]);
-    
+      // setProductIds([]);
+
     } catch (error) {
       console.error('Error adding subcategory:', error.message);
-     
+
     }
     onClose();
   };
@@ -41,18 +45,18 @@ const AddSubCategoryForm = ({ onAddSubCategory,onClose }) => {
       <br />
       <label>
         Icon:
-        <input type="text" value={icon} onChange={(e) => setIcon(e.target.value)} />
+        <input type="file" onChange={(e) => setIcon(e.target.files[0])} />
       </label>
-      <br />
+      {/* <br />
       <label>
         Product IDs (comma-separated):
         <input type="text" value={productIds.join(',')} onChange={(e) => setProductIds(e.target.value.split(','))} />
-      </label>
+      </label> */}
       <br />
       <button onClick={handleAddSubCategory}>Add Subcategory</button>
       <button type="button" onClick={onClose}>
-          Cancel
-        </button>
+        Cancel
+      </button>
     </div>
   );
 };

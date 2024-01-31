@@ -12,6 +12,7 @@ import AdminContent from "./Pages/Content-Admin/content";
 import AdminSubCategories from "./subCategories-Admin/subCategories";
 import Login from './Components/Login/Login'
 import SignUp from './Components/SignUp/SignUp'
+import Product from './Pages/Product/Product';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />
-        {/* <Route path="/product" element={<Product />} /> */}
+        <Route path="/product" element={<Product />} />
         <Route path="/" element={<FAQ />} />
         <Route path="/Policy" element={<Policy />} />
         <Route path="/ContactUs" element={<ContactUs />} />

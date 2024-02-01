@@ -16,6 +16,7 @@ import SignUp from './Components/SignUp/SignUp'
 import Product from './Pages/Product/Product';
 import Admintags from "./Pages/Admin/Tags-Admin/Tag";
 import ShoppingCart from "./Components/AddToCart";
+import AdminProductsInventory from './Pages/Admin/Admin-inventory/admin-inventory.jsx'
 import 'mdb-ui-kit/css/mdb.min.css';
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path='/admin/content/' element={<AdminContent />} />
           <Route path='/admin/subCategories/' element={<AdminSubCategories />} />
           <Route path="/admin/tags/" element={<Admintags />} />
+          <Route path="/admin/inventory/" element={<AdminProductsInventory/>} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />

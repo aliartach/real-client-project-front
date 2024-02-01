@@ -15,10 +15,6 @@ const Admintags = () => {
     setShowEditForm(true);
   };
 
-  const handleAdd = () => {
-    setShowAddForm(true);
-  };
-
   const fetchtagsData = async () => {
     try {
       const response = await axios.get("http://localhost:4000/api/tag");
@@ -53,7 +49,7 @@ const Admintags = () => {
     <>
        <h1 className="adminPanel-title">Tag</h1>
       <div className="subCategories-card-container">
-        <button onClick={handleAdd} className="add-button">
+        <button type="button" onClick={(e)=> { e.preventDefault(); setShowAddForm(true);}} className="add-button">
           Add
         </button>
         <div className="subCategoires-tables">

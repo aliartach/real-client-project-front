@@ -20,7 +20,7 @@ function Navbar() {
         </Link>
       </div>
       
-      <section className="navbar-content">
+      <section className={pathname === '/login' || pathname === '/signup' ? "login-navbar" : "navbar-content"}>
         <Link to="/product">
           <p>products</p>
         </Link>

@@ -6,7 +6,6 @@ import Featured from '../Components/Featured-section/featured-products/featured-
 import OurStory from '../Components/ourStory'
 import SubCategories from '../Components/SubCategories/SubCategories'
 
-
 function Home() {
   return (
     <>

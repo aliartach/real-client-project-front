@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
-
+import ProductCard from "../../../Components/Admin-content-card/Admin-product-card.jsx";
 
 const AdminProducts = () => {
   const [admin_products, setAdminProducts] = useState([]);
@@ -10,9 +10,11 @@ const AdminProducts = () => {
   const [new_tags, setNewTags] = useState([]);
   const [new_product_body, setNewProductBody] = useState({});
   const [loading, setLoading] = useState(true);
+  const [show_add_product, setShowAddProduct] = useState(false);
 
   const fetchAdminProducts = useCallback(async () => {
     try {
+      console.log("fetching products in admin products");
       const admin_products_response = await axios.get("http://localhost:4000/api/product/");
       if(admin_products_response.data.length === 0) {
         console.error("admin products array is empty");
@@ -22,6 +24,7 @@ const AdminProducts = () => {
     } catch (error) {
       console.error(error);
     } finally {
+      console.log("finished fetching products in admin products");
       setLoading(false);
     }
   }, []);
@@ -75,30 +78,6 @@ const AdminProducts = () => {
             'Content-Type': 'multipart/form-data'
           }
         });
-      fetchAdminProducts();
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  const handleProductEdit = async (product, name, sub_categories, tags, description, price, image, featured, category, quantity, weight) => {
-    const edited_product = {
-      name,
-      sub_categories,
-      tags,
-      description,
-      price,
-      image,
-      featured,
-      category,
-      quantity,
-      weight,
-    }
-    try {
-      await axios.patch(
-        `http://localhost:4000/api/product/${product._id}`,
-        edited_product
-      );
       fetchAdminProducts();
     } catch (error) {
       console.error(error);
@@ -198,8 +177,14 @@ const AdminProducts = () => {
 
   return (
     <section className="admin-products-main">
+      {console.log("this is loading in admin products: ", loading)} {console.log("this is admin products in admin products: ", admin_products)}
+      {!loading ? (admin_products && admin_products.length > 0 ? (admin_products.map((product, index) => (
+        <ProductCard key={index} sub_categories={sub_categories} tags={tags} product={product} handleProductDelete={handleProductDelete} fetchAdminProducts={fetchAdminProducts} />
+      ))) : (<p>no products found</p>)):(<p className="admin-products-loading">Loading Products</p>)}
       {/* {console.log("this is new categories in admin product: ", new_sub_categories)} */}
-      <form className="admin-products-form" onSubmit={handleProductAdd} encType="multipart/form-data">
+      <button type="button" className="show-add-product-form-button-in-admin-product" onClick={() => setShowAddProduct(true)}>Add A New Product</button>
+      {show_add_product && (
+        <form className="admin-products-form" onSubmit={handleProductAdd} encType="multipart/form-data">
         <label className="admin-products-input">
           Product Name:
         <input type="text" name="name" onBlur={handleInputChange} required />
@@ -254,7 +239,9 @@ const AdminProducts = () => {
         <input type="number" name="weight" onBlur={handleInputChange} />
         </label>
         <button type="submit" className="admin-product-submit-button">Add Product</button>
+        <button type="reset" className="admin-product-cancel-button" onClick={() => setShowAddProduct(false)}>Cancel</button>
       </form>
+      )}
     </section>
   );
 };

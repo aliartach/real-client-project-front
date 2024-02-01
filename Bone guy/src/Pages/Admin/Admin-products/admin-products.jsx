@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
-import './admin-products.css';
 import ProductCard from "../../../Components/Admin-content-card/Admin-product-card.jsx";
 
 const AdminProducts = () => {

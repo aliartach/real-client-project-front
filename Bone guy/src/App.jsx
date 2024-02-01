@@ -14,9 +14,11 @@ import AdminProducts from "./Pages/Admin/Admin-products/admin-products.jsx";
 import Login from './Components/Login/Login'
 import SignUp from './Components/SignUp/SignUp'
 import Product from './Pages/Product/Product';
+import Admintags from "./Pages/Admin/Tags-Admin/Tag";
+import ShoppingCart from "./Components/AddToCart";
+import 'mdb-ui-kit/css/mdb.min.css';
 
 function App() {
-
   return (
     <Router>
       {/* <NavBarPolicies /> */}
@@ -33,9 +35,11 @@ function App() {
           <Route path='/admin/products' element={<AdminProducts/>}/>
           <Route path='/admin/content/' element={<AdminContent />} />
           <Route path='/admin/subCategories/' element={<AdminSubCategories />} />
+          <Route path="admin/tags/" element={<Admintags />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
+        <Route path="/cart" element={<ShoppingCart />} />
       </Routes>
     </Router>
   );

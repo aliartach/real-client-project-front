@@ -15,7 +15,7 @@ const EditContent = ({ content, onClose }) => {
     if (e.target.type === 'file') {
       setEditedContent((prevState) => ({
         ...prevState,
-        [e.target.name]: e.target.files[0], // Use FileList and get the first file
+        [e.target.name]: e.target.files[0], 
       }));
     } else {
       setEditedContent((prevState) => ({

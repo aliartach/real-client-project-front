@@ -15,6 +15,7 @@ import SignUp from "./Components/SignUp/SignUp";
 import AdminProducts from "./Pages/Admin/Admin-products/admin-products"
 import Admintags from "./Pages/Admin/Tags-Admin/Tag";
 import ShoppingCart from "./Components/AddToCart";
+import CheckoutForm from "./Components/CheckoutForm";
 import 'mdb-ui-kit/css/mdb.min.css';
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
    
       
         <Route path="/cart" element={<ShoppingCart />} />
+        <Route path="/checkout" element={<CheckoutForm />} />
       </Routes>
     </Router>
   );

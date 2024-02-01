@@ -2,7 +2,7 @@ import React from "react";
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
-
+import { Link } from "react-router-dom";
 import './AddToCart.css';
 
 const ShoppingCart = () => {
@@ -63,7 +63,7 @@ const ShoppingCart = () => {
                   </div>
                   <button type="button" className="btn btn-primary btn-block btn-lg checkout-btn" >
                     <div className="d-flex justify-content-between">
-                      <span>Checkout</span>
+                      <span><Link to={`/checkout`}>Checkout</Link></span>
                       <span>$26.48</span>
                     </div>
                   </button>

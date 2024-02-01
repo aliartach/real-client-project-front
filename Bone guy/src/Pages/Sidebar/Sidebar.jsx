@@ -23,6 +23,7 @@ function Sidebar() {
         <li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaFileAlt /> <Link to={`content/`}>Content</Link></li>
         <li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaTags/> <Link to={`tags/`}>Tags</Link></li>
         <li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaCubes /> <Link to={`subcategories/`}>SubCategories</Link></li>
+        <li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaCubes /> <Link to={`inventory/`}>Inventory</Link></li>
       </ul>
       
       <button className="burger-button" onClick={toggleSidebar}>

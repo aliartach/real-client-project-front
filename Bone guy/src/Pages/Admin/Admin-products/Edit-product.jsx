@@ -29,6 +29,7 @@ const Editproduct = ({ product, tags, sub_categories, setProductEditStatus, fetc
           }
         } 
       );
+      setProductEditStatus(false);
       fetchAdminProducts();
     } catch (error) {
       console.error(error);

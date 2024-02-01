@@ -11,6 +11,7 @@ const AdminProducts = () => {
   const [new_product_body, setNewProductBody] = useState({});
   const [loading, setLoading] = useState(true);
   const [show_add_product, setShowAddProduct] = useState(false);
+  const [product_edit_status, setProductEditStatus] = useState(false);
 
   const fetchAdminProducts = useCallback(async () => {
     try {
@@ -78,6 +79,7 @@ const AdminProducts = () => {
             'Content-Type': 'multipart/form-data'
           }
         });
+      setShowAddProduct(false);
       fetchAdminProducts();
     } catch (error) {
       console.error(error);
@@ -179,7 +181,11 @@ const AdminProducts = () => {
     <section className="admin-products-main">
       {console.log("this is loading in admin products: ", loading)} {console.log("this is admin products in admin products: ", admin_products)}
       {!loading ? (admin_products && admin_products.length > 0 ? (admin_products.map((product, index) => (
-        <ProductCard key={index} sub_categories={sub_categories} tags={tags} product={product} handleProductDelete={handleProductDelete} fetchAdminProducts={fetchAdminProducts} />
+        <section key={index} className="Admin-product-card-and-buttons-container">
+          <ProductCard sub_categories={sub_categories} tags={tags} product={product} setProductEditStatus={setProductEditStatus} product_edit_status={product_edit_status} handleProductDelete={handleProductDelete} fetchAdminProducts={fetchAdminProducts} />
+          <button type="button" className="edit-product-button-in-product-card" onClick={() => setProductEditStatus(true)}>Edit</button>
+          <button type="button" className="delete-product-button-in-product-card" onClick={() => handleProductDelete(product)}>Delete</button>
+        </section>
       ))) : (<p>no products found</p>)):(<p className="admin-products-loading">Loading Products</p>)}
       {/* {console.log("this is new categories in admin product: ", new_sub_categories)} */}
       <button type="button" className="show-add-product-form-button-in-admin-product" onClick={() => setShowAddProduct(true)}>Add A New Product</button>

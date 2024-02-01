@@ -1,7 +1,7 @@
 import "../Footer/Footer.css";
-import footerLogo from "/logo.png";
-import facebooklogo from "/facebooklogo.png";
-import instagramlogo from "/instagramlogo.png";
+import footerLogo from "../../../public/logo.png";
+import facebooklogo from "../../../public/facebooklogo.png";
+import instagramlogo from "../../../public/instagramlogo.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -15,8 +15,8 @@ const Footer = () => {
         </div>
         <div>
             <ul className="ulfooter">
-                <Link to=""><li className="lifooter">OUR STORY</li></Link> 
-                <Link to=""><li className="lifooter">FAQs</li></Link>
+                <Link to="/aboutus"><li className="lifooter">OUR STORY</li></Link> 
+                <Link to="/FAQs"><li className="lifooter">FAQs</li></Link>
                 <Link to=""><li className="lifooter">CONTACT US</li></Link> 
             </ul>
         </div>

@@ -39,11 +39,11 @@ const AdminContent = () => {
         <table>
           <thead>
             <tr>
-              <th>firstDescription</th>
-              <th>featuredDescription</th>
-              <th>storyDescription</th>
-              <th>imageCat</th>
-              <th>imageDog</th>
+              <th>First Description</th>
+              <th>Featured Description</th>
+              <th>Story Description</th>
+              <th>Image Cat</th>
+              <th>Image Dog</th>
               <th>Action</th>
             </tr>
           </thead>

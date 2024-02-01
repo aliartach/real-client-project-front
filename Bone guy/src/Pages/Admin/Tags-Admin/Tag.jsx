@@ -60,7 +60,7 @@ const Admintags = () => {
         <table>
           <thead>
             <tr>
-              <th>name</th>
+              <th>Name</th>
            
               <th>Action</th>
             </tr>

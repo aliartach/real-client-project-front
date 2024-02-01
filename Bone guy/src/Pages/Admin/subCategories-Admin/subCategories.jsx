@@ -63,8 +63,8 @@ const AdminSubCategories = () => {
           <table>
             <thead>
               <tr>
-                <th>name</th>
-                <th>icon</th>
+                <th>Name</th>
+                <th>Icon</th>
                 <th>Action</th>
               </tr>
             </thead>

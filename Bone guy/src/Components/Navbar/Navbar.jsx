@@ -1,12 +1,23 @@
 import Logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css"
+
+
 function Navbar() {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const logout = () => {
+    sessionStorage.clear();
+    navigate('/');
+  }
+
   return (
     <>
-     
       <div className="top-section-navbar">
-        <img src={Logo} alt="logo-image" className="Logo-image" />
+        <Link to="/">
+          <img src={Logo} alt="logo-image" className="Logo-image" />
+        </Link>
       </div>
       
       <section className="navbar-content">
@@ -16,7 +27,7 @@ function Navbar() {
         <Link to="/aboutus">
           <p>our story</p>
         </Link>
-        <Link to="#">
+        <Link to="/ContactUs">
           <p>contact us</p>
         </Link>
       </section>

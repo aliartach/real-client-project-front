@@ -5,7 +5,6 @@ import Home from './Pages/Home'
 import AboutUs from './Pages/AboutUs/AboutUs'
 import FAQ from './Pages/FAQs/FAQs'
 import Policy from './Pages/policy/policy'
-import ContactUs from './Pages/Contactus/ContactUs'
 // import Featured from './Components/Featured-section/featured-products/featured-products'
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
 import AdminContent from "./Pages/Content-Admin/content";
@@ -13,6 +12,7 @@ import AdminSubCategories from "./subCategories-Admin/subCategories";
 import Login from './Components/Login/Login'
 import SignUp from './Components/SignUp/SignUp'
 import Product from './Pages/Product/Product';
+import ContactUs from './Pages/ContactUs/ContactUs'
 
 
 function App() {

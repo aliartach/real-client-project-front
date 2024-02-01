@@ -9,7 +9,7 @@ const AddSubCategoryForm = ({ onAddSubCategory, onClose }) => {
 
   const fetchAdminProducts = useCallback(async () => {
     try {
-      console.log("fetching products in admin products");
+      console.log("fetching products in admin sub categories");
       const admin_products_response = await axios.get("http://localhost:4000/api/product/");
       if(admin_products_response.data.length === 0) {
         console.error("admin products array is empty");
@@ -19,7 +19,7 @@ const AddSubCategoryForm = ({ onAddSubCategory, onClose }) => {
     } catch (error) {
       console.error(error);
     } finally {
-      console.log("finished fetching products in admin products");
+      console.log("finished fetching products in admin subcategories");
     }
   }, []);
 

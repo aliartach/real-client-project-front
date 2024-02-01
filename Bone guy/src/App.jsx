@@ -35,9 +35,10 @@ function App() {
           <Route path="admin/content/" element={<AdminContent />} />
           <Route path="admin/subCategories/" element={<AdminSubCategories />} />
           <Route path="admin/products/" element={<AdminProducts />} />
+          <Route path="admin/tags/" element={<Admintags />} />
         </Route>
         <Route path="/login" element={<Login />} />
-        <Route path="admin/tags/" element={<Admintags />} />
+   
       
         <Route path="/cart" element={<ShoppingCart />} />
       </Routes>

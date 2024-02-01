@@ -171,6 +171,7 @@ const Editproduct = ({ product, tags, sub_categories, setProductEditStatus, fetc
             Product Category:
           </label>
           <select id="category" name="category" onChange={handleCategoryChange} >
+          <option value={""}>Choose a Category</option>
           <option>Dogs</option>
           <option>Cats and Dogs</option>
           </select>

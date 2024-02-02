@@ -17,7 +17,7 @@ function Navbar() {
         <Link to="#">
           <p>our story</p>
         </Link>
-        <Link to="#">
+        <Link to="/ContactUs">
           <p>contact us</p>
         </Link>
       </section>

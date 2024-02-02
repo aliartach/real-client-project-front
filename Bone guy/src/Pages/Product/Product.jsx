@@ -1,13 +1,15 @@
 import React from 'react';
 import HeaderProduct from '../../Components/HeaderProduct/HeaderProduct'
-import SideBarProduct from '../../Components/side-bar-products/SideBarProduct';
+import FetchedProducts from '../../Components/FetchedProducts/FetchedProducts';
+import Footer from '../../Components/Footer/Footer'
+
 function Product() {
   return (
     <>
-    <HeaderProduct/>
-    <SideBarProduct/>
+      <HeaderProduct />
+      <FetchedProducts />
+      <Footer />
     </>
-
   )
 }
 

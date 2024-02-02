@@ -24,12 +24,17 @@
   text-decoration: none;
 }
 
+.login-navbar {
+  display: none;
+}
+
 .navbar-content a {
   text-decoration: none;
 }
 .navbar-content p:hover {
   color: #ac4543;
 }
+
 .Logo-image {
   z-index: 2;
   margin-left: 50%;

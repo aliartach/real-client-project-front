@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import './FAQs.css';
+import Navbar from '../../Components/Navbar/Navbar';
+import Footer from '../../Components/Footer/Footer';
 
 const Accordion = () => {
+
   const questions = [
     {
       id: 1,
@@ -22,6 +25,8 @@ const Accordion = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="accordion">
       <h1>FAQs: Frequestly Asked Questions</h1>
       {questions.map(({ id, question, answer }) => (
@@ -37,6 +42,8 @@ const Accordion = () => {
         </div>
       ))}
     </div>
+    {/* <Footer /> */}
+    </>
   );
 };
 

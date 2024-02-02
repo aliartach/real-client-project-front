@@ -4,7 +4,7 @@ import "./Navbar.css"
 import PropTypes from 'prop-types';
 
 
-function Navbar({textColor}) {
+function Navbar() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ function Navbar({textColor}) {
         </Link>
       </div>
       
-      <section className="navbar-content" style={{color: textColor}}>
+      <section className={pathname === '/login' || pathname === '/signup' ? "login-navbar" : "navbar-content"}>
         <Link to="/product">
           <p>products</p>
         </Link>

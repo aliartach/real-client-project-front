@@ -2,16 +2,9 @@ import Logo from "../../assets/logo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css"
 import PropTypes from 'prop-types';
-
-
 function Navbar({textColor}) {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-
-  const logout = () => {
-    sessionStorage.clear();
-    navigate('/');
-  }
 
   return (
     <>

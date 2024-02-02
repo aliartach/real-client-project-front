@@ -2,7 +2,7 @@ import {useLocation} from "react-router-dom";
 import './policy.css';
 import Navbarpolicie from "../../Components/navbarpolicies/navbarpolicies";
 import Footer from "../../Components/Footer/Footer";
-import Logo from "../../../public/logo.png";
+import Logo from "/logo.png";
 
 
 const Policy = () => {

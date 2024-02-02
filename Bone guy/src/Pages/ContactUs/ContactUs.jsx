@@ -3,9 +3,9 @@ import Footer from '../../Components/Footer/Footer'
 import Navbar from '../../Components/Navbar/Navbar'
 import { useRef } from "react"
 import emailjs from '@emailjs/browser'
-import Mailicon from '../../../public/mail.png'
-import Phoneicon from '../../../public/phone.png'
-import pointericon from '../../../public/pointer.png'
+import Mailicon from '/mail.png'
+import Phoneicon from '/phone.png'
+import pointericon from '/pointer.png'
 
 
 const Contactus = () => {

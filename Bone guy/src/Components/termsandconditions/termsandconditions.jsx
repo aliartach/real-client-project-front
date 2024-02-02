@@ -32,7 +32,7 @@ const termsandconditions = () => {
         <p>These terms are governed by and construed in accordance with the laws of [Your Jurisdiction]. Any disputes arising under or in connection with these terms shall be subject to the exclusive jurisdiction of the courts in [Your Jurisdiction].</p>
 
         <h2>8. Contact Information</h2>
-        <p>If you have any questions about these terms and conditions, please contact us at [your contact email/phone].</p>
+        <p>If you have any questions about these terms and conditions, please contact us at [theboneguy.lb@gmail.com].</p>
         
         <div className='termsfooter'>
           <p>&copy; [THE BONE GUY] </p>

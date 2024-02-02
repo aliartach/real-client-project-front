@@ -4,7 +4,7 @@ import Navbar from './Navbar/Navbar';
 const CheckoutForm = () => {
   const [formData, setFormData] = useState({
     fullName: '',
-    email: '',
+    // email: '',
     address: '',
     PhoneNumber: '',
  
@@ -30,26 +30,17 @@ return (
     <Navbar/>
     <form className="checkout-form" onSubmit={handleSubmit}>
       <label>
-        Full Name:
+      Customer Name:
         <input
           type="text"
-          name="fullName"
-          value={formData.fullName}
+          name="CustomerName"
+          value={formData.CustomerName}
           onChange={handleChange}
           required
         />
       </label>
 
-      <label>
-        Email:
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </label>
+   
 
       <label>
         Address:
@@ -72,7 +63,16 @@ return (
           required
         />
       </label>
-
+      {/* <label>
+        Payment method:
+        <input
+          type="radio"
+          name="PaymentMethod"
+          value={formData.paymentMethod}
+          onChange={handleChange}
+          required
+        />
+      </label> */}
      
 
       <button type="submit" className="submit-button">

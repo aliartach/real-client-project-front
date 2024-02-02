@@ -16,7 +16,8 @@
   margin: 15px;
   padding: 15px;
   /* box-shadow: 0 0 10px rgba(89, 0, 13, 0.2); */
-  border: 1.5px solid rgb(141, 141, 141, 0.7);
+  border: 1.5px solid rgb(51, 72, 27);
+  border-radius: 4px;
  }
 
 .product-card-container img {
@@ -25,7 +26,7 @@
 }
 
 .product-card-text {
-  border-top: 1.5px solid rgb(141, 141, 141, 0.7);
+  border-top: 1.5px solid rgb(51, 72, 27);
   margin-top: 1.5em;
 }
 
@@ -83,7 +84,8 @@
   flex-direction: column;
   margin: 15px;
   padding: 15px;
-  border: 1.5px solid rgb(141, 141, 141, 0.7);
+  border: 1.5px solid rgb(51, 72, 27);
+  border-radius: 4px;
   background-color: white;
  }
 
@@ -126,7 +128,7 @@
   width: 100%;
 }
 .product-card-pop-text {
-  border-top: 1.5px solid rgb(141, 141, 141, 0.7);
+  border-top: 1.5px solid rgb(51, 72, 27);
   margin-top: 1.5em;
 }
 

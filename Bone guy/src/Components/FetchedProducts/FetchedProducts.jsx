@@ -6,10 +6,9 @@ import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 
 import { TailSpin } from "react-loader-spinner";
 
-
 const FetchedProducts = () => {
-  const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
+  const { search } = useLocation();
+  const queryParams = new URLSearchParams(search);
 
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -36,20 +35,11 @@ const FetchedProducts = () => {
       try {
         setLoading(true);
 
-        const queryParams = new URLSearchParams(location.search);
-        const selectedCategoriesFromURL = queryParams.getAll("category");
-        const selectedSubCategoriesFromURL = queryParams.getAll("subCategory");
-        const selectedTagsFromURL = queryParams.getAll("tag");
-
-        setSelectedCategories(selectedCategoriesFromURL);
-        setSelectedSubCategories(selectedSubCategoriesFromURL);
-        setSelectedTags(selectedTagsFromURL);
-
         const response = await instance.get("/api/product", {
           params: {
-            category: selectedCategoriesFromURL.join(","),
-            subCategory: selectedSubCategoriesFromURL.join(","),
-            tag: selectedTagsFromURL.join(","),
+            category: selectedCategories.join(","),
+            subCategory: selectedSubCategories.join(","),
+            tag: selectedTags.join(","),
           },
         });
 
@@ -58,13 +48,14 @@ const FetchedProducts = () => {
         }
       } catch (error) {
         console.error("Error fetching products", error.message);
+        // You may add user-friendly error handling here
       } finally {
         setLoading(false);
       }
     };
 
     fetchProducts();
-  }, [location.search]);
+  }, [search, selectedCategories, selectedSubCategories, selectedTags]);
 
   useEffect(() => {
     const handleTagsAndSubCategories = () => {
@@ -137,7 +128,7 @@ const FetchedProducts = () => {
   };
 
   const handleCheckboxChange = (type, value, checked) => {
-    const updatedQueryParams = new URLSearchParams(location.search);
+    const updatedQueryParams = new URLSearchParams(search);
 
     switch (type) {
       case "category":
@@ -289,73 +280,33 @@ const FetchedProducts = () => {
         <div className="product-card-wrapper">
           {loading ? (
             <TailSpin color="#59000d" radius={"8px"} />
-          ) : filterProducts().length > 0 ? (
-            filterProducts().map((product) => (
-              <Link
-                key={product._id}
-                to={`/product/${product._id}`}
-                className="product-card-outer-container"
-              >
-                <div className="product-card-container">
-                  <img
-                    src={`${instance.defaults.baseURL}/${product.image}`}
-                    alt="product"
-                  />
-                  <div className="product-card-text">
-                    <p className="">{`${product.price}$`}</p>
-                    <p className="">{product.description.substring(0, 30)}...</p>
-                  </div>
-                </div>
-              </Link>
-            ))
           ) : (
-            <p>No products to show</p>
+            filterProducts().length > 0 ? (
+              filterProducts().map((product) => (
+                <Link
+                  key={product._id}
+                  className="product-card-outer-container"
+                  onClick={() => togglePopup(product)}
+                >
+                  <div className="product-card-container">
+                    <img
+                      src={`${instance.defaults.baseURL}/${product.image}`}
+                      alt="product"
+                    />
+                    <div className="product-card-text">
+                      <p className="">{`${product.price}$`}</p>
+                      <p className="">{product.description.substring(0, 30)}...</p>
+                    </div>
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <p>No products to show</p>
+            )
           )}
         </div>
 
         {isPopupVisible && (
-          <div className="product-card-overlay" onClick={closePopup}>
-            <div className="product-card-popup" onClick={handlePopupClick}>
-              <div className="product-card-pop-wrapper">
-                <div className="product-card-pop-container">
-                  <div className="product-card-pop-container-img">
-                    <img
-                      src={`${instance.defaults.baseURL}/${selectedProduct.image}`}
-                      alt="product"
-                    />
-                  </div>
-                  <div className="product-card-pop-text">
-                    <p className="">
-                      <b>Price: </b>
-                      {`${selectedProduct.price}$`}
-                    </p>
-                    <p className="">
-                      <b>Description: </b>
-                      {selectedProduct.description}
-                    </p>
-                    <p className="">
-                      <b>Weight: </b>
-                      {selectedProduct.weight}
-                    </p>
-                    <p className="">
-                      <b>Name: </b>
-                      {selectedProduct.name}
-                    </p>
-                    <p className="">
-                      <b>Quantity: </b>
-                      <button onClick={decrementQuantity}>-</button>
-                      {quantity}
-                      <button onClick={incrementQuantity}>+</button>
-                    </p>
-                    <button>Add to cart</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </section>
-      {isPopupVisible && (
         <div className="product-card-overlay" onClick={closePopup}>
           <div className="product-card-popup" onClick={handlePopupClick}>
             <span onClick={closePopup}>{'\u00d7'}</span>
@@ -383,8 +334,9 @@ const FetchedProducts = () => {
           </div>
         </div>
       )}
+      </section>
     </>
   );
-};
+}
 
 export default FetchedProducts;

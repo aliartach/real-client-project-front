@@ -1,14 +1,23 @@
 
 table {
     border-collapse: collapse;
-    width: 100%;
-    height: 40%;
-  }
+    width: 100%; 
+    max-width: 100%; 
+  
+}
+.content-card-container{
+   
+    width: 100%; 
+    max-width: 100%; 
+   
+}
+
   
   thead th, tbody td {
     border: 1px solid #ddd;
     padding: 10px;
-    text-align: left;                       
+    text-align: left;  
+                   
   }
   
   tbody tr:hover {

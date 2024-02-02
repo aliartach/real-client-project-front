@@ -75,17 +75,18 @@ const FetchedProducts = () => {
       {isPopupVisible && (
         <div className="product-card-overlay" onClick={closePopup}>
           <div className="product-card-popup" onClick={handlePopupClick}>
+            <span onClick={closePopup}>{'\u00d7'}</span>
             <div className="product-card-pop-wrapper">
               <div className='product-card-pop-container'>
                 <div className="product-card-pop-container-img">
                   <img src={`${instance.defaults.baseURL}/${selectedProduct.image}`} alt="product" />
                 </div>
                 <div className="product-card-pop-text">
-                  <p className=""><b>Price: </b>{`${selectedProduct.price}$`}</p>
-                  <p className=""><b>Description: </b>{selectedProduct.description}</p>
-                  <p className=""><b>Weight: </b>{selectedProduct.weight}</p>
-                  <p className=""><b>Name: </b>{selectedProduct.name}</p>
-                  <p className=""><b>Quantity: </b>
+                  <p><b>Price: </b>{`${selectedProduct.price}$`}</p>
+                  <p><b>Description: </b>{selectedProduct.description}</p>
+                  <p><b>Weight: </b>{selectedProduct.weight}</p>
+                  <p><b>Name: </b>{selectedProduct.name}</p>
+                  <p><b>Quantity: </b>
                     <button onClick={decrementQuantity}>-</button>
                     {quantity}
                     <button onClick={incrementQuantity}>+</button>

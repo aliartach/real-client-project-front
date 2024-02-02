@@ -5,6 +5,13 @@ import instagramlogo from "../../../public/instagramlogo.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+ 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
   return (
     <footer>
       <div className="footerdiv">
@@ -17,7 +24,7 @@ const Footer = () => {
             <ul className="ulfooter">
                 <Link to="/aboutus"><li className="lifooter">OUR STORY</li></Link> 
                 <Link to="/FAQs"><li className="lifooter">FAQs</li></Link>
-                <Link to=""><li className="lifooter">CONTACT US</li></Link> 
+                <Link to="/ContactUs" onClick={scrollToTop}><li className="lifooter">CONTACT US</li></Link> 
             </ul>
         </div>
         <div>

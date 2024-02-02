@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 50px;
   justify-content: space-evenly;
 }
 
 .video-wrapper {
-  border-radius: 49px;
+  border-radius: 40px;
   overflow: hidden;
 }
 
@@ -41,11 +41,16 @@
 @media screen and (max-width: 1130px) {
   .video-story-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: space-evenly;
-  }
+    width: 100%;
 
+  }
+  .video-wrapper {
+    border-radius: 5%;
+    width: 85%;
+  }
 
   .video {
     width: 100%; 

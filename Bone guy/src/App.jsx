@@ -5,7 +5,7 @@ import Home from './Pages/Home'
 import AboutUs from './Pages/AboutUs/AboutUs'
 import FAQ from './Pages/FAQs/FAQs'
 import Policy from './Pages/policy/policy'
-import ContactUs from './Pages/Contactus/ContactUs'
+import ContactUs from './Pages/ContactUs/ContactUs'
 // import Featured from './Components/Featured-section/featured-products/featured-products'
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
 import AdminContent from "./Pages/Content-Admin/content";

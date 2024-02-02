@@ -23,14 +23,15 @@ const Contactus = () => {
       e.target.reset()
   };
   
+  const customTextColor = 'red';
   return (
-    <div className="test">
-      <Navbar/>
+    <div>
+      <Navbar textColor={customTextColor}/>
       <div className="body">
       <p className="contactustitle">Contact Us</p>
-      <div className="contactusunderline"></div>
       <div className="container">
         <div className="content">
+        
 
             <div className="left-side">
                 <div className="address details">

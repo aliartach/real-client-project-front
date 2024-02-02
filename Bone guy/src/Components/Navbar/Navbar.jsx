@@ -1,9 +1,10 @@
 import Logo from "../../assets/logo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css"
+import PropTypes from 'prop-types';
 
 
-function Navbar() {
+function Navbar({textColor}) {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -20,7 +21,7 @@ function Navbar() {
         </Link>
       </div>
       
-      <section className="navbar-content">
+      <section className="navbar-content" style={{color: textColor}}>
         <Link to="/product">
           <p>products</p>
         </Link>
@@ -34,5 +35,8 @@ function Navbar() {
     </>
   );
 }
+Navbar.propTypes = {
+  textColor: PropTypes.string.isRequired,
+};
 
 export default Navbar;

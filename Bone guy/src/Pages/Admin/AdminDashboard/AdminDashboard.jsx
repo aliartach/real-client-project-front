@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 // import React from 'react';
 // import { FaCube, FaFileAlt, FaTags, FaCubes } from 'react-icons/fa';
 // import AdminContent from '../Content-Admin/content';
-import Sidebar from '../Sidebar/Sidebar';
+import Sidebar from '../../Sidebar/Sidebar.jsx';
 import { Outlet, useNavigate } from 'react-router-dom';
 import "./AdminDashboard.css";
 function AdminDashboard() {

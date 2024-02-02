@@ -1,0 +1,42 @@
+
+.custom-card {
+    border-radius: 16px;
+    
+    
+  }
+  
+  .price {
+    color: #59000d;
+    
+  }
+
+  
+  .subtotal {
+    color: #59000d;
+  }
+  
+  .divider {
+    border-top: 2px solid #59000d;
+  }
+  
+  .total {
+    color: #59000d;
+  }
+  
+  .checkout-btn {
+    background-color: #59000d !important;
+    color: #F6E1D7 !important;
+    border: 1px solid #59000d !important;
+  }
+  
+  .checkout-btn:hover {
+    background-color: #F6E1D7 !important;
+    color: #59000d !important;
+  }
+  
+
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }

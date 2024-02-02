@@ -6,7 +6,7 @@ import './Login.css';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import instance from '../../api';
+import instance from '../../api.jsx';
 
 const Login = () => {
   const [login, setLogin] = useState({

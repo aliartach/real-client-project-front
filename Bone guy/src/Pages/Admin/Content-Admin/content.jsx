@@ -36,7 +36,7 @@ const AdminContent = () => {
     <>
       <div className="content-card-container">
       <h1 className="adminPanel-title">Content</h1>
-        <table>
+        <table className="table-content">
           <thead>
             <tr>
               <th>First Description</th>

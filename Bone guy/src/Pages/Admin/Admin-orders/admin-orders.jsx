@@ -54,8 +54,8 @@ const AdminOrders = () => {
   return (
     <section className="admin-orders-container">
       {!loading ? (admin_orders.map((order, index) => {
-        return <div className="order-card-and-button-container-in-admin-orders">
-          <OrderCard key={index} order={order} fetchAdminOrders={fetchAdminOrders} />
+        return <div key={index} className="order-card-and-button-container-in-admin-orders">
+          <OrderCard order={order} fetchAdminOrders={fetchAdminOrders} />
           <button type="button" className="order-delete-button" onClick={(e) => { e.preventDefault(); handleOrderDelete(order) }}>Delete Order</button>
         </div>
       })

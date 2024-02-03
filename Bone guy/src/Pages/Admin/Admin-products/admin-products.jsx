@@ -179,81 +179,104 @@ const AdminProducts = () => {
 
   return (
     <>
-    <button type="button" className="show-add-product-form-button-in-admin-product" onClick={() => setShowAddProduct(true)}>Add A New Product</button>
-    <section className="admin-products-main d-flex gap-5">
-     
-      {console.log("this is loading in admin products: ", loading)} {console.log("this is admin products in admin products: ", admin_products)}
-      {!loading ? (admin_products && admin_products.length > 0 ? (admin_products.map((product, index) => (
-        <section key={index} className="Admin-product-card-and-buttons-container d-flex row">
-          <ProductCard sub_categories={sub_categories} tags={tags} product={product} setProductEditStatus={setProductEditStatus} product_edit_status={product_edit_status} handleProductDelete={handleProductDelete} fetchAdminProducts={fetchAdminProducts} />
-          <div>
-          <button type="button" className="edit-product-button-in-product-card" onClick={() => setProductEditStatus(true)}>Edit</button>
-          <button type="button" className="delete-product-button-in-product-card" onClick={() => handleProductDelete(product)}>Delete</button>
-          </div>
-        </section>
-      ))) : (<p>no products found</p>)) : (<p className="admin-products-loading">Loading Products</p>)}
-      {/* {console.log("this is new categories in admin product: ", new_sub_categories)} */}
-     
-      {show_add_product && (
-        <form className="admin-products-form" onSubmit={handleProductAdd} encType="multipart/form-data">
-          <label className="admin-products-input">
-            Product Name:
-            <input type="text" name="name" onBlur={handleInputChange} required />
-          </label>
-          <label className="admin-products-input">
-            Product SubCategories:
-            {sub_categories.map((category, index) => (
-              <p key={index} className="sub-category-checkbox-in-admin-products">
-                {category.name}
-                <input key={index} name="sub_categories" type="checkbox" onChange={handleInputChange} value={category._id} />
-              </p>
-            ))}
-          </label>
-          <label className="admin-products-input">
-            Product Tags:
-            {tags.map((tag, index) => (
-              <p key={index} className="tag-checkbox-in-admin-products">
-                {tag.name}
-                <input key={index} name="tags" type="checkbox" onChange={handleInputChange} value={tag._id} />
-              </p>
-            ))}
-          </label>
-          <label className="admin-products-input">
-            Product Description:
-            <input type="text" name="description" onBlur={handleInputChange} required />
-          </label>
-          <label className="admin-products-input">
-            Product Price:
-            <input type="number" name="price" onBlur={handleInputChange} required />
-          </label>
-          <label className="admin-products-input">
-            Product Image:
-            <input type="file" name="image" onChange={handleInputChange} required />
-          </label>
-          <label className="admin-products-input">
-            Product Featured:
-            <input type="radio" name="featured" onChange={handleInputChange} />
-          </label>
-          <label htmlFor="category" className="admin-products-input">
-            Product Category:
-          </label>
-          <select id="category" name="category" onChange={handleCategoryChange} required>
-            <option>Dogs</option>
-            <option>Cats and Dogs</option>
-          </select>
-          <label className="admin-products-input">
-            Product Quantity:
-            <input type="number" name="quantity" onBlur={handleInputChange} />
-          </label>
-          <label className="admin-products-input">
-            Product Weight:
-            <input type="number" name="weight" onBlur={handleInputChange} />
-          </label>
-          <button type="submit" className="admin-product-submit-button">Add Product</button>
-          <button type="reset" className="admin-product-cancel-button" onClick={() => setShowAddProduct(false)}>Cancel</button>
-        </form>
-      )}
-    </section>
+      <button type="button" className="show-add-product-form-button-in-admin-product" onClick={() => setShowAddProduct(true)}>Add A New Product</button>
+
+      <section className="admin-products-main">
+        {console.log("this is loading in admin products: ", loading)} {console.log("this is admin products in admin products: ", admin_products)}
+        {!loading ? (admin_products && admin_products.length > 0 ? (admin_products.map((product, index) => (
+          <section key={index} className="Admin-product-card-and-buttons-container">
+            <ProductCard sub_categories={sub_categories} tags={tags} product={product} setProductEditStatus={setProductEditStatus} product_edit_status={product_edit_status} handleProductDelete={handleProductDelete} fetchAdminProducts={fetchAdminProducts} />
+            <div className="edit-delete-product-in-product-card-buttons-container">
+              <button type="button" className="edit-product-button-in-product-card" onClick={() => setProductEditStatus(true)}>Edit</button>
+              <button type="button" className="delete-product-button-in-product-card" onClick={() => handleProductDelete(product)}>Delete</button>
+            </div>
+          </section>
+        ))) : (<p>no products found</p>)) : (<p className="admin-products-loading">Loading Products</p>)}
+        {/* {console.log("this is new categories in admin product: ", new_sub_categories)} */}
+
+        {show_add_product && (
+          <form className="admin-products-form" onSubmit={handleProductAdd} encType="multipart/form-data">
+            <div>
+              <label className="admin-products-input">
+                Product Name:
+                <input type="text" name="name" onBlur={handleInputChange} required />
+              </label>
+              <label className="admin-products-input">
+                Product Price:
+                <input type="number" name="price" onBlur={handleInputChange} required />
+              </label>
+              <label className="admin-products-input">
+                Product Quantity:
+                <input type="number" name="quantity" onBlur={handleInputChange} />
+              </label>
+              <label className="admin-products-input">
+                Product Weight:
+                <input type="number" name="weight" onBlur={handleInputChange} />
+              </label>
+            </div>
+            <div>
+              <label htmlFor="category" className="admin-products-input">
+                Product Category:
+                <select id="category" name="category" onChange={handleCategoryChange} required>
+                  <option>Dogs</option>
+                  <option>Cats and Dogs</option>
+                </select>
+              </label>
+              <label className="admin-products-input">
+                <p>Product SubCategories:</p>
+                {sub_categories.map((category, index) => (
+                  <ul>
+                    <li key={index} className="sub-category-checkbox-in-admin-products">
+                      {category.name}
+                      <input key={index} name="sub_categories" type="checkbox" onChange={handleInputChange} value={category._id} />
+                    </li>
+                  </ul>
+                  // <p key={index} className="sub-category-checkbox-in-admin-products">
+                  //   {category.name}
+                  //   <input key={index} name="sub_categories" type="checkbox" onChange={handleInputChange} value={category._id} />
+                  // </p>
+                ))}
+              </label>
+            </div>
+            <div>
+              <label className="admin-products-input">
+                <p>Product Tags:</p>
+                {tags.map((tag, index) => (
+                  <ul>
+                    <li key={index} className="tag-checkbox-in-admin-products">
+                      {tag.name}
+                      <input key={index} name="tags" type="checkbox" onChange={handleInputChange} value={tag._id} />
+                    </li>
+                  </ul>
+                  // <p key={index} className="tag-checkbox-in-admin-products">
+                  //   {tag.name}
+                  //   <input key={index} name="tags" type="checkbox" onChange={handleInputChange} value={tag._id} />
+                  // </p>
+                ))}
+              </label>
+              <label className="admin-products-input">
+                Product Description:
+                <textarea rows={2} type="text" name="description" onBlur={handleInputChange} required />
+              </label>
+            </div>
+
+            <label className="admin-products-input">
+              Product Image:
+              <input type="file" name="image" onChange={handleInputChange} required />
+            </label>
+
+            <label className="admin-products-input-radio">
+              Product Featured:
+              <input type="radio" name="featured" onChange={handleInputChange} />
+            </label>
+
+            <div className="admin-products-input-buttons">
+              <button type="submit" className="admin-product-submit-button">Add Product</button>
+              <button type="reset" className="admin-product-cancel-button" onClick={() => setShowAddProduct(false)}>Cancel</button>
+            </div>
+          </form>
+        )}
+      </section>
     </>
   );
 };

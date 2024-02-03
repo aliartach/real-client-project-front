@@ -38,11 +38,10 @@ const ProductCard = ({ product, tags, sub_categories, setProductEditStatus, prod
 
             {product.featured && <p className="product-featured-in-product-card">Featured</p>}
           </section>
-        
         </article>
-        </div>
-      { product_edit_status && <Editproduct tags={tags} sub_categories={sub_categories} setProductEditStatus={setProductEditStatus} product={product} fetchAdminProducts={fetchAdminProducts} /> }
-    
+      </div>
+      {product_edit_status && <Editproduct tags={tags} sub_categories={sub_categories} setProductEditStatus={setProductEditStatus} product={product} fetchAdminProducts={fetchAdminProducts} />}
+
     </div >
 
   )

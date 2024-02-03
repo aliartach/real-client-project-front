@@ -14,27 +14,25 @@ function categories() {
       <section className="section-categories">
         <section className="section-categories-img">
           <section className="section-categories-img-cat">
-
             <img
               src={catCategory}
               alt="cat-category"
               className="cat-img-category-section"
             />
-                      <button>Shop now</button>
-
+            <Link to="/product?category=Cats and Dogs">
+              <button>shop now </button>
+            </Link>
           </section>
-      
 
           <section className="section-categories-img-cat section-dog">
-
             <img
               src={dogCategory}
               alt="cat-category"
               className="cat-img-category-section "
             />
-                      <button>Shop now</button>
-
-
+            <Link to="/product?category=Dogs">
+              <button>Shop now</button>
+            </Link>
           </section>
         </section>
       </section>

@@ -1,0 +1,32 @@
+.toggle-button {
+  cursor: pointer;
+  color: black;
+  border-width: 1px;
+  color: white;
+
+}
+.toggle-button::after {
+  content: "▼";
+  font-size: 15px;
+  float: right;
+}
+.dropdown-container {
+  border-bottom: solid rgb(182, 180, 180) 0.5px;
+  width: 220px;
+  color: white;
+
+}
+.sideBarProductContainer {
+  margin-top: 100px;
+  background-color: #4f1110;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+
+}
+.sideBarProduct{
+    background-color: #4f1110;
+    width: 12%;
+    justify-content: center;
+    align-items: center;
+}

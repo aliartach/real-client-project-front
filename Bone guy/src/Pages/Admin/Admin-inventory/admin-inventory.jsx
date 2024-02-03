@@ -115,7 +115,7 @@ const AdminProductsInventory = () => {
             <br/>
             {critical_products.length > 0 && (<section className="admin-product-critical">Less Than 24 Items Left:
               {critical_products.map((product, index) => {
-                return <ProductCard key={index} sub_categories={[]} tags={[]} product={product} setProductEditStatus={null} product_edit_status={false} handleProductDelete={null} fetchAdminProducts={fetchAdminProducts}/>
+                return <ProductCard key={index} sub_categories={[]} tags={[]} product={product} setProductEditStatus={null} product_edit_status={false} handleProductDelete={null} fetchAdminProducts={fetchAdminProducts} show_buttons={false}/>
               })}
             </section>)}
         </div>

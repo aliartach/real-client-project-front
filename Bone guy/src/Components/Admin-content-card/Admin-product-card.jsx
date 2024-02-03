@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Editproduct from "../../Pages/Admin/Admin-products/Edit-product";
 import "./Admin-product-card.css";
 
-const ProductCard = ({ product, tags, sub_categories, handleProductDelete, fetchAdminProducts }) => {
+const ProductCard = ({ product, tags, sub_categories, handleProductDelete, fetchAdminProducts, show_buttons }) => {
   const [product_edit_status, setProductEditStatus] = useState(false);
   //handleProductDelete is in admin-products
 
@@ -39,10 +39,12 @@ const ProductCard = ({ product, tags, sub_categories, handleProductDelete, fetch
 
             {product.featured && <p className="product-featured-in-product-card">Featured</p>}
           </section>
-          <section className="edit-delete-product-in-product-card-buttons-container">
-            <button type="button" className="edit-product-button-in-product-card" onClick={() => setProductEditStatus(true)}>Edit</button>
-            <button type="button" className="delete-product-button-in-product-card" onClick={() => handleProductDelete(product)}>Delete</button>
-          </section>
+          {show_buttons &&
+            <section className="edit-delete-product-in-product-card-buttons-container">
+              <button type="button" className="edit-product-button-in-product-card" onClick={() => setProductEditStatus(true)}>Edit</button>
+              <button type="button" className="delete-product-button-in-product-card" onClick={() => handleProductDelete(product)}>Delete</button>
+            </section>
+          }
         </article>
       </div>
       <br/>

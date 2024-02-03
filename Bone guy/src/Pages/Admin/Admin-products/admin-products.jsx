@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import ProductCard from "../../../Components/Admin-content-card/Admin-product-card.jsx";
+import Swal from 'sweetalert2';
 
 const AdminProducts = () => {
   const [admin_products, setAdminProducts] = useState([]);
@@ -87,6 +88,17 @@ const AdminProducts = () => {
   }
 
   const handleProductDelete = async (product) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    });
+
+    if (result.isConfirmed) {
     try {
       await axios.delete(
         `http://localhost:4000/api/product/${product._id}`
@@ -96,6 +108,7 @@ const AdminProducts = () => {
       console.error(error);
     }
   }
+  };
 
   const handleInputChange = (e) => {
     const { name, value, type } = e.target; //name and value of target input
@@ -266,7 +279,7 @@ const AdminProducts = () => {
         {console.log("this is loading in admin products: ", loading)} {console.log("this is admin products in admin products: ", admin_products)}
         {!loading ? (admin_products && admin_products.length > 0 ? (admin_products.map((product, index) => (
           <section key={index} className="Admin-product-card-and-buttons-container">
-            <ProductCard sub_categories={sub_categories} tags={tags} product={product} handleProductDelete={handleProductDelete} fetchAdminProducts={fetchAdminProducts} />
+            <ProductCard sub_categories={sub_categories} tags={tags} product={product} handleProductDelete={handleProductDelete} fetchAdminProducts={fetchAdminProducts} show_buttons={true} />
           </section>
         ))) : (<p>no products found</p>)) : (<p className="admin-products-loading">Loading Products</p>)}
         {/* {console.log("this is new categories in admin product: ", new_sub_categories)} */}

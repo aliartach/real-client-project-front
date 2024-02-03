@@ -3,6 +3,7 @@ import axios from "axios";
 import "./subcategories.css";
 import EditSubCategories from "./EditSubCategories";
 import AddSubCategoryForm from "./AddSubCategories";
+import Swal from "sweetalert2";
 
 const AdminSubCategories = () => {
   const [showEditForm, setShowEditForm] = useState(false);
@@ -33,6 +34,17 @@ const AdminSubCategories = () => {
   }, [showEditForm, showAddForm]);
 
   const handleDelete = async (deletedId) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    });
+
+    if (result.isConfirmed) {
     try {
       await axios.delete(`http://localhost:4000/api/subcategory/${deletedId}`);
       setSubCategories((prevSubCategories) =>
@@ -41,6 +53,7 @@ const AdminSubCategories = () => {
     } catch (error) {
       console.error("Error deleting data:", error.message);
     }
+  }
   };
   const handleAddSubCategory = (newSubCategory) => {
  

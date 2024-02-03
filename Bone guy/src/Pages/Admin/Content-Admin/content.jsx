@@ -48,9 +48,9 @@ const AdminContent = () => {
             </tr>
           </thead>
           <tbody>
-            {content && content.map(({ id, ...content }) => (
+            {content && content.map(({ id, ...content }, index) => (
               <AdminContentCard
-                key={id}
+                key={index}
                 content={content}
                 showEditForm={showEditForm}
                 setShowEditForm={setShowEditForm}

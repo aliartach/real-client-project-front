@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import Editproduct from "../../Pages/Admin/Admin-products/Edit-product";
 import "./Admin-product-card.css";
 
-const ProductCard = ({ product, tags, sub_categories, setProductEditStatus, product_edit_status, fetchAdminProducts }) => {
+const ProductCard = ({ product, tags, sub_categories, handleProductDelete, fetchAdminProducts, show_buttons }) => {
+  const [product_edit_status, setProductEditStatus] = useState(false);
   //handleProductDelete is in admin-products
 
   return (
@@ -38,10 +39,20 @@ const ProductCard = ({ product, tags, sub_categories, setProductEditStatus, prod
 
             {product.featured && <p className="product-featured-in-product-card">Featured</p>}
           </section>
+          {show_buttons &&
+            <section className="edit-delete-product-in-product-card-buttons-container">
+              <button type="button" className="edit-product-button-in-product-card" onClick={() => setProductEditStatus(true)}>Edit</button>
+              <button type="button" className="delete-product-button-in-product-card" onClick={() => handleProductDelete(product)}>Delete</button>
+            </section>
+          }
         </article>
       </div>
-      {product_edit_status && <Editproduct tags={tags} sub_categories={sub_categories} setProductEditStatus={setProductEditStatus} product={product} fetchAdminProducts={fetchAdminProducts} />}
-
+      <br/>
+      {product_edit_status &&
+      <section className="edit-product-in-admin-products">
+        <Editproduct tags={tags} sub_categories={sub_categories} setProductEditStatus={setProductEditStatus} product={product} fetchAdminProducts={fetchAdminProducts} />
+      </section>
+      }
     </div >
 
   )

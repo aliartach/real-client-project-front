@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import ProductCard from "../../../Components/Admin-content-card/Admin-product-card.jsx";
+import Swal from 'sweetalert2';
 
 const AdminProducts = () => {
   const [admin_products, setAdminProducts] = useState([]);
@@ -11,7 +12,7 @@ const AdminProducts = () => {
   const [new_product_body, setNewProductBody] = useState({});
   const [loading, setLoading] = useState(true);
   const [show_add_product, setShowAddProduct] = useState(false);
-  const [product_edit_status, setProductEditStatus] = useState(false);
+  // const [product_edit_status, setProductEditStatus] = useState(false);
 
   const fetchAdminProducts = useCallback(async () => {
     try {
@@ -87,6 +88,17 @@ const AdminProducts = () => {
   }
 
   const handleProductDelete = async (product) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    });
+
+    if (result.isConfirmed) {
     try {
       await axios.delete(
         `http://localhost:4000/api/product/${product._id}`
@@ -96,6 +108,7 @@ const AdminProducts = () => {
       console.error(error);
     }
   }
+  };
 
   const handleInputChange = (e) => {
     const { name, value, type } = e.target; //name and value of target input
@@ -180,21 +193,7 @@ const AdminProducts = () => {
   return (
     <>
       <button type="button" className="show-add-product-form-button-in-admin-product" onClick={() => setShowAddProduct(true)}>Add A New Product</button>
-
-      <section className="admin-products-main">
-        {console.log("this is loading in admin products: ", loading)} {console.log("this is admin products in admin products: ", admin_products)}
-        {!loading ? (admin_products && admin_products.length > 0 ? (admin_products.map((product, index) => (
-          <section key={index} className="Admin-product-card-and-buttons-container">
-            <ProductCard sub_categories={sub_categories} tags={tags} product={product} setProductEditStatus={setProductEditStatus} product_edit_status={product_edit_status} handleProductDelete={handleProductDelete} fetchAdminProducts={fetchAdminProducts} />
-            <div className="edit-delete-product-in-product-card-buttons-container">
-              <button type="button" className="edit-product-button-in-product-card" onClick={() => setProductEditStatus(true)}>Edit</button>
-              <button type="button" className="delete-product-button-in-product-card" onClick={() => handleProductDelete(product)}>Delete</button>
-            </div>
-          </section>
-        ))) : (<p>no products found</p>)) : (<p className="admin-products-loading">Loading Products</p>)}
-        {/* {console.log("this is new categories in admin product: ", new_sub_categories)} */}
-
-        {show_add_product && (
+      {show_add_product && (
           <form className="admin-products-form" onSubmit={handleProductAdd} encType="multipart/form-data">
             <div>
               <label className="admin-products-input">
@@ -276,6 +275,14 @@ const AdminProducts = () => {
             </div>
           </form>
         )}
+      <section className="admin-products-main">
+        {console.log("this is loading in admin products: ", loading)} {console.log("this is admin products in admin products: ", admin_products)}
+        {!loading ? (admin_products && admin_products.length > 0 ? (admin_products.map((product, index) => (
+          <section key={index} className="Admin-product-card-and-buttons-container">
+            <ProductCard sub_categories={sub_categories} tags={tags} product={product} handleProductDelete={handleProductDelete} fetchAdminProducts={fetchAdminProducts} show_buttons={true} />
+          </section>
+        ))) : (<p>no products found</p>)) : (<p className="admin-products-loading">Loading Products</p>)}
+        {/* {console.log("this is new categories in admin product: ", new_sub_categories)} */}
       </section>
     </>
   );

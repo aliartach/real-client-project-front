@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import EditTags from "./EditTag";
 import AddtagForm from "./AddTag";
+import Swal from "sweetalert2";
 
 const Admintags = () => {
   const [showEditForm, setShowEditForm] = useState(false);
@@ -29,6 +30,17 @@ const Admintags = () => {
   }, [showEditForm, showAddForm]);
 
   const handleDelete = async (deletedId) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    });
+
+    if (result.isConfirmed) {
     try {
       await axios.delete(`http://localhost:4000/api/tag/${deletedId}`);
       settags((prevtags) =>
@@ -37,6 +49,7 @@ const Admintags = () => {
     } catch (error) {
       console.error("Error deleting data:", error.message);
     }
+  }
   };
   const handleAddtag = (newtag) => {
  

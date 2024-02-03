@@ -73,7 +73,7 @@
 }
 
 .products-card-container {
-  height: 80vh;
+  height: 100vh;
 }
 .product-details-in-product-card {
   display: flex;

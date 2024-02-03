@@ -106,14 +106,16 @@ const AdminProductsInventory = () => {
                 return <ProductCard key={index} sub_categories={[]} tags={[]} product={product} setProductEditStatus={null} product_edit_status={false} handleProductDelete={null} fetchAdminProducts={fetchAdminProducts}/>
               })}
             </section>)}
+            <br/>
             {extremely_critical_products.length > 0 && (<section className="admin-product-extremely-critical">Less Than 12 Items Left:
               {extremely_critical_products.map((product, index) => {
                 return <ProductCard key={index} sub_categories={[]} tags={[]} product={product} setProductEditStatus={null} product_edit_status={false} handleProductDelete={null} fetchAdminProducts={fetchAdminProducts}/>
               })}
             </section>)}
+            <br/>
             {critical_products.length > 0 && (<section className="admin-product-critical">Less Than 24 Items Left:
               {critical_products.map((product, index) => {
-                return <ProductCard key={index} sub_categories={[]} tags={[]} product={product} setProductEditStatus={null} product_edit_status={false} handleProductDelete={null} fetchAdminProducts={fetchAdminProducts}/>
+                return <ProductCard key={index} sub_categories={[]} tags={[]} product={product} setProductEditStatus={null} product_edit_status={false} handleProductDelete={null} fetchAdminProducts={fetchAdminProducts} show_buttons={false}/>
               })}
             </section>)}
         </div>

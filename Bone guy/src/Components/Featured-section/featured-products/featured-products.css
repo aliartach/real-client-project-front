@@ -42,7 +42,6 @@
 }
 .discover-more-button {
   display: flex;
-  align-items: center;
   gap: 17px;
   background-color: #4f1110;
   color: white;

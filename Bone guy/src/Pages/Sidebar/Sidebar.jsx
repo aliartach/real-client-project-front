@@ -19,12 +19,12 @@ function Sidebar() {
 
       <ul className="sidebar-list">
         <li className={`sidebar-item-dashboard ${isSidebarOpen ? 'icon-only' : ''}`}>Dashboard</li>
-        <li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaCube /> <Link to={`products/`}>Products</Link></li>
-        <li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaFileAlt /> <Link to={`content/`}>Content</Link></li>
-        <li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaTags/> <Link to={`tags/`}>Tags</Link></li>
-        <li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaCubes /> <Link to={`subcategories/`}>SubCategories</Link></li>
-        <li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaCubes /> <Link to={`inventory/`}>Inventory</Link></li>
-        <li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaCubes /> <Link to={`orders/`}>Orders</Link></li>
+        <Link to={`products/`}><li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaCube /> Products</li></Link>
+        <Link to={`content/`}><li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaFileAlt /> Content</li></Link>
+        <Link to={`tags/`}><li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaTags/> Tags</li></Link>
+        <Link to={`subcategories/`}><li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaCubes /> SubCategories</li></Link>
+        <Link to={`inventory/`}><li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaCubes /> Inventory</li></Link>
+        <Link to={`orders/`}><li className={`sidebar-item ${isSidebarOpen ? 'icon-only' : ''}`}><FaCubes /> Orders</li></Link>
       </ul>
       
       <button className="burger-button" onClick={toggleSidebar}>

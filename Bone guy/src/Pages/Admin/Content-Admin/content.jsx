@@ -36,7 +36,11 @@ const AdminContent = () => {
     <>
       <div className="content-card-container">
       <h1 className="adminPanel-title">Content</h1>
+<<<<<<< HEAD
         <table className="table-content">
+=======
+        <table className="table-admin-content">
+>>>>>>> aliartach
           <thead>
             <tr>
               <th>First Description</th>
@@ -90,7 +94,7 @@ export const AdminContentCard = ({ content, showEditForm, onEdit ,setShowEditFor
       <td>
    
         <button onClick={handleEditClick} className="admin-edit--button">
-          <p>Edit</p>
+          Edit
         </button>
       </td>
     </tr>

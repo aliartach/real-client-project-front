@@ -7,38 +7,38 @@ export const CartProvider = ({ children }) => {  //It wraps its children with th
 
 
 //***********//Add to cart
-  const addToCart = (item) => {
-    const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id); //if the item is already in the cart, increase the quantity of the item
-
-    if (isItemInCart) {
-      setCartItems(
-        cartItems.map((cartItem) =>
-          cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
-            : cartItem // otherwise, return the cart item
-        )
-      );
-    } else {
-      setCartItems([...cartItems, { ...item, quantity: 1 }]); // if the item is not in the cart, add the item to the cart
-    }
-  };
+const addToCart = (item) => {
+  const isItemInCart = cartItems.find((cartItem) => cartItem._id === item._id);
+  console.log("is item", isItemInCart);
+  if (isItemInCart) {
+     setCartItems(
+       cartItems.map((cartItem) =>
+         cartItem._id === item._id
+           ? { ...cartItem, quantity: cartItem.quantity + 1 }
+           : cartItem
+       )
+     );
+  } else {
+     setCartItems([...cartItems, { ...item, quantity: 1 }]);
+  }
+ };
+ 
 //**************//remove from cart
-  const removeFromCart = (item) => {
-    const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);  
-
-    if (isItemInCart.quantity === 1) { // if the quantity of the item is 1, remove the item from the cart
-      setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
-    } else {
-      setCartItems(
-        cartItems.map((cartItem) =>
-          cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity - 1 } // if the quantity of the item is greater than 1, decrease the quantity of the item
-            : cartItem
-         
-        )
-      );
-    }
-  };
+const removeFromCart = (item) => {
+  const isItemInCart = cartItems.find((cartItem) => cartItem._id === item._id);
+ 
+  if (isItemInCart.quantity === 1) {
+     setCartItems(cartItems.filter((cartItem) => cartItem._id !== item._id));
+  } else {
+     setCartItems(
+       cartItems.map((cartItem) =>
+         cartItem._id === item._id
+           ? { ...cartItem, quantity: cartItem.quantity - 1 }
+           : cartItem
+       )
+     );
+  }
+ };
 //*************//clear item
   const clearCart = () => {
     setCartItems([]); // set the cart items to an empty array

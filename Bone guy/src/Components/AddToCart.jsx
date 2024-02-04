@@ -7,7 +7,7 @@ import { CartContext } from "../context/cart";
 import './AddToCart.css';
 
 const ShoppingCart = () => {
-  const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } = useContext(CartContext);
+  const { cartItems,clearCart, getCartTotal } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
    const incrementQuantity = () => {
     setQuantity(quantity + 1);
@@ -18,7 +18,7 @@ const ShoppingCart = () => {
       setQuantity(quantity - 1);
     }
   };
-
+console.log("cart items",cartItems)
   return (
     <section className="h-100 h-custom">
       <div className="container h-100 py-5">
@@ -33,6 +33,7 @@ const ShoppingCart = () => {
                   );
                   if (confirmClear) {
                     clearCart();
+                    setQuantity(0);
                   }
                 }}
               >

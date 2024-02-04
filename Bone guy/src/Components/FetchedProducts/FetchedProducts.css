@@ -1,3 +1,4 @@
+
 .product-card-wrapper {
   display: flex;
   justify-content: center;
@@ -12,7 +13,6 @@
 }
 
 .product-card-container {
-  height: 23rem;
   margin: 15px;
   padding: 15px;
   /* box-shadow: 0 0 10px rgba(89, 0, 13, 0.2); */
@@ -28,6 +28,8 @@
 .product-card-text {
   border-top: 1.5px solid rgb(51, 72, 27);
   margin-top: 1.5em;
+  padding-top: 1em;
+
 }
 
 .product-card-outer-container {
@@ -57,7 +59,7 @@
 
 .product-card-popup {
   background: #fff;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   max-width: 30rem;
@@ -69,7 +71,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
 }
 
 .product-card-pop-wrapper a {
@@ -82,7 +83,6 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 15px;
   padding: 15px;
   border: 1.5px solid rgb(51, 72, 27);
   border-radius: 4px;
@@ -111,17 +111,15 @@
   transform: scale(1.02);
  }
  .product-card-pop-text p button {
-  background-color: #59000d;
+  background-color: rgb(89, 0, 13);
   color: #ffff;
   font-size: large;
   font-weight: bold;
-  height: 1.5rem;
-  width: 1.5rem;
-  margin: 0 5px;
-  border: none;
+  height: 30px;
+  width: 28px;
+  margin: 0 6px;
   cursor: pointer;
-  margin-top: 10px;
-  transition: all 0.2s ease-in-out;
+  border-radius: 10px;
  }
 
 .product-card-pop-container img {
@@ -130,13 +128,25 @@
 .product-card-pop-text {
   border-top: 1.5px solid rgb(51, 72, 27);
   margin-top: 1.5em;
+  padding-top: 1.5em;
 }
 
 .product-card-pop-container-img {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20rem;
-  height: 26rem;
   /* background-color: red; */
+}
+
+.product-card-popup span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #33481B;
+  font-size: xx-large;
+  width: 10%;
+  margin: auto;
+}
+.product-card-popup span:hover {
+  cursor: pointer;
 }

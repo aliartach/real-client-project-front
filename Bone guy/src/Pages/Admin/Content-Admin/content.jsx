@@ -36,7 +36,7 @@ const AdminContent = () => {
     <>
       <div className="content-card-container">
       <h1 className="adminPanel-title">Content</h1>
-        <table>
+        <table className="table-content">
           <thead>
             <tr>
               <th>First Description</th>
@@ -48,9 +48,9 @@ const AdminContent = () => {
             </tr>
           </thead>
           <tbody>
-            {content && content.map(({ id, ...content }) => (
+            {content && content.map(({ id, ...content }, index) => (
               <AdminContentCard
-                key={id}
+                key={index}
                 content={content}
                 showEditForm={showEditForm}
                 setShowEditForm={setShowEditForm}

@@ -20,7 +20,7 @@ function header() {
           & nutritious pet treats!
         </p>
         <button className="button-header">
-          <Link to="#">
+          <Link to="/product">
             SHOP NOW <img src={buttonImage} alt="" />
           </Link>
         </button>

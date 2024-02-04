@@ -230,10 +230,6 @@ const AdminProducts = () => {
                       <input key={index} name="sub_categories" type="checkbox" onChange={handleInputChange} value={category._id} />
                     </li>
                   </ul>
-                  // <p key={index} className="sub-category-checkbox-in-admin-products">
-                  //   {category.name}
-                  //   <input key={index} name="sub_categories" type="checkbox" onChange={handleInputChange} value={category._id} />
-                  // </p>
                 ))}
               </label>
             </div>
@@ -247,10 +243,6 @@ const AdminProducts = () => {
                       <input key={index} name="tags" type="checkbox" onChange={handleInputChange} value={tag._id} />
                     </li>
                   </ul>
-                  // <p key={index} className="tag-checkbox-in-admin-products">
-                  //   {tag.name}
-                  //   <input key={index} name="tags" type="checkbox" onChange={handleInputChange} value={tag._id} />
-                  // </p>
                 ))}
               </label>
               <label className="admin-products-input">

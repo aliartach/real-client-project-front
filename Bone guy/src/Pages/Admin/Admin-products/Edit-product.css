@@ -78,6 +78,9 @@
 
 
 /* Editing An Existing Product Styles */
+.edit-product-in-admin-products {
+  width: 90%;
+}
 .admin-product-edit-form {
   border: 1px solid ;
   margin-bottom: 5rem;
@@ -85,7 +88,6 @@
   grid-template-columns: 1fr 1fr 1fr;
   border-radius: 5px;
   color: black;
-  width: 90%;
 }
 
 .admin-product-edit-input {

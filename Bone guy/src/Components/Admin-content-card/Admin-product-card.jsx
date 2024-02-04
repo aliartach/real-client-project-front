@@ -11,7 +11,7 @@ const ProductCard = ({ product, tags, sub_categories, handleProductDelete, fetch
     <div className="container-of-product-card-and-edit-product-in-admin-products">
       <div className="products-card-container">
         <article className="product-card">
-          <img src={`http://localhost:4000/${product.image}`} alt="product image" className="product-image-in-product-card" />
+          <div className="product-card-product-image"><img src={`http://localhost:4000/${product.image}`} alt="product image" className="product-image-in-product-card" /></div>
           <section className="product-details-in-product-card">
             <h2 className="product-name-in-product-card">Name: {product.name}</h2>
             <p className="product-description-in-product-card">Description: {product.description}</p>

@@ -9,7 +9,7 @@ const EditSubCategories = ({ subCategory, onClose }) => {
     icon: "",
   });
 
- 
+
   console.log("Initial state:", subCategory);
 
   // Update state when subCategory prop changes
@@ -35,7 +35,7 @@ const EditSubCategories = ({ subCategory, onClose }) => {
     }
   };
 
- 
+
   console.log("Edited state:", editedSubCategory);
 
   const handleSubmit = async (e) => {

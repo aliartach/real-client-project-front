@@ -5,7 +5,7 @@
     align-items: center;
    padding-top: 10px;
  margin-top: 20px;
- width: 65%;
+ width: 90%;
    background-color: rgb(241, 238, 236);
   }
   
@@ -16,17 +16,17 @@ margin-left: 40px;
   }
   
   .edit-formContent input {
-    width: 80%;
+    width: 95%;
     display: flex;
     flex-direction: column;
-    padding: 3px;
+    padding: 10px;
     margin: 3px;
     box-sizing: border-box;
     border-radius: 10px;
     border: 1px solid #59000D;
     justify-content: center;
     align-items: center;
-    
+    height: 50px;
   }
   
   .edit-formContent .button-container {

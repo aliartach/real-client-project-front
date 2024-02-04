@@ -30,10 +30,14 @@ const Admintags = () => {
 
   const handleDelete = async (deletedId) => {
     try {
-      await axios.delete(`http://localhost:4000/api/tag/${deletedId}`);
+      const confirmation = window.confirm("Are you sure you want to delete this tag?");
+      if (confirmation) {
+        await axios.delete(`http://localhost:4000/api/tag/${deletedId}`);
       settags((prevtags) =>
         prevtags.filter((tag) => tag._id !== deletedId)
       );
+      }
+      
     } catch (error) {
       console.error("Error deleting data:", error.message);
     }

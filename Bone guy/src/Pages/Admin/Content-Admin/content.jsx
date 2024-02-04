@@ -36,7 +36,7 @@ const AdminContent = () => {
     <>
       <div className="content-card-container">
       <h1 className="adminPanel-title">Content</h1>
-        <table className="table-content">
+        <table className="table-admin-content">
           <thead>
             <tr>
               <th>First Description</th>
@@ -90,7 +90,7 @@ export const AdminContentCard = ({ content, showEditForm, onEdit ,setShowEditFor
       <td>
    
         <button onClick={handleEditClick} className="admin-edit--button">
-          <p>Edit</p>
+          Edit
         </button>
       </td>
     </tr>

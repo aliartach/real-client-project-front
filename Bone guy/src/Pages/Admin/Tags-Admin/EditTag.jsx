@@ -33,6 +33,10 @@ const EditTags = ({ tag, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const confirmation = window.confirm("Are you sure you want to save changes?");
+    if (!confirmation) {
+      return;
+    }
     try {
       if (!tag || !tag._id) {
         console.error("Invalid tag:", tag);

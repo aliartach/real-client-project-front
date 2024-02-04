@@ -10,7 +10,7 @@ const EditContent = ({ content, onClose }) => {
     imageCat: content.imageCat,
     imageDog: content.imageDog,
   });
-
+ 
   const handleChange = (e) => {
     if (e.target.type === 'file') {
       setEditedContent((prevState) => ({
@@ -27,6 +27,10 @@ const EditContent = ({ content, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Content ID to be updated:", content._id);
+    const confirmation = window.confirm("Are you sure you want to save changes?");
+    if (!confirmation) {
+      return;
+    }
 
 const formData = new FormData();
     formData.append("featuredDescription", editedContent.featuredDescription);
@@ -64,17 +68,8 @@ const formData = new FormData();
 
   return (
     <form onSubmit={handleSubmit} className="edit-formContent">
-      <label>
-        featuredDescription:
-        <input
-          type="text"
-          name="featuredDescription"
-          value={editedContent.featuredDescription}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        firstDescription:
+    <label><b>
+        First Description:</b>
         <input
           type="text"
           name="firstDescription"
@@ -82,8 +77,18 @@ const formData = new FormData();
           onChange={handleChange}
         />
       </label>
-      <label>
-        storyDescription:
+      <label><b>
+        Featured Description:</b>
+        <input
+          type="text"
+          name="featuredDescription"
+          value={editedContent.featuredDescription}
+          onChange={handleChange}
+        />
+      </label>
+      
+      <label><b>
+        Story Description:</b>
         <input
           type="text"
           name="storyDescription"
@@ -91,8 +96,8 @@ const formData = new FormData();
           onChange={handleChange}
         />
       </label>
-      <label>
-        imageCat:
+      <label><b>
+        image Cat:</b>
         <input
           type="file"
           accept="image/*"
@@ -100,8 +105,8 @@ const formData = new FormData();
           name="imageCat"
         />
       </label>
-      <label>
-        imageDog:
+      <label><b>
+        image Dog:</b>
         <input
           type="file"
           accept="image/*"

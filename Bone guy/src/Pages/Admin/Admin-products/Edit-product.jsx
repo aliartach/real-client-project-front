@@ -162,13 +162,6 @@ const Editproduct = ({ product, tags, sub_categories, setProductEditStatus, fetc
                 <input key={index} name="sub_categories" type="checkbox" onClick={handleInputChange} value={category._id} />
               </li>
             </ul>)
-            // <p key={index} className="sub-category-checkbox-in-admin-product-edit">
-            //   {category.name}
-            //   <input key={index} name="sub_categories" type="checkbox" onClick={handleInputChange} value={category._id} defaultChecked />
-            // </p>) : (<p key={index} className="sub-category-checkbox-in-admin-product-edit">
-            //   {category.name}
-            //   <input key={index} name="sub_categories" type="checkbox" onClick={handleInputChange} value={category._id} />
-            // </p>)
           ))}
         </label>
       </div>
@@ -187,13 +180,6 @@ const Editproduct = ({ product, tags, sub_categories, setProductEditStatus, fetc
                 <input key={index} name="tags" type="checkbox" onClick={handleInputChange} value={tag._id} />
               </li>
             </ul>)
-            // <p key={index} className="tag-checkbox-in-admin-product-edit">
-            //   {tag.name}
-            //   <input key={index} name="tags" type="checkbox" onClick={handleInputChange} value={tag._id} defaultChecked />
-            // </p>) : (<p key={index} className="tag-checkbox-in-admin-product-edit">
-            //   {tag.name}
-            //   <input key={index} name="tags" type="checkbox" onClick={handleInputChange} value={tag._id} />
-            // </p>)
           ))}
         </label>
         <label className="admin-product-edit-input">
@@ -206,17 +192,16 @@ const Editproduct = ({ product, tags, sub_categories, setProductEditStatus, fetc
         Product Image:
         <input type="file" name="image" onChange={handleInputChange} />
       </label>
-
-      <label className="admin-products-input-radio">
-        Product Featured:
-        <input type="radio" name="featured" value={"featured"} onChange={handleInputChange} />
-      </label>
-
-      <label className="admin-products-input-radio">
-        Product Not Featured:
-        <input type="radio" name="featured" value={"not"} onChange={handleInputChange} />
-      </label>
-
+      <div>
+        <label className="admin-products-input-radio">
+          Product Featured:
+          <input type="radio" name="featured" value={"featured"} onChange={handleInputChange} />
+        </label>
+        <label className="admin-products-input-radio">
+          Product Not Featured:
+          <input type="radio" name="featured" value={"not"} onChange={handleInputChange} />
+        </label>
+      </div>
       <div className="admin-products-input-buttons">
         <button type="submit" className="admin-product-submit-button">Approve</button>
         <button type="reset" className="admin-product-cancel-button" onClick={() => setProductEditStatus(false)}>Close</button>

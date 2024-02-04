@@ -7,6 +7,7 @@ const ProductCard = ({ product, tags, sub_categories, handleProductDelete, fetch
   //handleProductDelete is in admin-products
 
   return (
+    <>
     <div className="container-of-product-card-and-edit-product-in-admin-products">
       <div className="products-card-container">
         <article className="product-card">
@@ -48,13 +49,18 @@ const ProductCard = ({ product, tags, sub_categories, handleProductDelete, fetch
         </article>
       </div>
       <br/>
-      {product_edit_status &&
+      {/* {product_edit_status &&
+      <section className="edit-product-in-admin-products">
+        <Editproduct tags={tags} sub_categories={sub_categories} setProductEditStatus={setProductEditStatus} product={product} fetchAdminProducts={fetchAdminProducts} />
+      </section>
+      } */}
+    </div >
+    {product_edit_status &&
       <section className="edit-product-in-admin-products">
         <Editproduct tags={tags} sub_categories={sub_categories} setProductEditStatus={setProductEditStatus} product={product} fetchAdminProducts={fetchAdminProducts} />
       </section>
       }
-    </div >
-
+    </>
   )
 }
 

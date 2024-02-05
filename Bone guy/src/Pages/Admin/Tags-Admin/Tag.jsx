@@ -42,14 +42,10 @@ const Admintags = () => {
 
     if (result.isConfirmed) {
       try {
-        const confirmation = window.confirm("Are you sure you want to delete this tag?");
-        if (confirmation) {
-          await axios.delete(`http://localhost:4000/api/tag/${deletedId}`);
-          settags((prevtags) =>
-            prevtags.filter((tag) => tag._id !== deletedId)
-          );
-        }
-
+        await axios.delete(`http://localhost:4000/api/tag/${deletedId}`);
+        settags((prevtags) =>
+          prevtags.filter((tag) => tag._id !== deletedId)
+        );
       } catch (error) {
         console.error("Error deleting data:", error.message);
       }
@@ -65,9 +61,6 @@ const Admintags = () => {
   return (
     <>
       <div className="subCategories-card-container">
-        <button type="button" onClick={(e) => { e.preventDefault(); setShowAddForm(true); }} className="show-add-product-form-button-in-admin-product">
-          Add a Tag
-        </button>
         <div className="subCategoires-tables">
           <table>
             <thead>
@@ -95,6 +88,10 @@ const Admintags = () => {
               onClose={() => setShowEditForm(false)}
             />
           )}
+          <br/>
+          <button type="button" onClick={(e) => { e.preventDefault(); setShowAddForm(true); }} className="show-add-product-form-button-in-admin-product">
+            Add a Tag
+          </button>
           {showAddForm && (
             <AddtagForm
               onClose={() => setShowAddForm(false)}

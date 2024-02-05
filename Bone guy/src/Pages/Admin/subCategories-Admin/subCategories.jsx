@@ -65,9 +65,6 @@ const AdminSubCategories = () => {
   return (
     <>
       <div className="subCategories-card-container">
-        <button onClick={handleAdd} className="add-button">
-          Add
-        </button>
         <div className="subCategoires-tables">
         <table>
           <thead>
@@ -98,6 +95,10 @@ const AdminSubCategories = () => {
             onClose={() => setShowEditForm(false)}
           />
         )}
+        <br/>
+        <button onClick={handleAdd} className="add-button">
+          Add
+        </button>
         {showAddForm && (
           <AddSubCategoryForm
             onClose={() => setShowAddForm(false)}

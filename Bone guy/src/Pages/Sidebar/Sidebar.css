@@ -112,7 +112,7 @@
     width: 200px;
   }
 
-  .sidebar-item,
+  .sidebar-item,z
   .sidebar-item-dashboard {
     display: none;
   }

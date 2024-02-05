@@ -42,7 +42,8 @@ const SubCategories = () => {
               <div className="popup">
                 <div className="subcategories-sections">
                   {subCategories.map((category, _id) => (
-                    <Link key={category._id} to={`/product/${category._id}`} className='subcategories-sections-icon-box' target='_blank'>
+                    
+                    <Link key={category._id} to={`/product/?subCategory=${category._id}`} className='subcategories-sections-icon-box' target='_blank'>
                       <div className="icon-box">
                         <img src={`${instance.defaults.baseURL}/${category.icon}`} alt="icon" />
                         <span className="text">{category.name}</span>
@@ -57,7 +58,7 @@ const SubCategories = () => {
       <p>Whether you need to train or pamper your dog and cat, or just give them something to chew on to help them calm down, stimulate their brain, or promote their dental hygiene: “The bone guy offers you a wide range of tasty treats to keep every dog and cat begs for more”.</p>
       <div className="subcategories-sections">
         {subCategories.map((category, _id) => (
-          <Link key={category._id} to={`/product/${category._id}`} className='subcategories-sections-icon-box' target='_blank'>
+          <Link key={category._id} to={`/product/?subCategory=${category._id}`} className='subcategories-sections-icon-box' target='_blank'>
             <div className="icon-box">
               <img src={`${instance.defaults.baseURL}/${category.icon}`} alt="icon" />
               <span className="text">{category.name}</span>

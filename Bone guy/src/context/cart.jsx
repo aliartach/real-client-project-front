@@ -1,30 +1,29 @@
-import { createContext, useState, useEffect } from 'react'
+import { createContext, useState, useEffect } from 'react';
 
 export const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {  //It wraps its children with the context provider and manages the state related to the shopping cart.
   const [cartItems, setCartItems] = useState(localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [])
 
-
 //***********//Add to cart
-const addToCart = (item) => {
+const addToCart = (item, cQuantity) => {
   const isItemInCart = cartItems.find((cartItem) => cartItem._id === item._id);
   console.log("is item", isItemInCart);
   if (isItemInCart) {
      setCartItems(
        cartItems.map((cartItem) =>
          cartItem._id === item._id
-           ? { ...cartItem, quantity: cartItem.quantity + 1 }
+           ? { ...cartItem, quantity: cartItem.quantity + cQuantity }
            : cartItem
        )
      );
   } else {
-     setCartItems([...cartItems, { ...item, quantity: 1 }]);
+     setCartItems([...cartItems, { ...item, quantity: cQuantity }]);
   }
  };
  
 //**************//remove from cart
-const removeFromCart = (item) => {
+const removeFromCart = (item, cQuantity) => {
   const isItemInCart = cartItems.find((cartItem) => cartItem._id === item._id);
  
   if (isItemInCart.quantity === 1) {
@@ -33,7 +32,7 @@ const removeFromCart = (item) => {
      setCartItems(
        cartItems.map((cartItem) =>
          cartItem._id === item._id
-           ? { ...cartItem, quantity: cartItem.quantity - 1 }
+           ? { ...cartItem, quantity: cartItem.quantity - cQuantity }
            : cartItem
        )
      );
@@ -67,6 +66,7 @@ const removeFromCart = (item) => {
         removeFromCart,
         clearCart,
         getCartTotal,
+        setCartItems,
       }}
     >
       {children}

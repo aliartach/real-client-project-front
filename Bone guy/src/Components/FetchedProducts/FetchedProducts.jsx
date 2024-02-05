@@ -1,4 +1,5 @@
 import React, { useContext,useState, useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 import instance from "../../api";
 import { useLocation, Link } from "react-router-dom";
 import "./FetchedProducts.css";
@@ -320,6 +321,7 @@ const[isSidebarOpen,setIsSidebarOpen]=useState(false)
         </div>
 
         {isPopupVisible && (
+          <>
           <div className="product-card-overlay" onClick={closePopup}>
             <div className="product-card-popup" onClick={handlePopupClick}>
               <span onClick={closePopup}>{"\u00d7"}</span>
@@ -333,6 +335,10 @@ const[isSidebarOpen,setIsSidebarOpen]=useState(false)
                   </div>
                   <div className="product-card-pop-text">
                     <p>
+                      <b>Name: </b>
+                      {selectedProduct.name}
+                    </p>
+                    <p>
                       <b>Price: </b>
                       {`${selectedProduct.price}$`}
                     </p>
@@ -345,25 +351,23 @@ const[isSidebarOpen,setIsSidebarOpen]=useState(false)
                       {selectedProduct.weight}
                     </p>
                     <p>
-                      <b>Name: </b>
-                      {selectedProduct.name}
-                    </p>
-                    <p>
                       <b>Quantity: </b>
                       <button onClick={decrementQuantity}>-</button>
                       {quantity}
                       <button onClick={incrementQuantity}>+</button>
                     </p>
                     <div className="quantity-controls"></div>
-                    <button onClick={() => addToCart(selectedProduct)}>Add to cart</button>
+                    <button onClick={(e) => {e.preventDefault(); addToCart(selectedProduct, quantity); toast.success('added to cart');}}>Add to cart</button>
   
-                  <button onClick={() => removeFromCart(selectedProduct)}>Remove</button>
+                  <button onClick={(e) => {e.preventDefault(); removeFromCart(selectedProduct, quantity); toast.error('removed from cart');}}>Remove</button>
                   <button><Link to="/cart">Go to checkout</Link></button>
                 </div>
                 </div>
               </div>
             </div>
           </div>
+          <ToastContainer/>
+          </>
         )}
       </section>
     </>

@@ -7,16 +7,28 @@ import { CartContext } from "../context/cart";
 import './AddToCart.css';
 
 const ShoppingCart = () => {
-  const { cartItems,clearCart, getCartTotal } = useContext(CartContext);
+  const { cartItems,clearCart, getCartTotal, setCartItems } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
-   const incrementQuantity = () => {
-    setQuantity(quantity + 1);
+   const incrementQuantity = (id) => {
+    const updatedCart = cartItems.map((item) => {
+      if (item._id === id) {
+        return { ...item, quantity: item.quantity + 1 };
+      }
+      return item;
+    });
+    console.log("this is updated cart", updatedCart);
+    setCartItems(updatedCart);
   };
 
-  const decrementQuantity = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
+  const decrementQuantity = (id) => {
+    const updatedCart = cartItems.map((item) => {
+      if (item._id === id) {
+        return { ...item, quantity: item.quantity - 1 };
+      }
+      return item;
+    });
+    console.log("this is updated cart", updatedCart);
+    setCartItems(updatedCart);
   };
 console.log("cart items",cartItems)
   return (
@@ -51,7 +63,7 @@ console.log("cart items",cartItems)
               </MDBTableHead>
               <MDBTableBody>
                 {cartItems.map((item) => (
-                  <tr key={item.id}>
+                  <tr key={item._id}>
                     <th scope="row">
                       <div className="d-flex align-items-center">
                         <img src={item.image} className="img-fluid rounded-3" style={{ width: "120px" }} alt={item} />
@@ -63,11 +75,11 @@ console.log("cart items",cartItems)
                     </th>
                     <td className="align-middle">
                       <div className="d-flex flex-row">
-                      <button onClick={decrementQuantity}>
+                      <button onClick={(e) => {decrementQuantity(item._id)}}>
                           <FontAwesomeIcon icon={faMinus} />
                         </button>
                         <input
-                          id={`form-${item.id}`}
+                          id={`form-${item._id}`}
                           min="0"
                           name="quantity"
                           value={item.quantity}
@@ -76,7 +88,7 @@ console.log("cart items",cartItems)
                           style={{ width: "70px" }}
                           readOnly
                         />
-                         <button onClick={incrementQuantity}>
+                         <button onClick={(e) => {incrementQuantity(item._id)}}>
                           <FontAwesomeIcon icon={faPlus} />
                         </button>
                       </div>

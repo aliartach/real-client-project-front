@@ -5,13 +5,27 @@
   width: 100%;
   height: 700px;
 }
+.cart-icon {
+  float: right;
+  height: 10%;
+  margin-top: 3.5%;
+  margin-right: 3%;
+}
 @media (max-width: 850px) {
   .header-product {
     height: 400px; 
+  }
+  .cart-icon {
+    margin-top: 11%;
+    height: 10%;
   }
 }
 @media (max-width: 500px) {
   .header-product {
     height: 220px;
+  }
+  .cart-icon {
+    margin-top: 11%;
+    height: 10%;
   }
 }

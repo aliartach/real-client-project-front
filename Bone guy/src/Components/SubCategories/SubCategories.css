@@ -146,3 +146,8 @@
   overflow-y: auto; /* Enable vertical scrolling */
   max-height: 80vh; /* Adjust as needed */
 }
+.icon-box img{
+  width: 200px;
+  height: 200px;
+
+}

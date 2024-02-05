@@ -10,12 +10,12 @@ const EditContent = ({ content, onClose }) => {
     imageCat: content.imageCat,
     imageDog: content.imageDog,
   });
- 
+
   const handleChange = (e) => {
     if (e.target.type === 'file') {
       setEditedContent((prevState) => ({
         ...prevState,
-        [e.target.name]: e.target.files[0], 
+        [e.target.name]: e.target.files[0],
       }));
     } else {
       setEditedContent((prevState) => ({
@@ -32,7 +32,7 @@ const EditContent = ({ content, onClose }) => {
       return;
     }
 
-const formData = new FormData();
+    const formData = new FormData();
     formData.append("featuredDescription", editedContent.featuredDescription);
     formData.append("firstDescription", editedContent.firstDescription);
     formData.append("storyDescription", editedContent.storyDescription);
@@ -55,7 +55,7 @@ const formData = new FormData();
       );
       console.log("content updated successfully", response.data);
 
- 
+
     } catch (error) {
       console.error(
         "Failed to update Content",
@@ -68,7 +68,7 @@ const formData = new FormData();
 
   return (
     <form onSubmit={handleSubmit} className="edit-formContent">
-    <label><b>
+      <label><b>
         First Description:</b>
         <input
           type="text"
@@ -86,7 +86,7 @@ const formData = new FormData();
           onChange={handleChange}
         />
       </label>
-      
+
       <label><b>
         Story Description:</b>
         <input
@@ -97,7 +97,7 @@ const formData = new FormData();
         />
       </label>
       <label><b>
-        image Cat:</b>
+        Cat - Image:</b>
         <input
           type="file"
           accept="image/*"
@@ -106,7 +106,7 @@ const formData = new FormData();
         />
       </label>
       <label><b>
-        image Dog:</b>
+        Dog - Image:</b>
         <input
           type="file"
           accept="image/*"
@@ -116,9 +116,7 @@ const formData = new FormData();
       </label>
       <div className="button-container">
         <button type="submit">Save Changes</button>
-        <button type="button" onClick={onClose}>
-          Cancel
-        </button>
+        <button type="button" onClick={onClose}>Cancel</button>
       </div>
     </form>
   );

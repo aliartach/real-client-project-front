@@ -1,60 +1,31 @@
-
 .edit-formContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   padding-top: 10px;
- margin-top: 20px;
- width: 90%;
-   background-color: rgb(241, 238, 236);
-  }
-  
-  .edit-formContent label {
-    margin-bottom: 10px;
-    width: 100%;
-margin-left: 40px;
-  }
-  
-  .edit-formContent input {
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    margin: 3px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: 1px solid #59000D;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-  }
-  
-  .edit-formContent .button-container {
-    display: flex;
-    justify-content: space-around;
-    margin:20px;
-    width: 30%;
-
-  }
-  
-  .edit-formContent button {
-    padding: 5px;
-    width: 150px;
-    cursor: pointer;
-    background-color:#59000D;
-    color: white;
-    border: none;
-    border-radius: 5px;
-  }
-  
-
-  .edit-formContent button[type="button"] {
-    background-color: #F6E1D7;
-    color: #59000D;
-  }
-.button-container{
-    display: flex;
-    flex-direction: row;
-    gap:30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+  width: 90%;
+  background-color: rgb(51, 72, 27, 0.1);
+  gap: 15px;
+  padding: 20px;
 }
 
+.edit-formContent label {
+  width: 100%;
+}
+
+.edit-formContent input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid rgb(51, 72, 27, 0.5);
+}
+
+.edit-formContent input[type='file'] {
+  background-color: #fff;
+  padding: 7px;
+}
+
+.edit-formContent .button-container {
+  margin-top: 2rem;
+  gap: 60px;
+}

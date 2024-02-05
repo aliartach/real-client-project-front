@@ -1,34 +1,24 @@
-
 table {
     border-collapse: collapse;
-    width: 100%; 
-    max-width: 100%; 
-  
-}
-.content-card-container{
-   
-    width: 100%; 
-    max-width: 100%; 
-   
+    width: 100%;
+    max-width: 100%;
 }
 
-  
-  thead th, tbody td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;  
-                   
-  }
-  .table-admin-content {
+.content-card-container {
+    margin-top: 5rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+.table-admin-content {
     width: 90%;
-  }
-  
-  tbody tr:hover {
-    background-color: #f5f5f5;
-  }
+}
 
-  .admin-edit--button{
- 
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.admin-edit--button {
     transition: all 0.2s ease-in-out;
     width: 80px;
     height: 35px;
@@ -41,26 +31,30 @@ table {
     background-color: #F6E1D7;
     color: #8b0b0b;
     box-shadow: 0 2px 4px #8b0b0b;
-  }
+}
 
-.admin-edit--button:hover{
+.admin-edit--button:hover {
     color: #f5f5f5;
     background-color: #8b0b0b;
     box-shadow: 0 7px 12px #8b0b0b;
     cursor: pointer;
 }
 
-   .images-admin-content {
+.images-admin-content {
     width: 90px;
     transition: transform 0.3s ease-in-out;
-    background-color: transparent; 
-   }
-   
-   .images-admin-content:hover {
-    transform: scale(4); 
-   }
+    background-color: transparent;
+}
 
-   @media (max-width: 490px) {
+.images-admin-content:hover {
+    transform: scale(4);
+}
+
+.content-card td {
+    height: 100%;
+}
+
+@media (max-width: 490px) {
     table {
         width: 490px;
     }
@@ -79,7 +73,13 @@ table {
 }
 
 @media (max-width: 954px) {
-    table, thead, tbody, th, td, tr {
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
         display: block;
     }
 
@@ -92,7 +92,7 @@ table {
     tr {
         margin-bottom: 1rem;
         border-bottom: 2px solid #8b0b0b;
-      
+
     }
 
     td {

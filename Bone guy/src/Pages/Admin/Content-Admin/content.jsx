@@ -35,7 +35,6 @@ const AdminContent = () => {
   return (
     <>
       <div className="content-card-container">
-      <h1 className="adminPanel-title">Content</h1>
         <table className="table-admin-content">
           <thead>
             <tr>

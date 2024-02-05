@@ -1,0 +1,30 @@
+.addSubCategory-Form {
+  width: 80%;
+  background-color: rgb(51, 72, 27, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+  gap: 15px;
+}
+
+.addSubCategory-Form label input[type='text'] {
+  width: 100%;
+  border: 1px solid rgb(51, 72, 27, 0.5);
+  padding: 4px;
+}
+.addSubCategory-Form label input[type='file'] {
+  width: 100%;
+  border: 1px solid rgb(51, 72, 27, 0.5);
+  background-color: #fff;
+  padding: 10px;
+}
+
+.admin-subcategory-edit-form {
+  border: 1px solid rgb(51, 72, 27, 0.5);
+  padding: 10px;
+  background-color: #fff;
+}
+.admin-subcategory-edit-form ul li input {
+  margin-left: 15px;
+}

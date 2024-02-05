@@ -80,7 +80,7 @@ const EditSubCategories = ({ subCategory, onClose }) => {
   return (
     <form onSubmit={handleSubmit} className="edit-formSubCategory">
       <label>
-        name:
+        Name:
         <input
           type="text"
           name="name"
@@ -88,9 +88,8 @@ const EditSubCategories = ({ subCategory, onClose }) => {
           onChange={handleChange}
         />
       </label>
-
       <label>
-        icon
+        Icon:
         <input
           type="file"
           accept="image/*"

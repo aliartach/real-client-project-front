@@ -1,0 +1,28 @@
+.admin-product-inventory-container {
+  display: flex;
+  flex-direction: column;
+}
+.admin-product-inventory-container .products-card-container {
+  background-color: #fff;
+}
+
+.admin-product-inventory-container-title {
+  background-color: rgb(51, 72, 27, 0.8);
+  width: 90%;
+  font-weight: bold;
+  padding: 15px 10px;
+  color: #fff;
+  font-size: large;
+}
+
+.admin-product-out-of-stock,
+.admin-product-extremely-critical,
+.admin-product-critical {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 90%;
+  padding: 20px;
+  background-color: rgb(51, 72, 27, 0.06);
+  margin-bottom: 3rem;
+}

@@ -45,66 +45,66 @@ const AdminSubCategories = () => {
     });
 
     if (result.isConfirmed) {
-    try {
-      await axios.delete(`http://localhost:4000/api/subcategory/${deletedId}`);
-      setSubCategories((prevSubCategories) =>
-        prevSubCategories.filter((subCategory) => subCategory._id !== deletedId)
-      );
-    } catch (error) {
-      console.error("Error deleting data:", error.message);
+      try {
+        await axios.delete(`http://localhost:4000/api/subcategory/${deletedId}`);
+        setSubCategories((prevSubCategories) =>
+          prevSubCategories.filter((subCategory) => subCategory._id !== deletedId)
+        );
+      } catch (error) {
+        console.error("Error deleting data:", error.message);
+      }
     }
-  }
   };
   const handleAddSubCategory = (newSubCategory) => {
- 
+
     setSubCategories((prevSubCategories) => [...prevSubCategories, newSubCategory]);
-  
+
     setShowAddForm(false);
   };
 
   return (
     <>
       <div className="subCategories-card-container">
-        <button onClick={handleAdd} className="add-button">
-          Add
+        <button onClick={handleAdd} className="show-add-product-form-button-in-admin-product">
+          Add a SubCategory
         </button>
         <div className="subCategoires-tables">
-        <table>
-          <thead>
-            <tr>
-              <th>name</th>
-              <th>icon</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {subCategories.map((subCategory) => (
-              <AdminSubCategoriesCard
-                key={subCategory._id}
-                subCategory={subCategory}
-                showEditForm={showEditForm}
-                setShowEditForm={setShowEditForm}
-                onEdit={() => handleEdit(subCategory)}
-                onDelete={() => handleDelete(subCategory._id)}
-              />
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className={`edit-formContent-modal ${showEditForm ? "active" : ""}`}>
-        {showEditForm && (
-          <EditSubCategories
-            subCategory={selectedSubCategory}
-            onClose={() => setShowEditForm(false)}
-          />
-        )}
-        {showAddForm && (
-          <AddSubCategoryForm
-            onClose={() => setShowAddForm(false)}
-            onAddSubCategory={handleAddSubCategory}
-          />
-        )}
-      </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Icon</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {subCategories.map((subCategory) => (
+                <AdminSubCategoriesCard
+                  key={subCategory._id}
+                  subCategory={subCategory}
+                  showEditForm={showEditForm}
+                  setShowEditForm={setShowEditForm}
+                  onEdit={() => handleEdit(subCategory)}
+                  onDelete={() => handleDelete(subCategory._id)}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className={`edit-formContent-modal ${showEditForm ? "active" : ""}`}>
+          {showEditForm && (
+            <EditSubCategories
+              subCategory={selectedSubCategory}
+              onClose={() => setShowEditForm(false)}
+            />
+          )}
+          {showAddForm && (
+            <AddSubCategoryForm
+              onClose={() => setShowAddForm(false)}
+              onAddSubCategory={handleAddSubCategory}
+            />
+          )}
+        </div>
       </div>
     </>
   );
@@ -128,13 +128,12 @@ export const AdminSubCategoriesCard = ({
 
   return (
     <tr
-      className={`subcategories-card ${
-        showEditForm ? "edit-formContent-open" : ""
-      }`}
+      className={`subcategories-card ${showEditForm ? "edit-formContent-open" : ""
+        }`}
       key={subCategory._id}
     >
       <td>{subCategory.name}</td>
-      <td>
+      <td className="add-subcategory-icon-icon">
         <img
           src={`http://localhost:4000/${subCategory.icon}`}
           alt="Category-icon"
@@ -143,12 +142,12 @@ export const AdminSubCategoriesCard = ({
       </td>
       <td>
         <div className="button-container">
-                <button onClick={handleEditClick} className="admin-edit--button">
-          <p>Edit</p>
-        </button>
-        <button onClick={handleDeleteClick} className="admin-edit--button">
-          <p>Delete</p>
-        </button>
+          <button onClick={handleEditClick} className="admin-edit--button">
+            Edit
+          </button>
+          <button onClick={handleDeleteClick} className="admin-edit--button">
+            Delete
+          </button>
         </div>
       </td>
     </tr>

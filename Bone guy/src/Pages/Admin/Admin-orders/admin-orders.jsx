@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import OrderCard from "../../../Components/Admin-order-card/admin-order-card";
 import Swal from "sweetalert2";
+import './AdminOrders.css'
 
 const AdminOrders = () => {
   const [admin_orders, setAdminOrders] = useState([]);

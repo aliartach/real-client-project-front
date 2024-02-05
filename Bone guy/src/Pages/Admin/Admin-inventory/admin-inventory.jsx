@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
+import './AdminInventory.css'
 
 import ProductCard from "../../../Components/Admin-content-card/Admin-product-card.jsx";
 
@@ -17,7 +18,7 @@ const AdminProductsInventory = () => {
     try {
       console.log("fetching products in admin inventory");
       const admin_products_response = await axios.get("http://localhost:4000/api/product/");
-      if(admin_products_response.data.length === 0) {
+      if (admin_products_response.data.length === 0) {
         console.error("admin products array is empty");
       } else {
         setAdminProducts(admin_products_response.data);
@@ -34,7 +35,7 @@ const AdminProductsInventory = () => {
     try {
       const admin_sub_categories_response = await axios.get("http://localhost:4000/api/subcategory/");
       // console.log("this is subcategories in admin product: ", admin_sub_categories_response);
-      if(admin_sub_categories_response.data.length === 0) {
+      if (admin_sub_categories_response.data.length === 0) {
         console.error("admin subcategories array is empty");
       } else {
         setAdminSubCategories(admin_sub_categories_response.data.subCategories); //it is sent like this from the backend .subCategories
@@ -50,7 +51,7 @@ const AdminProductsInventory = () => {
     try {
       const admin_tags_response = await axios.get("http://localhost:4000/api/tag/");
       // console.log("this is tags in admin product: ", admin_tags_response);
-      if(admin_tags_response.data.length === 0) {
+      if (admin_tags_response.data.length === 0) {
         console.error("admin tags array is empty");
       } else {
         setTags(admin_tags_response.data.tags); //it is sent like this from the backend .tags
@@ -72,7 +73,7 @@ const AdminProductsInventory = () => {
   }, []);
 
   useEffect(() => {
-    for (let i = 0 ; i < admin_products.length ; i++) {
+    for (let i = 0; i < admin_products.length; i++) {
       if (admin_products[i].quantity === 0) {
         setOutOfStock((prev) =>
           [...prev, admin_products[i]]
@@ -89,7 +90,7 @@ const AdminProductsInventory = () => {
       }
       else if (admin_products[i].quantity < 24) {
         setCriticalProducts((prev) =>
-        [...prev, admin_products[i]]
+          [...prev, admin_products[i]]
         );
         console.log("added to critical: ", critical_products);
         continue
@@ -97,31 +98,46 @@ const AdminProductsInventory = () => {
     }
   }, [admin_products]);
 
-  return(
-    <section className="admin-product-inventory">
+  return (
+    <section className="admin-product-inventory-wrapper">
       {
-        !loading ? (<div>
-            {out_of_stock.length > 0 && (<section className="admin-product-out-of-stock">Out of Stock:
-              {out_of_stock.map((product, index) => {
-                return <ProductCard key={index} sub_categories={[]} tags={[]} product={product} setProductEditStatus={null} product_edit_status={false} handleProductDelete={null} fetchAdminProducts={fetchAdminProducts}/>
-              })}
-            </section>)}
-            <br/>
-            {extremely_critical_products.length > 0 && (<section className="admin-product-extremely-critical">Less Than 12 Items Left:
-              {extremely_critical_products.map((product, index) => {
-                return <ProductCard key={index} sub_categories={[]} tags={[]} product={product} setProductEditStatus={null} product_edit_status={false} handleProductDelete={null} fetchAdminProducts={fetchAdminProducts}/>
-              })}
-            </section>)}
-            <br/>
-            {critical_products.length > 0 && (<section className="admin-product-critical">Less Than 24 Items Left:
-              {critical_products.map((product, index) => {
-                return <ProductCard key={index} sub_categories={[]} tags={[]} product={product} setProductEditStatus={null} product_edit_status={false} handleProductDelete={null} fetchAdminProducts={fetchAdminProducts} show_buttons={false}/>
-              })}
-            </section>)}
-        </div>
+        !loading ? (
+          <div className="admin-product-inventory-container">
+            {out_of_stock.length > 0 && (
+              <>
+                <p className="admin-product-inventory-container-title">Out of Stock:</p>
+                <section className="admin-product-out-of-stock">
+                  {out_of_stock.map((product, index) => {
+                    return <ProductCard key={index} sub_categories={[]} tags={[]} product={product} setProductEditStatus={null} product_edit_status={false} handleProductDelete={null} fetchAdminProducts={fetchAdminProducts} />
+                  })}
+                </section>
+              </>
+            )}
+            {extremely_critical_products.length > 0 && (
+              <>
+                <p className="admin-product-inventory-container-title">Less Than 12 Items Left:</p>
+                <section className="admin-product-extremely-critical">
+                  {extremely_critical_products.map((product, index) => {
+                    return <ProductCard key={index} sub_categories={[]} tags={[]} product={product} setProductEditStatus={null} product_edit_status={false} handleProductDelete={null} fetchAdminProducts={fetchAdminProducts} />
+                  })}
+                </section>
+              </>
+            )}
+            {critical_products.length > 0 && (
+              <>
+                <p className="admin-product-inventory-container-title">Less Than 24 Items Left:</p>
+                <section className="admin-product-critical">
+                  {critical_products.map((product, index) => {
+                    return <ProductCard key={index} sub_categories={[]} tags={[]} product={product} setProductEditStatus={null} product_edit_status={false} handleProductDelete={null} fetchAdminProducts={fetchAdminProducts} show_buttons={false} />
+                  })}
+                </section>
+              </>
+            )}
+          </div>
         ) : (<p className="loading">Loading Products</p>)
       }
     </section>
-  )};
+  )
+};
 
 export default AdminProductsInventory;

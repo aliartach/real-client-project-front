@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./admin-order-card.css";
 
-const OrderCard = ({order, fetchAdminOrders}) => {
+const OrderCard = ({ order, fetchAdminOrders }) => {
 
   const handleStatusChange = async (e) => {
     e.preventDefault()
@@ -18,41 +18,47 @@ const OrderCard = ({order, fetchAdminOrders}) => {
     }
   }
 
-  return(
+  return (
     <article className="order-card">
-        <h2 className="order-customer-name-in-order-card">Customer Name: {order.customer_name}</h2>
-        <p className="order-phone-number-in-order-card">Phone Number: {order.phone_number}</p>
-        <p className="order-address-in-order-card">Address: {order.address}</p>
-        <br/>
-        <p className="order-payment-method-in-order-card">Payment Method: {order.payment_method}</p>
-        <p className="order-total-quantity-in-order-card">Total Order Quantity: {order.total_quantity}</p>
-        <p className="order-total-price-in-order-card">Total Order price: {order.total_price}$</p>
-        <br/>
-        <label htmlFor="order-status" className="admin-order-card-status-input">
-          Order Status: {order.status}
+      <h2><b>Customer Name:</b> {order.customer_name}</h2>
+      <div className="customer-info-first">
+        <p><b>Phone Number:</b> {order.phone_number}</p>
+        <p><b>Address:</b> {order.address}</p>
+        <p><b>Payment Method:</b> {order.payment_method}</p>
+        <p><b>Total Order Quantity:</b> {order.total_quantity}</p>
+        <p><b>Total Order price:</b> {order.total_price}$</p>
+      </div>
+      <div className="customer-info-second">
+        <label htmlFor="order-status">
+          <b>Order Status:</b> {order.status}
         </label>
-        <br/>
         <select id="order-status" name="status" onChange={handleStatusChange} >
           <option value={order.status}>Choose a new Status</option>
-          <option>submit</option>
-          <option>processing</option>
-          <option>shipped</option>
-          <option>delivered</option>
-          <option>closed</option>
+          <option>Submit</option>
+          <option>Processing</option>
+          <option>Shipped</option>
+          <option>Delivered</option>
+          <option>Closed</option>
         </select>
-        <br/>
+      </div>
+      <div className="customer-info-third">
         {order.orderedProducts.length > 0 && (<p className="order-ordered-products-label-in-order-card">Ordered Products:</p>)}
         {order.orderedProducts.length > 0 && (order.orderedProducts.map((product, index) => {
-          return <section key={index} className="order-single-product-container-n-order-card" >Product {index+1}:
-            <br/>
-            <img src={`http://localhost:4000/${product.product.image}`} alt="product image" className="product-image-in-order-card"/>
-            <p className="order-single-product-name-in-order-card">Name: {product.product.name}</p>
-            <p className="order-single-product-price-in-order-card">Price/pc: {product.product.price}$</p>
-            <p className="order-single-product-weight-in-order-card">weight/pc: {product.product.weight} g</p>
-            <p className="order-single-product-quantity-in-order-card">Ordered Quantity: {product.quantity}</p>
-            <p className="order-single-product-total-price-in-order-card">Total Price: {product.total_price}$</p>
+          return <section key={index} className="order-single-product-container-n-order-card" >
+            <div className="customer-info-fourth">
+              <p>Product {index + 1}:</p>
+              <img src={`http://localhost:4000/${product.product.image}`} alt="product image" className="product-image-in-order-card" />
+            </div>
+            <div className="customer-info-fifth">
+              <p><b>Name:</b> {product.product.name}</p>
+              <p><b>Price/pc:</b> {product.product.price}$</p>
+              <p><b>weight/pc: </b>{product.product.weight} g</p>
+              <p><b>Ordered Quantity: </b>{product.quantity}</p>
+              <p><b>Total Price:</b> {product.total_price}$</p>
+            </div>
           </section>
         }))}
+      </div>
     </article>
   )
 }

@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import OrderCard from "../../../Components/Admin-order-card/admin-order-card";
+import Swal from "sweetalert2";
 
 const AdminOrders = () => {
   const [admin_orders, setAdminOrders] = useState([]);
@@ -28,6 +29,17 @@ const AdminOrders = () => {
   }, []);
 
   const handleOrderDelete = async (order) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    });
+
+    if (result.isConfirmed) {
     try {
       await axios.delete(
         `http://localhost:4000/api/order/${order._id}`
@@ -37,12 +49,13 @@ const AdminOrders = () => {
       console.error(error);
     }
   }
+  }
 
   return (
     <section className="admin-orders-container">
       {!loading ? (admin_orders.map((order, index) => {
-        return <div className="order-card-and-button-container-in-admin-orders">
-          <OrderCard key={index} order={order} fetchAdminOrders={fetchAdminOrders} />
+        return <div key={index} className="order-card-and-button-container-in-admin-orders">
+          <OrderCard order={order} fetchAdminOrders={fetchAdminOrders} />
           <button type="button" className="order-delete-button" onClick={(e) => { e.preventDefault(); handleOrderDelete(order) }}>Delete Order</button>
         </div>
       })

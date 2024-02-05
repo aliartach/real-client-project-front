@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import './EditTag.css'
 
 const EditTags = ({ tag, onClose }) => {
   const [editedtag, setEditedtag] = useState({
@@ -33,6 +34,10 @@ const EditTags = ({ tag, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const confirmation = window.confirm("Are you sure you want to save changes?");
+    if (!confirmation) {
+      return;
+    }
     try {
       if (!tag || !tag._id) {
         console.error("Invalid tag:", tag);
@@ -59,9 +64,9 @@ const EditTags = ({ tag, onClose }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="edit-formSubCategory">
+    <form onSubmit={handleSubmit} className="edit-tag-form">
       <label>
-        name:
+        <b>Name:</b>
         <input
           type="text"
           name="name"
@@ -69,12 +74,9 @@ const EditTags = ({ tag, onClose }) => {
           onChange={handleChange}
         />
       </label>
-
       <div className="button-container">
         <button type="submit">Save Changes</button>
-        <button type="button" onClick={onClose}>
-          Cancel
-        </button>
+        <button type="button" onClick={onClose}>Cancel</button>
       </div>
     </form>
   );

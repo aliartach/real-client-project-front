@@ -1,0 +1,14 @@
+.edit-tag-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  background-color: rgb(51, 72, 27, 0.1);
+  padding: 20px;
+  gap: 30px;
+}
+
+.edit-tag-form label input {
+  padding: 4px;
+  border: 1px solid rgb(51, 72, 27, 0.5);
+  width: 100%;
+}

@@ -7,7 +7,7 @@
 
 .button-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -22,10 +22,12 @@
     border: none;
     font-weight: bold;
 }
-.ub{
+
+.ub {
     display: flex;
-    gap:100px;
+    gap: 100px;
 }
+
 .button-container button:nth-child(1) {
     background-color: #F6E1D7;
     color: #8b0b0b;
@@ -60,44 +62,48 @@
     font-size: 20px;
 
 }
+
 .add-Tag {
     display: flex;
     flex-direction: column;
-width: 100%;
-   padding-top: 10px;
- margin-top: 10px;
-   background-color: rgb(241, 238, 236);
-   padding: 30px;
-  }
-  
-  .add-Tag label {
+    width: 80%;
+    background-color: rgb(51, 72, 27, 0.1);
+    padding: 20px;
+    margin-bottom: 2rem;
+}
+
+.add-Tag label {
     margin-bottom: 15px;
     width: 100%;
-  }
-  
-  .add-Tag input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: 1px solid #59000D;
-  }
-  .edit-formSubCategory label {
+}
 
+.add-Tag input[type='text'] {
     width: 100%;
-  }
-  
-  .edit-formSubCategory input {
+    padding: 4px;
+    border: 1px solid rgb(51, 72, 27, 0.5)
+}
+
+.edit-formSubCategory label {
+    width: 100%;
+}
+
+.edit-formSubCategory input {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
     box-sizing: border-box;
     border-radius: 10px;
     border: 1px solid #59000D;
-  }
+}
+
 .subCategoires-tables {
     display: flex;
+}
+
+.subCategoires-tables table,
+table thead,
+table tbody {
+    width: 80%;
 }
 
 .add-button:hover {
@@ -138,6 +144,18 @@ tr td:nth-child(2) {
 .images-admin:hover {
     transform: scale(2);
 }
+
+.admin-edit-tag {
+    border: 1px solid rgb(51, 72, 27, 0.5);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.admin-edit-tag ul li input {
+    margin-left: 15px;
+}
+
+
 
 @media (max-width: 490px) {
     table {

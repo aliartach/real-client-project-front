@@ -1,0 +1,108 @@
+/* Adding New Product Styles */
+.admin-products-form {
+  border: 1px solid ;
+  margin-bottom: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-radius: 5px;
+  color: black;
+  width: 90%;
+}
+
+.admin-products-input {
+  border: 1px solid;
+  padding: 10px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: rgb(51, 72, 27, 0.05);
+}
+.admin-products-input select {
+  padding: 5px;
+}
+.admin-products-input input[type="checkbox"] {
+  margin-left: 15px;
+}
+.admin-products-input-radio {
+  border: 1px solid;
+  padding: 10px;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  background-color: rgb(51, 72, 27, 0.05);
+}
+.admin-products-input-radio input[type="radio"] {
+  margin-left: 15px;
+}
+.admin-products-input li {
+  margin: 0;
+}
+
+.admin-products-input-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-products-input-buttons button {
+  margin: 0 10px;
+}
+.admin-products-input-buttons button:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  transform: scale(1.02);
+}
+
+.admin-product-submit-button {
+  background-color: green;
+  color: #ffff;
+  font-weight: bold;
+  width: 8rem;
+  height: 2.2rem;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.admin-product-cancel-button {
+  background-color: red;
+  color: #ffff;
+  font-weight: bold;
+  width: 8rem;
+  height: 2.2rem;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+
+
+
+/* Editing An Existing Product Styles */
+.admin-product-edit-form {
+  border: 1px solid ;
+  margin-bottom: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-radius: 5px;
+  color: black;
+}
+
+.admin-product-edit-input {
+  border: 1px solid;
+  padding: 10px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: rgb(51, 72, 27, 0.05);
+}
+.admin-product-edit-input select {
+  padding: 5px;
+}
+.admin-product-edit-input input[type="checkbox"] {
+  margin-left: 15px;
+}
+
+.admin-product-edit-input li {
+  margin: 0;
+}

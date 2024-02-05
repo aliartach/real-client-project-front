@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext,useState, useEffect } from "react";
 import instance from "../../api";
 import { useLocation, Link } from "react-router-dom";
 import "./FetchedProducts.css";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 
 import { TailSpin } from "react-loader-spinner";
-
+import { CartContext } from "../../context/cart";
 const FetchedProducts = () => {
+  const { addToCart,  removeFromCart } = useContext(CartContext)
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
 const[isSidebarOpen,setIsSidebarOpen]=useState(false)
@@ -46,6 +47,7 @@ const[isSidebarOpen,setIsSidebarOpen]=useState(false)
         }
       } catch (error) {
         console.error("Error fetching products", error.message);
+      
       } finally {
         setLoading(false);
       }
@@ -353,8 +355,11 @@ const[isSidebarOpen,setIsSidebarOpen]=useState(false)
                       <button onClick={incrementQuantity}>+</button>
                     </p>
                     <div className="quantity-controls"></div>
-                    <button>Add to cart</button>
-                  </div>
+                    <button onClick={() => addToCart(selectedProduct)}>Add to cart</button>
+  
+                  <button onClick={() => removeFromCart(selectedProduct)}>Remove</button>
+                  <button><Link to="/cart">Go to checkout</Link></button>
+                </div>
                 </div>
               </div>
             </div>

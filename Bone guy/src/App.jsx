@@ -18,8 +18,8 @@ import Admintags from "./Pages/Admin/Tags-Admin/Tag";
 import ShoppingCart from "./Components/AddToCart";
 import AdminProductsInventory from './Pages/Admin/Admin-inventory/admin-inventory.jsx';
 import AdminOrders from './Pages/Admin/Admin-orders/admin-orders.jsx';
-
-
+import CheckoutForm from './Components/CheckoutForm'
+import 'mdb-ui-kit/css/mdb.min.css';
 
 function App() {
   return (
@@ -29,10 +29,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/product" element={<Product />} />
-        <Route path="/" element={<FAQ />} />
         <Route path="/Policy" element={<Policy />} />
         <Route path="/ContactUs" element={<ContactUs />} />
-        <Route path="/" element={<AboutUs />} />
         <Route path="/FAQs" element={<FAQ />} />
         <Route path='/admin' element={<AdminDashboard />}>
           <Route path='/admin/products' element={<AdminProducts/>}/>
@@ -45,6 +43,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path="/cart" element={<ShoppingCart />} />
+        <Route path="/checkoutForm" element={<CheckoutForm />} />
       </Routes>
     </Router>
   );

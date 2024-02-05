@@ -8,7 +8,7 @@ const Editproduct = ({ product, tags, sub_categories, setProductEditStatus, fetc
   product.sub_categories.map((category) => {
     product_sub_categories_ids.push(category._id);
   });
-  
+
   const product_tags_ids = [];
   product.tags.map((tag) => {
     product_tags_ids.push(tag._id);
@@ -27,7 +27,7 @@ const Editproduct = ({ product, tags, sub_categories, setProductEditStatus, fetc
           headers: {
             'Content-Type': 'multipart/form-data'
           }
-        } 
+        }
       );
       setProductEditStatus(false);
       fetchAdminProducts();
@@ -38,7 +38,7 @@ const Editproduct = ({ product, tags, sub_categories, setProductEditStatus, fetc
 
   const handleInputChange = (e) => {
     const { name, value, type } = e.target; //name and value of target input
-    if(type === "number") { //------------------------------------------------1
+    if (type === "number") { //------------------------------------------------1
       setEditedproduct((previous_data) => ({
         ...previous_data,
         [name]: parseFloat(value), //[name] automatically changes to the name of the input, the [] here are put for any dynamic value, like {} in jsx
@@ -118,75 +118,95 @@ const Editproduct = ({ product, tags, sub_categories, setProductEditStatus, fetc
   }
 
   return (
-        <form className="admin-product-edit-form" onSubmit={(e) => {e.preventDefault(); handleProductEdit(edited_product);}} encType="multipart/form-data">
-          <label className="admin-product-edit-input">
-            Product Name:
+    <form className="admin-product-edit-form" onSubmit={(e) => { e.preventDefault(); handleProductEdit(edited_product); }} encType="multipart/form-data">
+      <div>
+        <label className="admin-product-edit-input">
+          Product Name:
           <input type="text" name="name" defaultValue={edited_product.name} onBlur={handleInputChange} />
-          </label>
-          <label className="admin-product-edit-input">
-            Product SubCategories:
-            {/* .some is a method that takes an array and checks for a condition returning a boolean value of true once the condition is met true for one of the items, and false if no item matches the condition, it also accepts more optional arguments you can search about  */}
-            {sub_categories.map((category, index) => ( edited_product.sub_categories.some(product_sub_category => product_sub_category._id === category._id) ?
-              (<p key={index} className="sub-category-checkbox-in-admin-product-edit">
+        </label>
+        <label className="admin-product-edit-input">
+          Product Price:
+          <input type="number" name="price" defaultValue={edited_product.price} onBlur={handleInputChange} />
+        </label>
+        <label className="admin-product-edit-input">
+          Product Quantity:
+          <input type="number" name="quantity" defaultValue={edited_product.quantity} onBlur={handleInputChange} />
+        </label>
+        <label className="admin-product-edit-input">
+          Product Weight:
+          <input type="number" name="weight" defaultValue={edited_product.weight} onBlur={handleInputChange} />
+        </label>
+      </div>
+
+      <div>
+        <label htmlFor="category" className="admin-product-edit-input">
+          Product Category:
+          <select id="category" name="category" onChange={handleCategoryChange} >
+            <option value={""}>Choose a Category</option>
+            <option>Dogs</option>
+            <option>Cats and Dogs</option>
+          </select>
+        </label>
+        <label className="admin-product-edit-input">
+          <p>Product SubCategories:</p>
+          {/* .some is a method that takes an array and checks for a condition returning a boolean value of true once the condition is met true for one of the items, and false if no item matches the condition, it also accepts more optional arguments you can search about  */}
+          {sub_categories.map((category, index) => (edited_product.sub_categories.some(product_sub_category => product_sub_category._id === category._id) ?
+            (<ul>
+              <li key={index} className="sub-category-checkbox-in-admin-product-edit">
                 {category.name}
                 <input key={index} name="sub_categories" type="checkbox" onClick={handleInputChange} value={category._id} defaultChecked />
-              </p>) : (<p key={index} className="sub-category-checkbox-in-admin-product-edit">
+              </li>
+            </ul>) : (<ul>
+              <li key={index} className="sub-category-checkbox-in-admin-product-edit">
                 {category.name}
                 <input key={index} name="sub_categories" type="checkbox" onClick={handleInputChange} value={category._id} />
-              </p>)
-            ))}
-          </label>
-          <label className="admin-product-edit-input">
-            Product Tags:
-            {tags.map((tag, index) => ( edited_product.tags.some(product_tag => product_tag._id === tag._id) ?
-              (<p key={index} className="tag-checkbox-in-admin-product-edit">
-                {tag.name} 
+              </li>
+            </ul>)
+          ))}
+        </label>
+      </div>
+      <div>
+        <label className="admin-product-edit-input">
+          <p>Product Tags:</p>
+          {tags.map((tag, index) => (edited_product.tags.some(product_tag => product_tag._id === tag._id) ?
+            (<ul>
+              <li key={index} className="tag-checkbox-in-admin-product-edit">
+                {tag.name}
                 <input key={index} name="tags" type="checkbox" onClick={handleInputChange} value={tag._id} defaultChecked />
-              </p>) : (<p key={index} className="tag-checkbox-in-admin-product-edit">
-                {tag.name} 
+              </li>
+            </ul>) : (<ul>
+              <li key={index} className="tag-checkbox-in-admin-product-edit">
+                {tag.name}
                 <input key={index} name="tags" type="checkbox" onClick={handleInputChange} value={tag._id} />
-              </p>)
-            ))}
-          </label>
-          <label className="admin-product-edit-input">
-            Product Description:
-          <input type="text" name="description" defaultValue={edited_product.description} onBlur={handleInputChange} />
-          </label>
-          <label className="admin-product-edit-input">
-            Product Price:
-          <input type="number" name="price" defaultValue={edited_product.price} onBlur={handleInputChange} />
-          </label>
-          <label className="admin-product-edit-input">
-            Product Image:
-          <input type="file" name="image" onChange={handleInputChange} />
-          </label>
-          <label className="admin-product-edit-input">
-            Product Featured:
+              </li>
+            </ul>)
+          ))}
+        </label>
+        <label className="admin-product-edit-input">
+          Product Description:
+          <textarea type="text" name="description" defaultValue={edited_product.description} onBlur={handleInputChange} />
+        </label>
+      </div>
+
+      <label className="admin-product-edit-input">
+        Product Image:
+        <input type="file" name="image" onChange={handleInputChange} />
+      </label>
+      <div>
+        <label className="admin-products-input-radio">
+          Product Featured:
           <input type="radio" name="featured" value={"featured"} onChange={handleInputChange} />
-          </label>
-          <label className="admin-product-edit-input">
-            Product Not Featured:
+        </label>
+        <label className="admin-products-input-radio">
+          Product Not Featured:
           <input type="radio" name="featured" value={"not"} onChange={handleInputChange} />
-          </label>
-          <label htmlFor="category" className="admin-product-edit-input">
-            Product Category:
-          </label>
-          <select id="category" name="category" onChange={handleCategoryChange} >
-          <option value={""}>Choose a Category</option>
-          <option>Dogs</option>
-          <option>Cats and Dogs</option>
-          </select>
-          <label className="admin-product-edit-input">
-            Product Quantity:
-          <input type="number" name="quantity" defaultValue={edited_product.quantity} onBlur={handleInputChange} />
-          </label>
-          <label className="admin-product-edit-input">
-            Product Weight:
-          <input type="number" name="weight" defaultValue={edited_product.weight} onBlur={handleInputChange} />
-          </label>
-          <button type="submit" className="admin-product-edit-submit-button">Approve</button>
-          <button type="reset" className="admin-product-edit-cancel-button" onClick={() => setProductEditStatus(false)}>Close</button>
-        </form>
+        </label>
+      </div>
+      <div className="admin-products-input-buttons">
+        <button type="submit" className="admin-product-submit-button">Approve</button>
+        <button type="reset" className="admin-product-cancel-button" onClick={() => setProductEditStatus(false)}>Close</button>
+      </div>
+    </form>
   );
 };
 

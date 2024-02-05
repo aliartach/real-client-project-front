@@ -18,6 +18,7 @@
   width: 300px;
   float: right;
   margin-left: 20px;
+  margin-right: -20px;
 }
 
 .featured-products-heading {

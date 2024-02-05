@@ -7,14 +7,16 @@ function Navbar() {
     <>
      
       <div className="top-section-navbar">
+        <Link to="/">
         <img src={Logo} alt="logo-image" className="Logo-image" />
+        </Link>
       </div>
       
       <section className="navbar-content">
-        <Link to="#">
+        <Link to="/product">
           <p>products</p>
         </Link>
-        <Link to="#">
+        <Link to="/aboutus">
           <p>our story</p>
         </Link>
         <Link to="/ContactUs">

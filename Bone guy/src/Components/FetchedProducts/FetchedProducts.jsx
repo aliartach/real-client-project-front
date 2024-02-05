@@ -10,7 +10,7 @@ const FetchedProducts = () => {
   const { addToCart,  removeFromCart } = useContext(CartContext)
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
-
+const[isSidebarOpen,setIsSidebarOpen]=useState(false)
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -27,9 +27,7 @@ const FetchedProducts = () => {
   const [selectedSubCategories, setSelectedSubCategories] = useState(
     queryParams.getAll("subCategory")
   );
-  const [selectedTags, setSelectedTags] = useState(
-    queryParams.getAll("tag")
-  );
+  const [selectedTags, setSelectedTags] = useState(queryParams.getAll("tag"));
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -118,9 +116,8 @@ const FetchedProducts = () => {
         );
 
       const tagFilter =
-        selectedTags.length === 0 || product.tags.some((tag) =>
-          selectedTags.includes(tag._id)
-        );
+        selectedTags.length === 0 ||
+        product.tags.some((tag) => selectedTags.includes(tag._id));
 
       return categoryFilter && subCategoryFilter && tagFilter;
     });
@@ -203,12 +200,19 @@ const FetchedProducts = () => {
   const handlePopupClick = (event) => {
     event.stopPropagation();
   };
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   return (
     <>
       <h1 className="products-h1">Our Products</h1>
+
       <section className="fetched-products-section">
-        <Sidebar>
+      <div className={`sidebarProuct ${isSidebarOpen ? 'open' : ''}`}>
+      <div className="burger-btn" onClick={toggleSidebar}>
+       Filter Product
+      </div>
           <Menu>
             <SubMenu label="Categories">
               {categories.map((category) => (
@@ -217,7 +221,11 @@ const FetchedProducts = () => {
                     type="checkbox"
                     id={`category-${category}`}
                     onChange={(e) =>
-                      handleCheckboxChange("category", category, e.target.checked)
+                      handleCheckboxChange(
+                        "category",
+                        category,
+                        e.target.checked
+                      )
                     }
                   />
                   <label
@@ -276,71 +284,90 @@ const FetchedProducts = () => {
               ))}
             </SubMenu>
           </Menu>
-        </Sidebar>
+        </div>
 
         <div className="product-card-wrapper">
           {loading ? (
             <TailSpin color="#59000d" radius={"8px"} />
-          ) : (
-            filterProducts().length > 0 ? (
-              filterProducts().map((product) => (
-                <Link
-                  key={product._id}
-                  className="product-card-outer-container"
-                  onClick={() => togglePopup(product)}
-                >
-                  <div className="product-card-container">
-                    <img
-                      src={`${instance.defaults.baseURL}/${product.image}`}
-                      alt="product"
-                    />
-                    <div className="product-card-text">
-                      <p className="">{`${product.price}$`}</p>
-                      <p className="">{product.description.substring(0, 30)}...</p>
-                    </div>
+          ) : filterProducts().length > 0 ? (
+            filterProducts().map((product) => (
+              <Link
+                key={product._id}
+                className="product-card-outer-container"
+                onClick={() => togglePopup(product)}
+              >
+                <div className="product-card-container">
+                  <img
+                    src={`${instance.defaults.baseURL}/${product.image}`}
+                    alt="product"
+                  />
+                  <p className="product-title"><strong>{`${product.name}`}</strong></p>
+
+                  <div className="product-card-text">
+                    <p className="poduct-price">{`${product.price}$`}</p>
+                    <p className="poduct-category">{`${product.category}`}</p>
+
+                    <p className="poduct-description">
+                      {product.description.substring(0, 30)}...
+                    </p>
                   </div>
-                </Link>
-              ))
-            ) : (
-              <p>No products to show</p>
-            )
+                </div>
+              </Link>
+            ))
+          ) : (
+            <p>No products to show</p>
           )}
         </div>
 
         {isPopupVisible && (
-        <div className="product-card-overlay" onClick={closePopup}>
-          <div className="product-card-popup" onClick={handlePopupClick}>
-            <span onClick={closePopup}>{'\u00d7'}</span>
-            <div className="product-card-pop-wrapper">
-              <div className='product-card-pop-container'>
-                <div className="product-card-pop-container-img">
-                  <img src={`${instance.defaults.baseURL}/${selectedProduct.image}`} alt="product" />
-                </div>
-                <div className="product-card-pop-text">
-                  <p><b>Price: </b>{`${selectedProduct.price}$`}</p>
-                  <p><b>Description: </b>{selectedProduct.description}</p>
-                  <p><b>Weight: </b>{selectedProduct.weight}</p>
-                  <p><b>Name: </b>{selectedProduct.name}</p>
-                  <p><b>Quantity: </b>
-                    <button onClick={decrementQuantity}>-</button>
-                    {quantity}
-                    <button onClick={incrementQuantity}>+</button>
-                  </p>
-                  <div className="quantity-controls">
+          <div className="product-card-overlay" onClick={closePopup}>
+            <div className="product-card-popup" onClick={handlePopupClick}>
+              <span onClick={closePopup}>{"\u00d7"}</span>
+              <div className="product-card-pop-wrapper">
+                <div className="product-card-pop-container">
+                  <div className="product-card-pop-container-img">
+                    <img
+                      src={`${instance.defaults.baseURL}/${selectedProduct.image}`}
+                      alt="product"
+                    />
                   </div>
-                  <button onClick={() => addToCart(selectedProduct)}>Add to cart</button>
-
+                  <div className="product-card-pop-text">
+                    <p>
+                      <b>Price: </b>
+                      {`${selectedProduct.price}$`}
+                    </p>
+                    <p>
+                      <b>Description: </b>
+                      {selectedProduct.description}
+                    </p>
+                    <p>
+                      <b>Weight: </b>
+                      {selectedProduct.weight}
+                    </p>
+                    <p>
+                      <b>Name: </b>
+                      {selectedProduct.name}
+                    </p>
+                    <p>
+                      <b>Quantity: </b>
+                      <button onClick={decrementQuantity}>-</button>
+                      {quantity}
+                      <button onClick={incrementQuantity}>+</button>
+                    </p>
+                    <div className="quantity-controls"></div>
+                    <button onClick={() => addToCart(selectedProduct)}>Add to cart</button>
+  
                   <button onClick={() => removeFromCart(selectedProduct)}>Remove</button>
                   <button><Link to="/cart">Go to checkout</Link></button>
+                </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
       </section>
     </>
   );
-}
+};
 
 export default FetchedProducts;

@@ -1,10 +1,16 @@
 
 .custom-card {
     border-radius: 16px;
-    
+ 
     
   }
+  .card-item-container{
   
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
   .price {
     color: #59000d;
     

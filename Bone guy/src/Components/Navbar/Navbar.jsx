@@ -1,8 +1,11 @@
 import React from "react";
 import Logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css"
 function Navbar() {
+
+  const { pathname } = useLocation();
+
   return (
     <>
      
@@ -10,7 +13,7 @@ function Navbar() {
         <img src={Logo} alt="logo-image" className="Logo-image" />
       </div>
       
-      <section className="navbar-content">
+      <section className={pathname === '/login' || pathname === '/signup' ? "login-navbar" : "navbar-content"}>
         <Link to="#">
           <p>products</p>
         </Link>

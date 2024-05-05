@@ -13,7 +13,7 @@ const Featured = () => {
     const fetchFeaturedProducts = async() => {
       try{
         const featured_products_response = await axios.get(
-          "http://localhost:4000/api/product/featured"
+          "https://real-client-project-back.onrender.com/api/product/featured"
         );
         // console.log("this is response in featured products:", featured_products_response);
         if(featured_products_response.data.length > 0) {

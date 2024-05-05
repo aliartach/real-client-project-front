@@ -22,7 +22,7 @@ const AdminSubCategories = () => {
 
   const fetchSubCategoriesData = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/subcategory");
+      const response = await axios.get("https://real-client-project-back.onrender.com/api/subcategory");
       setSubCategories(response.data.subCategories);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -46,7 +46,7 @@ const AdminSubCategories = () => {
 
     if (result.isConfirmed) {
     try {
-      await axios.delete(`http://localhost:4000/api/subcategory/${deletedId}`);
+      await axios.delete(`https://real-client-project-back.onrender.com/api/subcategory/${deletedId}`);
       setSubCategories((prevSubCategories) =>
         prevSubCategories.filter((subCategory) => subCategory._id !== deletedId)
       );
@@ -137,7 +137,7 @@ export const AdminSubCategoriesCard = ({
       <td>{subCategory.name}</td>
       <td>
         <img
-          src={`http://localhost:4000/${subCategory.icon}`}
+          src={`https://real-client-project-back.onrender.com/${subCategory.icon}`}
           alt="Category-icon"
           className="images-admin"
         />

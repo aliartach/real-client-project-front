@@ -17,7 +17,7 @@ const AdminProducts = () => {
   const fetchAdminProducts = useCallback(async () => {
     try {
       console.log("fetching products in admin products");
-      const admin_products_response = await axios.get("http://localhost:4000/api/product/");
+      const admin_products_response = await axios.get("https://real-client-project-back.onrender.com/api/product/");
       if (admin_products_response.data.length === 0) {
         console.error("admin products array is empty");
       } else {
@@ -33,7 +33,7 @@ const AdminProducts = () => {
 
   const fetchAdminSubCategories = useCallback(async () => {
     try {
-      const admin_sub_categories_response = await axios.get("http://localhost:4000/api/subcategory/");
+      const admin_sub_categories_response = await axios.get("https://real-client-project-back.onrender.com/api/subcategory/");
       // console.log("this is subcategories in admin product: ", admin_sub_categories_response);
       if (admin_sub_categories_response.data.length === 0) {
         console.error("admin subcategories array is empty");
@@ -49,7 +49,7 @@ const AdminProducts = () => {
 
   const fetchAdminTags = useCallback(async () => {
     try {
-      const admin_tags_response = await axios.get("http://localhost:4000/api/tag/");
+      const admin_tags_response = await axios.get("https://real-client-project-back.onrender.com/api/tag/");
       // console.log("this is tags in admin product: ", admin_tags_response);
       if (admin_tags_response.data.length === 0) {
         console.error("admin tags array is empty");
@@ -73,7 +73,7 @@ const AdminProducts = () => {
     e.preventDefault()
     try {
       await axios.post(
-        `http://localhost:4000/api/product/`,
+        `https://real-client-project-back.onrender.com/api/product/`,
         new_product_body,
         {
           headers: {
@@ -101,7 +101,7 @@ const AdminProducts = () => {
     if (result.isConfirmed) {
     try {
       await axios.delete(
-        `http://localhost:4000/api/product/${product._id}`
+        `https://real-client-project-back.onrender.com/api/product/${product._id}`
       );
       fetchAdminProducts();
     } catch (error) {

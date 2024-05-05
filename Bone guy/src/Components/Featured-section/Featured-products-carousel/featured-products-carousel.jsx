@@ -23,7 +23,7 @@ const FeaturedProductsCarousel = ({ featured_products }) => {
               key={index}
               className={`featured-product-in-carousel${(index >= active_starting_index && index < active_starting_index + 4) ? ("-active") : ("")}`}
             >
-              <img className="featured-product-image" src={`http://localhost:4000/${product.image}`} alt="product picture" />
+              <img className="featured-product-image" src={`https://real-client-project-back.onrender.com/${product.image}`} alt="product picture" />
               <p className="featured-product-name">
                 {product.name}
               </p>

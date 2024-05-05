@@ -45,7 +45,7 @@ const formData = new FormData();
 
     try {
       const response = await axios.patch(
-        `http://localhost:4000/api/content/${content._id}`,
+        `https://real-client-project-back.onrender.com/api/content/${content._id}`,
         formData,
         {
           headers: {

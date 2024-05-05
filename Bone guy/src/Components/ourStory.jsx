@@ -22,7 +22,7 @@ function OurStory() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/content');
+        const response = await axios.get('https://real-client-project-back.onrender.com/api/content');
         const data = response.data;
   
         // Check if data is an array and has at least one item

@@ -48,7 +48,7 @@ const EditTags = ({ tag, onClose }) => {
 
   
       const response = await axios.patch(
-        `http://localhost:4000/api/tag/${tag._id}`,
+        `https://real-client-project-back.onrender.com/api/tag/${tag._id}`,
         editedtag,
       );
 

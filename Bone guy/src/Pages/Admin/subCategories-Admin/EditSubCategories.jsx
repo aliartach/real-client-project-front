@@ -57,7 +57,7 @@ const EditSubCategories = ({ subCategory, onClose }) => {
       }
 
       const response = await axios.patch(
-        `http://localhost:4000/api/subcategory/${subCategory._id}`,
+        `https://real-client-project-back.onrender.com/api/subcategory/${subCategory._id}`,
         formData,
         {
           headers: {

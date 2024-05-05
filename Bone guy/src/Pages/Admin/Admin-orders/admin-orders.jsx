@@ -10,7 +10,7 @@ const AdminOrders = () => {
   const fetchAdminOrders = useCallback(async () => {
     try {
       console.log("fetching orders in admin orders");
-      const admin_orders_response = await axios.get("http://localhost:4000/api/order/");
+      const admin_orders_response = await axios.get("https://real-client-project-back.onrender.com/api/order/");
       if (admin_orders_response.data.length === 0) {
         console.error("admin orders array is empty");
       } else {
@@ -42,7 +42,7 @@ const AdminOrders = () => {
     if (result.isConfirmed) {
     try {
       await axios.delete(
-        `http://localhost:4000/api/order/${order._id}`
+        `https://real-client-project-back.onrender.com/api/order/${order._id}`
       );
       fetchAdminOrders();
     } catch (error) {

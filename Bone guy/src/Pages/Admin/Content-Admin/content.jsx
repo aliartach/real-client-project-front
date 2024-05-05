@@ -16,7 +16,7 @@ const AdminContent = () => {
   const fetchContentData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/content/"
+        "https://real-client-project-back.onrender.com/api/content/"
       );
 
       setContent(response.data);
@@ -84,8 +84,8 @@ export const AdminContentCard = ({ content, showEditForm, onEdit ,setShowEditFor
       <td>{content.firstDescription}</td>
       <td>{content.featuredDescription}</td>
       <td>{content.storyDescription}</td>
-      <td><img src={`http://localhost:4000/${content.imageCat}`} alt="Cat" className="images-admin-content"/></td>
-      <td><img src={`http://localhost:4000/${content.imageDog}`} alt="Dog" className="images-admin-content"/></td>
+      <td><img src={`https://real-client-project-back.onrender.com/${content.imageCat}`} alt="Cat" className="images-admin-content"/></td>
+      <td><img src={`https://real-client-project-back.onrender.com/${content.imageDog}`} alt="Dog" className="images-admin-content"/></td>
 
       <td>
    

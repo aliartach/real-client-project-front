@@ -11,7 +11,7 @@ const DropdownSection = () => {
     const fetchFeaturedProducts = async () => {
       try {
         const featured_products_response = await axios.get(
-          "http://localhost:4000/api/product/"
+          "https://real-client-project-back.onrender.com/api/product/"
         );
         if (featured_products_response.data.length > 0) {
           setProducts(featured_products_response.data);

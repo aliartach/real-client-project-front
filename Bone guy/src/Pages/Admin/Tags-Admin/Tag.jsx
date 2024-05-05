@@ -18,7 +18,7 @@ const Admintags = () => {
 
   const fetchtagsData = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/tag");
+      const response = await axios.get("https://real-client-project-back.onrender.com/api/tag");
       settags(response.data.tags);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -42,7 +42,7 @@ const Admintags = () => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:4000/api/tag/${deletedId}`);
+        await axios.delete(`https://real-client-project-back.onrender.com/api/tag/${deletedId}`);
         settags((prevtags) =>
           prevtags.filter((tag) => tag._id !== deletedId)
         );

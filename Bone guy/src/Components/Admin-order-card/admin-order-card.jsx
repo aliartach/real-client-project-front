@@ -8,7 +8,7 @@ const OrderCard = ({order, fetchAdminOrders}) => {
     e.preventDefault()
     try {
       await axios.patch(
-        `http://localhost:4000/api/order/${order._id}`,
+        `https://real-client-project-back.onrender.com/api/order/${order._id}`,
         {
           status: e.target.value,
         });
@@ -45,7 +45,7 @@ const OrderCard = ({order, fetchAdminOrders}) => {
         {order.orderedProducts.length > 0 && (order.orderedProducts.map((product, index) => {
           return <section key={index} className="order-single-product-container-n-order-card" >Product {index+1}:
             <br/>
-            <img src={`http://localhost:4000/${product.product.image}`} alt="product image" className="product-image-in-order-card"/>
+            <img src={`https://real-client-project-back.onrender.com/${product.product.image}`} alt="product image" className="product-image-in-order-card"/>
             <p className="order-single-product-name-in-order-card">Name: {product.product.name}</p>
             <p className="order-single-product-price-in-order-card">Price/pc: {product.product.price}$</p>
             <p className="order-single-product-weight-in-order-card">weight/pc: {product.product.weight} g</p>

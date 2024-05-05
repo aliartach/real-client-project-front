@@ -21,7 +21,7 @@ const Editproduct = ({ product, tags, sub_categories, setProductEditStatus, fetc
   const handleProductEdit = async (edited_product) => {
     try {
       await axios.patch(
-        `http://localhost:4000/api/product/${product._id}`,
+        `https://real-client-project-back.onrender.com/api/product/${product._id}`,
         edited_product,
         {
           headers: {

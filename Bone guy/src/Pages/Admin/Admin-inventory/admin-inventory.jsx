@@ -16,7 +16,7 @@ const AdminProductsInventory = () => {
   const fetchAdminProducts = useCallback(async () => {
     try {
       console.log("fetching products in admin inventory");
-      const admin_products_response = await axios.get("http://localhost:4000/api/product/");
+      const admin_products_response = await axios.get("https://real-client-project-back.onrender.com/api/product/");
       if(admin_products_response.data.length === 0) {
         console.error("admin products array is empty");
       } else {
@@ -32,7 +32,7 @@ const AdminProductsInventory = () => {
 
   const fetchAdminSubCategories = useCallback(async () => {
     try {
-      const admin_sub_categories_response = await axios.get("http://localhost:4000/api/subcategory/");
+      const admin_sub_categories_response = await axios.get("https://real-client-project-back.onrender.com/api/subcategory/");
       // console.log("this is subcategories in admin product: ", admin_sub_categories_response);
       if(admin_sub_categories_response.data.length === 0) {
         console.error("admin subcategories array is empty");
@@ -48,7 +48,7 @@ const AdminProductsInventory = () => {
 
   const fetchAdminTags = useCallback(async () => {
     try {
-      const admin_tags_response = await axios.get("http://localhost:4000/api/tag/");
+      const admin_tags_response = await axios.get("https://real-client-project-back.onrender.com/api/tag/");
       // console.log("this is tags in admin product: ", admin_tags_response);
       if(admin_tags_response.data.length === 0) {
         console.error("admin tags array is empty");

@@ -9,7 +9,7 @@ const AddtagForm = ({ onAddtag, onClose }) => {
   const fetchAdminProducts = useCallback(async () => {
     try {
       console.log("fetching products in admin tags");
-      const admin_products_response = await axios.get("http://localhost:4000/api/product/");
+      const admin_products_response = await axios.get("https://real-client-project-back.onrender.com/api/product/");
       if (admin_products_response.data.length === 0) {
         console.error("admin products array is empty");
       } else {
@@ -40,7 +40,7 @@ const AddtagForm = ({ onAddtag, onClose }) => {
 
   const handleAddtag = async () => {
     try {
-      const response = await axios.post('http://localhost:4000/api/tag', {
+      const response = await axios.post('https://real-client-project-back.onrender.com/api/tag', {
         name,
         products: productIds,
       });
